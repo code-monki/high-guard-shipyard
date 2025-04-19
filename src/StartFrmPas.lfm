@@ -1,0 +1,254 @@
+inherited StartFrm: TStartFrm
+  Left = 276
+  Height = 548
+  Top = 137
+  Width = 754
+  Caption = 'High Guard Shipyard 1.20'
+  ClientHeight = 528
+  ClientWidth = 754
+  Menu = MainMenu
+  OnCreate = FormCreate
+  object NewShipBtn: TButton[0]
+    Left = 544
+    Height = 25
+    Top = 184
+    Width = 75
+    Caption = '&New Ship'
+    OnClick = NewShipBtnClick
+    TabOrder = 9
+  end
+  object ShipsListView: TListView[1]
+    Left = 16
+    Height = 257
+    Top = 56
+    Width = 512
+    Columns = <    
+      item
+        Caption = 'Class'
+        Width = 120
+      end    
+      item
+        Caption = 'Number'
+        Width = 60
+      end    
+      item
+        Caption = 'File'
+        Width = 280
+      end    
+      item
+        Caption = 'TL'
+        Width = 30
+      end>
+    TabOrder = 15
+    ViewStyle = vsReport
+  end
+  object AddShipBtn: TButton[2]
+    Left = 544
+    Height = 25
+    Top = 216
+    Width = 75
+    Caption = '&Add Ship'
+    OnClick = AddShipBtnClick
+    TabOrder = 11
+  end
+  object UspMemo: TMemo[3]
+    Left = 16
+    Height = 200
+    Top = 320
+    Width = 512
+    Lines.Strings = (
+      'UspMemo'
+    )
+    ScrollBars = ssAutoVertical
+    TabOrder = 16
+  end
+  object DeleteShipBtn: TButton[4]
+    Left = 624
+    Height = 25
+    Top = 216
+    Width = 75
+    Caption = 'Delete Ship'
+    TabOrder = 12
+  end
+  object EditShipBtn: TButton[5]
+    Left = 624
+    Height = 25
+    Top = 184
+    Width = 75
+    Caption = 'Edit Ship'
+    TabOrder = 10
+  end
+  object AllDiscountChkBox: TCheckBox[6]
+    Left = 544
+    Height = 19
+    Top = 104
+    Width = 122
+    Caption = 'Class Discount For All'
+    TabOrder = 6
+  end
+  object InOrdChkBox: TCheckBox[7]
+    Left = 544
+    Height = 19
+    Top = 128
+    Width = 71
+    Caption = 'In Ordinary'
+    TabOrder = 7
+  end
+  object CarriedCraftChkBox: TCheckBox[8]
+    Left = 544
+    Height = 19
+    Top = 152
+    Width = 78
+    Caption = 'Carried Craft'
+    TabOrder = 8
+  end
+  object SqdNameEdit: TLabeledEdit[9]
+    Left = 16
+    Height = 21
+    Top = 24
+    Width = 192
+    EditLabel.AnchorSideLeft.Control = SqdNameEdit
+    EditLabel.AnchorSideBottom.Control = SqdNameEdit
+    EditLabel.Left = 16
+    EditLabel.Height = 14
+    EditLabel.Top = 7
+    EditLabel.Width = 78
+    EditLabel.Caption = 'Squadron Name'
+    EditLabel.ParentColor = False
+    TabOrder = 0
+  end
+  object DesignerNameEdit: TLabeledEdit[10]
+    Left = 216
+    Height = 21
+    Top = 24
+    Width = 192
+    EditLabel.AnchorSideLeft.Control = DesignerNameEdit
+    EditLabel.AnchorSideBottom.Control = DesignerNameEdit
+    EditLabel.Left = 216
+    EditLabel.Height = 14
+    EditLabel.Top = 7
+    EditLabel.Width = 74
+    EditLabel.Caption = 'Designer Name'
+    EditLabel.ParentColor = False
+    TabOrder = 1
+  end
+  object SqdBudgetEdit: TLabeledEdit[11]
+    Left = 416
+    Height = 21
+    Top = 24
+    Width = 120
+    EditLabel.AnchorSideLeft.Control = SqdBudgetEdit
+    EditLabel.AnchorSideBottom.Control = SqdBudgetEdit
+    EditLabel.Left = 416
+    EditLabel.Height = 14
+    EditLabel.Top = 7
+    EditLabel.Width = 35
+    EditLabel.Caption = 'Budget'
+    EditLabel.ParentColor = False
+    TabOrder = 2
+  end
+  object SqdTonnageEdit: TLabeledEdit[12]
+    Left = 544
+    Height = 21
+    Top = 24
+    Width = 120
+    EditLabel.AnchorSideLeft.Control = SqdTonnageEdit
+    EditLabel.AnchorSideBottom.Control = SqdTonnageEdit
+    EditLabel.Left = 544
+    EditLabel.Height = 14
+    EditLabel.Top = 7
+    EditLabel.Width = 44
+    EditLabel.Caption = 'Tonnage'
+    EditLabel.ParentColor = False
+    TabOrder = 3
+  end
+  object NumSpinEdit: TSpinEdit[13]
+    Left = 544
+    Height = 21
+    Top = 72
+    Width = 80
+    MaxValue = 1000000
+    TabOrder = 5
+  end
+  object NumStatTxt: TStaticText[14]
+    Left = 544
+    Height = 17
+    Top = 56
+    Width = 65
+    Caption = 'Number'
+    TabOrder = 17
+  end
+  object TechLevelSpinEdit: TSpinEdit[15]
+    Left = 671
+    Height = 21
+    Top = 24
+    Width = 48
+    MaxValue = 36
+    TabOrder = 4
+  end
+  object NumStatTxt1: TStaticText[16]
+    Left = 671
+    Height = 17
+    Top = 8
+    Width = 65
+    Caption = 'Tech Level'
+    TabOrder = 18
+  end
+  object ApplyBtn: TButton[17]
+    Left = 544
+    Height = 25
+    Top = 248
+    Width = 75
+    Caption = 'Apply'
+    TabOrder = 13
+  end
+  object CancelBtn: TButton[18]
+    Left = 624
+    Height = 25
+    Top = 248
+    Width = 75
+    Caption = 'Cancel'
+    TabOrder = 14
+  end
+  object MainMenu: TMainMenu[19]
+    left = 120
+    top = 336
+    object FileMenu: TMenuItem
+      Caption = '&File'
+      object NewMenuItem: TMenuItem
+        Caption = '&New'
+        OnClick = NewMenuItemClick
+      end
+      object OpenMenuItem: TMenuItem
+        Caption = '&Open...'
+        OnClick = OpenMenuItemClick
+      end
+      object SaveMenuItem: TMenuItem
+        Caption = '&Save'
+        OnClick = SaveMenuItemClick
+      end
+      object SaveAsMenuItem: TMenuItem
+        Caption = 'Save &As...'
+        OnClick = SaveAsMenuItemClick
+      end
+      object N1: TMenuItem
+        Caption = '-'
+      end
+      object ExportMenuItem: TMenuItem
+        Caption = '&Export'
+      end
+      object ExitMenuItem: TMenuItem
+        Caption = 'E&xit'
+        OnClick = ExitMenuItemClick
+      end
+    end
+  end
+  object OpenDialog: TOpenDialog[20]
+    left = 176
+    top = 336
+  end
+  object SaveDialog: TSaveDialog[21]
+    left = 56
+    top = 336
+  end
+end

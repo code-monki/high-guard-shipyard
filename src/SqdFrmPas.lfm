@@ -1,0 +1,457 @@
+inherited SqdFrm: TSqdFrm
+  Left = 242
+  Height = 535
+  Top = 119
+  Width = 754
+  Caption = 'Squadron Designer'
+  ClientHeight = 515
+  ClientWidth = 754
+  Menu = MainMenu
+  OnCreate = FormCreate
+  object RefreshBtn: TButton[0]
+    Left = 543
+    Height = 25
+    Top = 256
+    Width = 75
+    Caption = 'Refresh'
+    OnClick = RefreshBtnClick
+    TabOrder = 12
+  end
+  object ShipsListView: TListView[1]
+    Left = 16
+    Height = 257
+    Top = 56
+    Width = 512
+    Columns = <    
+      item
+        Caption = 'Class'
+        Width = 120
+      end    
+      item
+        Caption = 'Number'
+        Width = 60
+      end    
+      item
+        Caption = 'File'
+        Width = 280
+      end    
+      item
+        Caption = 'TL'
+        Width = 30
+      end>
+    TabOrder = 17
+    ViewStyle = vsReport
+    OnSelectItem = ShipsListViewSelectItem
+  end
+  object AddShipBtn: TButton[2]
+    Left = 543
+    Height = 25
+    Top = 160
+    Width = 75
+    Caption = '&Add Ship'
+    OnClick = AddShipBtnClick
+    TabOrder = 9
+  end
+  object UspMemo: TMemo[3]
+    Left = 16
+    Height = 181
+    Top = 320
+    Width = 512
+    Font.CharSet = ANSI_CHARSET
+    Font.Color = clBlack
+    Font.Height = -11
+    Font.Name = 'Courier New'
+    Font.Pitch = fpFixed
+    Font.Quality = fqDraft
+    Lines.Strings = (
+      'UspMemo'
+    )
+    ParentFont = False
+    ScrollBars = ssAutoVertical
+    TabOrder = 18
+  end
+  object DeleteShipBtn: TButton[4]
+    Left = 543
+    Height = 25
+    Top = 192
+    Width = 75
+    Caption = 'Delete Ship'
+    OnClick = DeleteShipBtnClick
+    TabOrder = 10
+  end
+  object EditShipBtn: TButton[5]
+    Left = 543
+    Height = 25
+    Top = 224
+    Width = 75
+    Caption = 'Edit Ship'
+    OnClick = EditShipBtnClick
+    TabOrder = 11
+  end
+  object AllDiscountChkBox: TCheckBox[6]
+    Left = 544
+    Height = 19
+    Top = 104
+    Width = 122
+    Caption = 'Class Discount For All'
+    OnClick = AllDiscountChkBoxClick
+    TabOrder = 6
+  end
+  object InOrdChkBox: TCheckBox[7]
+    Left = 544
+    Height = 19
+    Top = 120
+    Width = 71
+    Caption = 'In Ordinary'
+    OnChange = InOrdChkBoxChange
+    TabOrder = 7
+  end
+  object CarriedCraftChkBox: TCheckBox[8]
+    Left = 543
+    Height = 19
+    Top = 136
+    Width = 78
+    Caption = 'Carried Craft'
+    OnChange = CarriedCraftChkBoxChange
+    TabOrder = 8
+  end
+  object SqdNameEdit: TLabeledEdit[9]
+    Left = 16
+    Height = 21
+    Top = 24
+    Width = 192
+    EditLabel.AnchorSideLeft.Control = SqdNameEdit
+    EditLabel.AnchorSideRight.Control = SqdNameEdit
+    EditLabel.AnchorSideRight.Side = asrBottom
+    EditLabel.AnchorSideBottom.Control = SqdNameEdit
+    EditLabel.Left = 16
+    EditLabel.Height = 13
+    EditLabel.Top = 8
+    EditLabel.Width = 192
+    EditLabel.Caption = 'Squadron Name'
+    EditLabel.ParentColor = False
+    TabOrder = 0
+  end
+  object DesignerNameEdit: TLabeledEdit[10]
+    Left = 216
+    Height = 21
+    Top = 24
+    Width = 192
+    EditLabel.AnchorSideLeft.Control = DesignerNameEdit
+    EditLabel.AnchorSideRight.Control = DesignerNameEdit
+    EditLabel.AnchorSideRight.Side = asrBottom
+    EditLabel.AnchorSideBottom.Control = DesignerNameEdit
+    EditLabel.Left = 216
+    EditLabel.Height = 13
+    EditLabel.Top = 8
+    EditLabel.Width = 192
+    EditLabel.Caption = 'Designer Name'
+    EditLabel.ParentColor = False
+    TabOrder = 1
+  end
+  object SqdBudgetEdit: TLabeledEdit[11]
+    Left = 416
+    Height = 21
+    Top = 24
+    Width = 120
+    EditLabel.AnchorSideLeft.Control = SqdBudgetEdit
+    EditLabel.AnchorSideRight.Control = SqdBudgetEdit
+    EditLabel.AnchorSideRight.Side = asrBottom
+    EditLabel.AnchorSideBottom.Control = SqdBudgetEdit
+    EditLabel.Left = 416
+    EditLabel.Height = 13
+    EditLabel.Top = 8
+    EditLabel.Width = 120
+    EditLabel.Caption = 'Budget'
+    EditLabel.ParentColor = False
+    TabOrder = 2
+  end
+  object SqdTonnageEdit: TLabeledEdit[12]
+    Left = 544
+    Height = 21
+    Top = 24
+    Width = 120
+    EditLabel.AnchorSideLeft.Control = SqdTonnageEdit
+    EditLabel.AnchorSideRight.Control = SqdTonnageEdit
+    EditLabel.AnchorSideRight.Side = asrBottom
+    EditLabel.AnchorSideBottom.Control = SqdTonnageEdit
+    EditLabel.Left = 544
+    EditLabel.Height = 13
+    EditLabel.Top = 8
+    EditLabel.Width = 120
+    EditLabel.Caption = 'Tonnage'
+    EditLabel.ParentColor = False
+    TabOrder = 3
+  end
+  object NumSpinEdit: TSpinEdit[13]
+    Left = 544
+    Height = 21
+    Top = 72
+    Width = 80
+    MaxValue = 1000000
+    OnChange = NumSpinEditChange
+    TabOrder = 5
+  end
+  object NumStatTxt: TStaticText[14]
+    Left = 544
+    Height = 17
+    Top = 56
+    Width = 65
+    Caption = 'Number'
+    TabOrder = 19
+  end
+  object NumStatTxt1: TStaticText[15]
+    Left = 671
+    Height = 17
+    Top = 8
+    Width = 65
+    Caption = 'Tech Level'
+    TabOrder = 20
+  end
+  object OpenBtn: TButton[16]
+    Left = 623
+    Height = 25
+    Top = 192
+    Width = 75
+    Caption = 'Open'
+    OnClick = OpenMenuItemClick
+    TabOrder = 14
+  end
+  object SaveBtn: TButton[17]
+    Left = 623
+    Height = 25
+    Top = 224
+    Width = 75
+    Caption = 'Save'
+    OnClick = SaveMenuItemClick
+    TabOrder = 15
+  end
+  object CloseBtn: TButton[18]
+    Left = 623
+    Height = 25
+    Top = 256
+    Width = 75
+    Caption = 'Close'
+    OnClick = CloseBtnClick
+    TabOrder = 16
+  end
+  object CostLbl: TLabel[19]
+    Left = 624
+    Height = 13
+    Top = 288
+    Width = 35
+    Caption = 'CostLbl'
+    ParentColor = False
+  end
+  object MaintLbl: TLabel[20]
+    Left = 626
+    Height = 13
+    Top = 309
+    Width = 40
+    Caption = 'MaintLbl'
+    ParentColor = False
+  end
+  object TonnageLbl: TLabel[21]
+    Left = 623
+    Height = 13
+    Top = 331
+    Width = 57
+    Caption = 'TonnageLbl'
+    ParentColor = False
+  end
+  object CrewLbl: TLabel[22]
+    Left = 626
+    Height = 13
+    Top = 352
+    Width = 38
+    Caption = 'CrewLbl'
+    ParentColor = False
+  end
+  object PilotsLbl: TLabel[23]
+    Left = 626
+    Height = 13
+    Top = 374
+    Width = 39
+    Caption = 'PilotsLbl'
+    ParentColor = False
+  end
+  object FuelLbl: TLabel[24]
+    Left = 625
+    Height = 13
+    Top = 418
+    Width = 34
+    Caption = 'FuelLbl'
+    ParentColor = False
+  end
+  object GasGiantLbl: TLabel[25]
+    Left = 625
+    Height = 13
+    Top = 440
+    Width = 58
+    Caption = 'GasGiantLbl'
+    ParentColor = False
+  end
+  object OceanLbl: TLabel[26]
+    Left = 625
+    Height = 13
+    Top = 462
+    Width = 46
+    Caption = 'OceanLbl'
+    ParentColor = False
+  end
+  object CostStatTxt: TStaticText[27]
+    Left = 544
+    Height = 17
+    Top = 288
+    Width = 65
+    Caption = 'Cost'
+    TabOrder = 21
+  end
+  object MaintStatTxt: TStaticText[28]
+    Left = 545
+    Height = 17
+    Top = 309
+    Width = 65
+    Caption = 'Maintenance'
+    TabOrder = 22
+  end
+  object TonnageStatTxt: TStaticText[29]
+    Left = 543
+    Height = 17
+    Top = 331
+    Width = 65
+    Caption = 'Tonnage'
+    TabOrder = 23
+  end
+  object CrewStatTxt: TStaticText[30]
+    Left = 546
+    Height = 17
+    Top = 352
+    Width = 65
+    Caption = 'Crew'
+    TabOrder = 24
+  end
+  object PilotStatTxt: TStaticText[31]
+    Left = 546
+    Height = 17
+    Top = 374
+    Width = 65
+    Caption = 'Pilots'
+    TabOrder = 25
+  end
+  object FuelStatTxt: TStaticText[32]
+    Left = 545
+    Height = 17
+    Top = 418
+    Width = 65
+    Caption = 'Fuel'
+    TabOrder = 26
+  end
+  object GasGiantStatTxt: TStaticText[33]
+    Left = 545
+    Height = 17
+    Top = 440
+    Width = 70
+    Caption = 'Gas Giant Cap'
+    TabOrder = 27
+  end
+  object OceanStaTxt: TStaticText[34]
+    Left = 545
+    Height = 17
+    Top = 462
+    Width = 65
+    Caption = 'Ocean Cap'
+    TabOrder = 28
+  end
+  object ShipsBoatLbl: TLabel[35]
+    Left = 626
+    Height = 13
+    Top = 396
+    Width = 62
+    Caption = 'ShipsBoatLbl'
+    ParentColor = False
+  end
+  object ShipsBoatStatTxt: TStaticText[36]
+    Left = 546
+    Height = 17
+    Top = 396
+    Width = 65
+    Caption = 'Ships Boat'
+    TabOrder = 29
+  end
+  object NewBtn: TButton[37]
+    Left = 624
+    Height = 25
+    Top = 160
+    Width = 75
+    Caption = 'New'
+    OnClick = NewBtnClick
+    TabOrder = 13
+  end
+  object LowTechStatTxt: TStaticText[38]
+    Left = 546
+    Height = 17
+    Top = 484
+    Width = 65
+    Caption = 'Low Tech'
+    TabOrder = 30
+  end
+  object LowTechLbl: TLabel[39]
+    Left = 625
+    Height = 13
+    Top = 484
+    Width = 59
+    Caption = 'LowTechLbl'
+    ParentColor = False
+  end
+  object TechLevelEdit: TEdit[40]
+    Left = 672
+    Height = 21
+    Top = 24
+    Width = 40
+    TabOrder = 4
+    Text = '0'
+  end
+  object MainMenu: TMainMenu[41]
+    left = 120
+    top = 336
+    object FileMenu: TMenuItem
+      Caption = '&File'
+      object NewMenuItem: TMenuItem
+        Caption = '&New'
+        OnClick = NewMenuItemClick
+      end
+      object OpenMenuItem: TMenuItem
+        Caption = '&Open...'
+        OnClick = OpenMenuItemClick
+      end
+      object SaveMenuItem: TMenuItem
+        Caption = '&Save'
+        OnClick = SaveMenuItemClick
+      end
+      object SaveAsMenuItem: TMenuItem
+        Caption = 'Save &As...'
+        OnClick = SaveAsMenuItemClick
+      end
+      object N1: TMenuItem
+        Caption = '-'
+      end
+      object ExportMenuItem: TMenuItem
+        Caption = '&Export'
+        OnClick = ExportMenuItemClick
+      end
+      object ExitMenuItem: TMenuItem
+        Caption = 'E&xit'
+        OnClick = ExitMenuItemClick
+      end
+    end
+  end
+  object OpenDialog: TOpenDialog[42]
+    left = 176
+    top = 336
+  end
+  object SaveDialog: TSaveDialog[43]
+    left = 56
+    top = 336
+  end
+end
