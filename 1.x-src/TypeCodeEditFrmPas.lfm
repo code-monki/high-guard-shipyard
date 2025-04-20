@@ -1,0 +1,171 @@
+object TypeCodeEditFrm: TTypeCodeEditFrm
+  Left = 226
+  Height = 208
+  Top = 103
+  Width = 303
+  AutoSize = True
+  BorderWidth = 10
+  Caption = 'Edit Type/Code'
+  ClientHeight = 208
+  ClientWidth = 303
+  Color = clBtnFace
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'MS Sans Serif'
+  OnClose = FormClose
+  OnCreate = FormCreate
+  Position = poDesktopCenter
+  LCLVersion = '0.9.30'
+  object CodeLbl: TLabel
+    Left = 56
+    Height = 14
+    Hint = 'The Code for the ship type'
+    Top = 32
+    Width = 40
+    Caption = 'CodeLbl'
+    ParentColor = False
+    ParentShowHint = False
+    ShowHint = True
+  end
+  object TypeStatLbl: TLabel
+    Left = 0
+    Height = 14
+    Top = 0
+    Width = 25
+    Caption = 'Type'
+    ParentColor = False
+  end
+  object CodeStatLbl: TLabel
+    Left = 0
+    Height = 14
+    Top = 32
+    Width = 26
+    Caption = 'Code'
+    ParentColor = False
+  end
+  object NewTypeStatLbl: TLabel
+    Left = 0
+    Height = 14
+    Top = 104
+    Width = 50
+    Caption = 'New Type'
+    ParentColor = False
+  end
+  object NewCodeStatLbl: TLabel
+    Left = 0
+    Height = 14
+    Top = 136
+    Width = 51
+    Caption = 'New Code'
+    ParentColor = False
+  end
+  object TypeCombo: TComboBox
+    Left = 56
+    Height = 21
+    Hint = 'Select the ship type'
+    Top = 0
+    Width = 145
+    ItemHeight = 13
+    OnChange = TypeComboChange
+    ParentShowHint = False
+    ShowHint = True
+    Style = csDropDownList
+    TabOrder = 0
+  end
+  object OkBtn: TButton
+    Left = 48
+    Height = 25
+    Hint = 'Apply your changes and return to the Main Form'
+    Top = 64
+    Width = 75
+    Caption = '&OK'
+    Default = True
+    OnClick = OkBtnClick
+    ParentShowHint = False
+    ShowHint = True
+    TabOrder = 3
+  end
+  object CancelBtn: TButton
+    Left = 136
+    Height = 25
+    Hint = 'Cancel your changes and return to the Main Form'
+    Top = 64
+    Width = 75
+    Cancel = True
+    Caption = '&Cancel'
+    OnClick = CancelBtnClick
+    ParentShowHint = False
+    ShowHint = True
+    TabOrder = 4
+  end
+  object AddBtn: TButton
+    Left = 216
+    Height = 25
+    Hint = 'Add a new code'
+    Top = 0
+    Width = 75
+    Caption = '&Add'
+    OnClick = AddBtnClick
+    ParentShowHint = False
+    ShowHint = True
+    TabOrder = 1
+  end
+  object DeleteBtn: TButton
+    Left = 216
+    Height = 25
+    Hint = 'Delete the current code'
+    Top = 32
+    Width = 75
+    Caption = '&Delete'
+    OnClick = DeleteBtnClick
+    ParentShowHint = False
+    ShowHint = True
+    TabOrder = 2
+  end
+  object CodeEdit: TEdit
+    Left = 80
+    Height = 21
+    Hint = 'Enter the code for the new ship type'
+    Top = 136
+    Width = 41
+    ParentShowHint = False
+    ShowHint = True
+    TabOrder = 6
+    Text = 'CodeEdit'
+  end
+  object TypeEdit: TEdit
+    Left = 80
+    Height = 21
+    Hint = 'Enter the new ship type'
+    Top = 104
+    Width = 121
+    ParentShowHint = False
+    ShowHint = True
+    TabOrder = 5
+    Text = 'TypeEdit'
+  end
+  object ConfirmBtn: TButton
+    Left = 216
+    Height = 25
+    Hint = 'Add the new code'
+    Top = 104
+    Width = 75
+    Caption = 'Add &Code'
+    OnClick = ConfirmBtnClick
+    ParentShowHint = False
+    ShowHint = True
+    TabOrder = 7
+  end
+  object AbortBtn: TButton
+    Left = 216
+    Height = 25
+    Hint = 'Abandon the new code'
+    Top = 136
+    Width = 75
+    Caption = 'A&bort'
+    OnClick = AbortBtnClick
+    ParentShowHint = False
+    ShowHint = True
+    TabOrder = 8
+  end
+end

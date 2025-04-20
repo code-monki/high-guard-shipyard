@@ -1,0 +1,78 @@
+inherited CommentsFrm: TCommentsFrm
+  Height = 304
+  Width = 421
+  AutoSize = True
+  BorderWidth = 10
+  Caption = 'Comments'
+  ClientHeight = 304
+  ClientWidth = 421
+  OnClose = FormClose
+  OnCreate = FormCreate
+  Position = poDesktopCenter
+  object OkBtn: TButton[0]
+    Left = 8
+    Height = 25
+    Hint = 'Apply your changes and return to the Main Form'
+    Top = 256
+    Width = 75
+    Caption = '&OK'
+    Default = True
+    OnClick = OkBtnClick
+    ParentShowHint = False
+    ShowHint = True
+    TabOrder = 0
+  end
+  object CancelBtn: TButton[1]
+    Left = 88
+    Height = 25
+    Hint = 'Cancel your changes and return to the Main Form'
+    Top = 256
+    Width = 75
+    Cancel = True
+    Caption = '&Cancel'
+    OnClick = CancelBtnClick
+    ParentShowHint = False
+    ShowHint = True
+    TabOrder = 1
+  end
+  object CommentMemo: TMemo[2]
+    Left = 0
+    Height = 241
+    Hint = 'Enter your design comments'
+    Top = 0
+    Width = 393
+    Lines.Strings = (
+      'CommentMemo'
+    )
+    ParentShowHint = False
+    ScrollBars = ssVertical
+    ShowHint = True
+    TabOrder = 2
+  end
+  object ClearBtn: TButton[3]
+    Left = 200
+    Height = 25
+    Hint = 'Clear the comments'
+    Top = 256
+    Width = 75
+    Caption = 'Cl&ear'
+    OnClick = ClearBtnClick
+    ParentShowHint = False
+    ShowHint = True
+    TabOrder = 3
+  end
+  object RestoreBtn: TButton[4]
+    Left = 296
+    Height = 25
+    Hint = 'Restore the previous comments'
+    Top = 256
+    Width = 75
+    Caption = '&Restore'
+    Enabled = False
+    OnClick = RestoreBtnClick
+    ParentShowHint = False
+    ShowHint = True
+    TabOrder = 4
+    Visible = False
+  end
+end

@@ -1,0 +1,149 @@
+object HullFrm: THullFrm
+  Left = 199
+  Top = 121
+  Width = 335
+  Height = 185
+  AutoSize = True
+  BorderWidth = 10
+  Caption = 'Hull'
+  Color = clBtnFace
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'MS Sans Serif'
+  Font.Style = []
+  KeyPreview = True
+  Position = poDesktopCenter
+  OnClose = FormClose
+  OnCreate = FormCreate
+  OnKeyDown = FormKeyDown
+  PixelsPerInch = 96
+  object ConfigStatLbl: TLabel
+    Left = 0
+    Top = 0
+    Width = 62
+    Height = 13
+    Caption = 'Configuration'
+  end
+  object ArmourStatLbl: TLabel
+    Left = 216
+    Top = 0
+    Width = 33
+    Height = 13
+    Caption = 'Armour'
+  end
+  object ActArmLbl: TLabel
+    Left = 76
+    Top = 112
+    Width = 48
+    Height = 13
+    Caption = 'ActArmLbl'
+  end
+  object ActArmStatLbl: TLabel
+    Left = 0
+    Top = 112
+    Width = 66
+    Height = 13
+    Caption = 'Actual Armour'
+  end
+  object StructureLbl: TLabel
+    Left = 0
+    Top = 77
+    Width = 125
+    Height = 13
+    Caption = 'Additional Structure (Tons)'
+  end
+  object ConfigComboBx: TComboBox
+    Left = 72
+    Top = 0
+    Width = 137
+    Height = 21
+    Hint = 'Select the Hull Configeration'
+    ItemHeight = 13
+    ParentShowHint = False
+    ShowHint = True
+    TabOrder = 0
+    Text = '4 Close Structure'
+    OnChange = ConfigComboBxChange
+  end
+  object OkBtn: TButton
+    Left = 136
+    Top = 104
+    Width = 75
+    Height = 25
+    Hint = 'Apply your changes and return to the Main Form'
+    Caption = '&OK'
+    Default = True
+    ParentShowHint = False
+    ShowHint = True
+    TabOrder = 4
+    OnClick = OkBtnClick
+  end
+  object CancelBtn: TButton
+    Left = 224
+    Top = 104
+    Width = 75
+    Height = 25
+    Hint = 'Cancel your changes and return to the Main Form'
+    Cancel = True
+    Caption = '&Cancel'
+    ParentShowHint = False
+    ShowHint = True
+    TabOrder = 5
+    OnClick = CancelBtnClick
+  end
+  object ArmourCombo: TComboBox
+    Left = 256
+    Top = 0
+    Width = 41
+    Height = 21
+    Hint = 'Select the amount of Armour to be added to the Hull'
+    ItemHeight = 13
+    ParentShowHint = False
+    ShowHint = True
+    TabOrder = 1
+    Text = '0'
+    OnChange = ArmourComboChange
+  end
+  object StreamLineRadGrp: TRadioGroup
+    Left = 0
+    Top = 24
+    Width = 121
+    Height = 41
+    Hint = 'Select Improved Streamlining for T20'
+    Caption = 'Improve Streamlining'
+    Columns = 2
+    Items.Strings = (
+      'Yes'
+      'No')
+    ParentShowHint = False
+    ShowHint = True
+    TabOrder = 2
+    OnClick = StreamLineRadGrpClick
+  end
+  object AirFrmRadGrp: TRadioGroup
+    Left = 176
+    Top = 24
+    Width = 121
+    Height = 41
+    Hint = 'Upgrade Hull to Airframe'
+    Caption = 'Airframe'
+    Columns = 2
+    Items.Strings = (
+      'Yes'
+      'No')
+    ParentShowHint = False
+    ShowHint = True
+    TabOrder = 3
+    OnClick = AirFrmRadGrpClick
+  end
+  object StructureEdit: TEdit
+    Left = 136
+    Top = 72
+    Width = 73
+    Height = 21
+    TabOrder = 6
+    Text = 'StructureEdit'
+    OnChange = StructureEditChange
+  end
+end
