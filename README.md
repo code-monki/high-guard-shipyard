@@ -1,4 +1,4 @@
-# High Guard Shipyard
+# High Guard Shipyard 2.0 Beta
 
 ## Overview
 
