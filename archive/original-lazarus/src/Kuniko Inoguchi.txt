@@ -1,0 +1,33 @@
+Kuniko Inoguchi Class Ketch
+
+HULL
+Hull: 0.000 Td; MCr 8.000; Crew 0
+Armour Factor-0: 0.000 Td; MCr 0.000
+
+ENGINEERING
+M-Drive Factor-1: 2.000 Td; MCr 3.000
+J-Drive Factor-1: 2.000 Td; MCr 8.000
+P-Plant Factor-1: 3.000 Td; MCr 9.000; +1.000 EP
+
+FUEL
+P-Fuel: 1.000 Td; MCr 0,000
+J-Fuel: 20.000 Td; MCr 0.000
+Scoops: 0.000 Td; MCr 0.100
+Purification: 9.000 Td; MCr 0.038
+L-Hyd Drop Tanks: 0.000 Td; MCr 0.000
+
+AVIONICS
+Bridge: 20.000 Td; MCr 0.500
+Computer Model/2: 2.000 Td; MCr 9.000; -0 EP
+
+WEAPONRY
+
+SCREENS
+
+CRAFT
+
+ACCOMODATIONS
+1.0 x Staterooms: 4.000 Td; MCr 0.500
+Cargo: 37.000 Td; MCr 0.000
+
+USER DEFINED

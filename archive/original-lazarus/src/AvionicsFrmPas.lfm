@@ -1,0 +1,278 @@
+inherited AvionicsFrm: TAvionicsFrm
+  Left = 512
+  Height = 221
+  Top = 131
+  Width = 352
+  AutoSize = True
+  BorderWidth = 10
+  Caption = 'Avionics'
+  ClientHeight = 221
+  ClientWidth = 352
+  KeyPreview = True
+  OnClose = FormClose
+  OnCreate = FormCreate
+  OnKeyDown = FormKeyDown
+  Position = poDesktopCenter
+  object CompStatLbl: TLabel[0]
+    Left = 0
+    Height = 14
+    Top = 16
+    Width = 46
+    Caption = 'Computer'
+    ParentColor = False
+  end
+  object BakCompStatLbl: TLabel[1]
+    Left = 0
+    Height = 14
+    Top = 48
+    Width = 86
+    Caption = 'Backup Computer'
+    ParentColor = False
+  end
+  object RefitTechStatLbl: TLabel[2]
+    Left = 318
+    Height = 14
+    Top = 0
+    Width = 14
+    Caption = 'TL'
+    ParentColor = False
+  end
+  object NumberStatLbl: TLabel[3]
+    Left = 222
+    Height = 14
+    Top = 0
+    Width = 38
+    Caption = 'Number'
+    ParentColor = False
+  end
+  object ModelStatLbl: TLabel[4]
+    Left = 150
+    Height = 14
+    Top = 0
+    Width = 30
+    Caption = 'Model'
+    ParentColor = False
+  end
+  object BridgeRadGrp: TRadioGroup[5]
+    Left = 0
+    Height = 41
+    Hint = 'Select if the ship has a Bridge'
+    Top = 112
+    Width = 113
+    AutoFill = True
+    Caption = 'Bridge'
+    ChildSizing.LeftRightSpacing = 6
+    ChildSizing.TopBottomSpacing = 6
+    ChildSizing.EnlargeHorizontal = crsHomogenousChildResize
+    ChildSizing.EnlargeVertical = crsHomogenousChildResize
+    ChildSizing.ShrinkHorizontal = crsScaleChilds
+    ChildSizing.ShrinkVertical = crsScaleChilds
+    ChildSizing.Layout = cclLeftToRightThenTopToBottom
+    ChildSizing.ControlsPerLine = 2
+    ClientHeight = 23
+    ClientWidth = 109
+    Columns = 2
+    ItemIndex = 0
+    Items.Strings = (
+      'Yes'
+      'No'
+    )
+    ParentShowHint = False
+    ShowHint = True
+    TabOrder = 7
+  end
+  object BakBridgeRadGrp: TRadioGroup[6]
+    Left = 128
+    Height = 41
+    Hint = 'Select if the ship has a Backup Bridge'
+    Top = 112
+    Width = 113
+    AutoFill = True
+    Caption = 'Backup Bridge'
+    ChildSizing.LeftRightSpacing = 6
+    ChildSizing.TopBottomSpacing = 6
+    ChildSizing.EnlargeHorizontal = crsHomogenousChildResize
+    ChildSizing.EnlargeVertical = crsHomogenousChildResize
+    ChildSizing.ShrinkHorizontal = crsScaleChilds
+    ChildSizing.ShrinkVertical = crsScaleChilds
+    ChildSizing.Layout = cclLeftToRightThenTopToBottom
+    ChildSizing.ControlsPerLine = 2
+    ClientHeight = 23
+    ClientWidth = 109
+    Columns = 2
+    ItemIndex = 1
+    Items.Strings = (
+      'Yes'
+      'No'
+    )
+    OnClick = BakBridgeRadGrpClick
+    ParentShowHint = False
+    ShowHint = True
+    TabOrder = 8
+  end
+  object BakBridgeEdit: TEdit[7]
+    Left = 256
+    Height = 21
+    Hint = 'Enter how many Backup Bridges are installed'
+    Top = 122
+    Width = 25
+    ParentShowHint = False
+    ShowHint = True
+    TabOrder = 9
+    Text = '0'
+  end
+  object CompComboBx: TComboBox[8]
+    Left = 118
+    Height = 21
+    Hint = 'Select the Main Computer'
+    Top = 16
+    Width = 105
+    ItemHeight = 13
+    ParentShowHint = False
+    ShowHint = True
+    TabOrder = 0
+    Text = '3 Model/3fib'
+  end
+  object BakCompComboBx: TComboBox[9]
+    Left = 118
+    Height = 21
+    Hint = 'Select the Backup Computer'
+    Top = 48
+    Width = 105
+    ItemHeight = 13
+    OnChange = BakCompComboBxChange
+    ParentShowHint = False
+    ShowHint = True
+    TabOrder = 3
+    Text = '0 None'
+  end
+  object OKBtn: TButton[10]
+    Left = 16
+    Height = 25
+    Hint = 'Apply your changes and return to the Main Form'
+    Top = 168
+    Width = 75
+    Caption = '&OK'
+    Default = True
+    OnClick = OKBtnClick
+    ParentShowHint = False
+    ShowHint = True
+    TabOrder = 10
+  end
+  object CancelBtn: TButton[11]
+    Left = 104
+    Height = 25
+    Hint = 'Cancel your changes and return to the Main Form'
+    Top = 168
+    Width = 75
+    Cancel = True
+    Caption = '&Cancel'
+    OnClick = CancelBtnClick
+    ParentShowHint = False
+    ShowHint = True
+    TabOrder = 11
+  end
+  object RefitCompChkBx: TCheckBox[12]
+    Left = 262
+    Height = 19
+    Top = 18
+    Width = 42
+    Caption = 'Refit'
+    OnChange = RefitCompChkBxChange
+    TabOrder = 1
+  end
+  object RefitBakCompChkBx: TCheckBox[13]
+    Left = 262
+    Height = 19
+    Top = 48
+    Width = 42
+    Caption = 'Refit'
+    OnChange = RefitBakCompChkBxChange
+    TabOrder = 4
+  end
+  object RefitCompEdit: TEdit[14]
+    Left = 310
+    Height = 21
+    Top = 16
+    Width = 28
+    OnChange = RefitCompEditChange
+    TabOrder = 2
+    Text = '0'
+  end
+  object RefitBakCompEdit: TEdit[15]
+    Left = 310
+    Height = 21
+    Top = 48
+    Width = 28
+    OnChange = RefitBakCompEditChange
+    TabOrder = 6
+    Text = '0'
+  end
+  object BakCompEdit: TEdit[16]
+    Left = 230
+    Height = 21
+    Hint = 'Enter how many Backup Computers are installed'
+    Top = 48
+    Width = 25
+    ParentShowHint = False
+    ShowHint = True
+    TabOrder = 5
+    Text = '0'
+  end
+  object RefitBakBridgeChkBx: TCheckBox[17]
+    Left = 296
+    Height = 19
+    Top = 124
+    Width = 42
+    Caption = 'Refit'
+    OnChange = RefitBakBridgeChkBxChange
+    TabOrder = 12
+  end
+  object FlagBridgeChkBx: TCheckBox[18]
+    Left = 213
+    Height = 19
+    Top = 168
+    Width = 73
+    Caption = 'Flag Bridge'
+    TabOrder = 13
+  end
+  object FlagCompComboBx: TComboBox[19]
+    Left = 118
+    Height = 21
+    Hint = 'Select the Backup Computer'
+    Top = 80
+    Width = 105
+    ItemHeight = 13
+    OnChange = BakCompComboBxChange
+    ParentShowHint = False
+    ShowHint = True
+    TabOrder = 14
+    Text = '0 None'
+  end
+  object FlagCompLbl: TLabel[20]
+    Left = 0
+    Height = 14
+    Top = 80
+    Width = 69
+    Caption = 'Flag Computer'
+    ParentColor = False
+  end
+  object RefitFlagCompChkBx: TCheckBox[21]
+    Left = 262
+    Height = 19
+    Top = 80
+    Width = 42
+    Caption = 'Refit'
+    OnChange = RefitFlagCompChkBxChange
+    TabOrder = 15
+  end
+  object RefitFlagCompEdit: TEdit[22]
+    Left = 310
+    Height = 21
+    Top = 80
+    Width = 28
+    OnChange = RefitFlagCompEditChange
+    TabOrder = 16
+    Text = '0'
+  end
+end

@@ -1,0 +1,561 @@
+object EngFrm: TEngFrm
+  Left = 210
+  Height = 365
+  Top = 123
+  Width = 640
+  AutoSize = True
+  BorderWidth = 10
+  Caption = 'Engineering'
+  ClientHeight = 365
+  ClientWidth = 640
+  Color = clBtnFace
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'MS Sans Serif'
+  KeyPreview = True
+  OnClose = FormClose
+  OnCreate = FormCreate
+  OnKeyDown = FormKeyDown
+  Position = poDesktopCenter
+  LCLVersion = '0.9.30'
+  object PowerGrpBx: TGroupBox
+    Left = 0
+    Height = 81
+    Top = 96
+    Width = 241
+    Caption = 'Power'
+    ClientHeight = 63
+    ClientWidth = 237
+    TabOrder = 2
+    object EPGenLbl: TLabel
+      Left = 78
+      Height = 14
+      Top = 42
+      Width = 49
+      Caption = 'EPGenLbl'
+      ParentColor = False
+    end
+    object PwrPlntStatLbl: TLabel
+      Left = 6
+      Height = 14
+      Top = 18
+      Width = 58
+      Caption = 'Power Plant'
+      ParentColor = False
+    end
+    object EPGenStatLbl: TLabel
+      Left = 6
+      Height = 14
+      Top = 42
+      Width = 68
+      Caption = 'EP Generated'
+      ParentColor = False
+    end
+    object PowerStatLbl: TLabel
+      Left = 94
+      Height = 14
+      Top = 0
+      Width = 26
+      Caption = 'Code'
+      ParentColor = False
+    end
+    object PowerRefitTLStatLbl: TLabel
+      Left = 198
+      Height = 14
+      Top = 0
+      Width = 14
+      Caption = 'TL'
+      ParentColor = False
+    end
+    object PwrPlntEdit: TEdit
+      Left = 94
+      Height = 21
+      Hint = 'Enter the Power Plant'
+      Top = 14
+      Width = 25
+      OnChange = PwrPlntEditChange
+      ParentShowHint = False
+      ShowHint = True
+      TabOrder = 0
+      Text = '1'
+    end
+    object RefitPPEdit: TEdit
+      Left = 190
+      Height = 21
+      Top = 14
+      Width = 28
+      TabOrder = 2
+      Text = '0'
+    end
+    object RefitPPChkBx: TCheckBox
+      Left = 142
+      Height = 19
+      Top = 13
+      Width = 42
+      Caption = 'Refit'
+      OnChange = RefitPPChkBxChange
+      TabOrder = 1
+    end
+  end
+  object OkBtn: TButton
+    Left = 256
+    Height = 25
+    Hint = 'Apply your changes and return to the Main Form'
+    Top = 160
+    Width = 75
+    Caption = '&OK'
+    Default = True
+    OnClick = OkBtnClick
+    ParentShowHint = False
+    ShowHint = True
+    TabOrder = 3
+  end
+  object CancelBtn: TButton
+    Left = 344
+    Height = 25
+    Hint = 'Cancel your changes and return to the Main Form'
+    Top = 160
+    Width = 75
+    Cancel = True
+    Caption = '&Cancel'
+    OnClick = CancelBtnClick
+    ParentShowHint = False
+    ShowHint = True
+    TabOrder = 4
+  end
+  object DrivesGrpBx: TGroupBox
+    Left = 0
+    Height = 89
+    Top = 0
+    Width = 241
+    Caption = 'Drives'
+    ClientHeight = 71
+    ClientWidth = 237
+    TabOrder = 0
+    object MDriveStatLbl: TLabel
+      Left = 6
+      Height = 14
+      Top = 18
+      Width = 77
+      Caption = 'Maneuver Drive'
+      ParentColor = False
+    end
+    object JDriveStatLbl: TLabel
+      Left = 6
+      Height = 14
+      Top = 42
+      Width = 54
+      Caption = 'Jump Drive'
+      ParentColor = False
+    end
+    object CodeStatLbl: TLabel
+      Left = 94
+      Height = 14
+      Top = 2
+      Width = 26
+      Caption = 'Code'
+      ParentColor = False
+    end
+    object RefitTLStatLbl: TLabel
+      Left = 198
+      Height = 14
+      Top = 2
+      Width = 14
+      Caption = 'TL'
+      ParentColor = False
+    end
+    object JDriveComboBx: TComboBox
+      Left = 94
+      Height = 21
+      Hint = 'Select the Jump Drive'
+      Top = 42
+      Width = 41
+      ItemHeight = 13
+      OnChange = JDriveComboBxChange
+      ParentShowHint = False
+      ShowHint = True
+      TabOrder = 3
+      Text = '1'
+    end
+    object MDriveComboBx: TComboBox
+      Left = 94
+      Height = 21
+      Hint = 'Select the Manuever Drive'
+      Top = 18
+      Width = 41
+      ItemHeight = 13
+      OnChange = MDriveComboBxChange
+      ParentShowHint = False
+      ShowHint = True
+      TabOrder = 0
+      Text = '1'
+    end
+    object RefitJDEdit: TEdit
+      Left = 190
+      Height = 21
+      Top = 42
+      Width = 28
+      TabOrder = 5
+      Text = '0'
+    end
+    object RefitJDChkBx: TCheckBox
+      Left = 142
+      Height = 19
+      Top = 42
+      Width = 42
+      Caption = 'Refit'
+      OnChange = RefitJDChkBxChange
+      TabOrder = 4
+    end
+    object RefitMDChkBx: TCheckBox
+      Left = 142
+      Height = 19
+      Top = 18
+      Width = 42
+      Caption = 'Refit'
+      OnChange = RefitMDChkBxChange
+      TabOrder = 1
+    end
+    object RefitMDEdit: TEdit
+      Left = 190
+      Height = 21
+      Top = 18
+      Width = 28
+      TabOrder = 2
+      Text = '0'
+    end
+  end
+  object BackupsGrpBx: TGroupBox
+    Left = 256
+    Height = 137
+    Top = 0
+    Width = 280
+    Caption = 'Backups'
+    ClientHeight = 119
+    ClientWidth = 276
+    TabOrder = 1
+    object BakMDriveStatLbl: TLabel
+      Left = 14
+      Height = 14
+      Top = 18
+      Width = 77
+      Caption = 'Maneuver Drive'
+      ParentColor = False
+    end
+    object BakPwrPlntStatLbl: TLabel
+      Left = 14
+      Height = 14
+      Top = 66
+      Width = 58
+      Caption = 'Power Plant'
+      ParentColor = False
+    end
+    object BakJDriveStatLbl: TLabel
+      Left = 14
+      Height = 14
+      Top = 42
+      Width = 54
+      Caption = 'Jump Drive'
+      ParentColor = False
+    end
+    object NumStatLbl: TLabel
+      Left = 150
+      Height = 14
+      Top = 2
+      Width = 38
+      Caption = 'Number'
+      ParentColor = False
+    end
+    object BakCodeStatLbl: TLabel
+      Left = 106
+      Height = 14
+      Top = 1
+      Width = 26
+      Caption = 'Code'
+      ParentColor = False
+    end
+    object T20BakPPStatLbl: TLabel
+      Left = 14
+      Height = 14
+      Top = 90
+      Width = 58
+      Caption = 'Power Tons'
+      ParentColor = False
+    end
+    object BakRefitTechStatLbl: TLabel
+      Left = 246
+      Height = 14
+      Top = 2
+      Width = 14
+      Caption = 'TL'
+      ParentColor = False
+    end
+    object BakPwrPlntEdit: TEdit
+      Left = 102
+      Height = 21
+      Hint = 'Enter the backup Power Plant'
+      Top = 66
+      Width = 25
+      OnChange = BakPwrPlntEditChange
+      ParentShowHint = False
+      ShowHint = True
+      TabOrder = 8
+      Text = '0'
+    end
+    object NoBakMEdit: TEdit
+      Left = 158
+      Height = 21
+      Hint = 'Enter the number of backup Manuever Drives installed'
+      Top = 18
+      Width = 25
+      ParentShowHint = False
+      ShowHint = True
+      TabOrder = 1
+      Text = '0'
+    end
+    object NoBakPPEdit: TEdit
+      Left = 158
+      Height = 21
+      Hint = 'Enter the number of backup Power Plants installed'
+      Top = 66
+      Width = 25
+      ParentShowHint = False
+      ShowHint = True
+      TabOrder = 9
+      Text = '0'
+    end
+    object NoBakJEdit: TEdit
+      Left = 158
+      Height = 21
+      Hint = 'Enter the number of backup Jump Drives installed'
+      Top = 42
+      Width = 25
+      ParentShowHint = False
+      ShowHint = True
+      TabOrder = 5
+      Text = '0'
+    end
+    object BakJDriveComboBx: TComboBox
+      Left = 102
+      Height = 21
+      Hint = 'Select the backup Jump Drive'
+      Top = 42
+      Width = 41
+      ItemHeight = 13
+      OnChange = BakJDriveComboBxChange
+      ParentShowHint = False
+      ShowHint = True
+      TabOrder = 4
+      Text = '0'
+    end
+    object BakMDriveComboBx: TComboBox
+      Left = 102
+      Height = 21
+      Hint = 'Select the backup Maneuver Drive'
+      Top = 18
+      Width = 41
+      ItemHeight = 13
+      OnChange = BakMDriveComboBxChange
+      ParentShowHint = False
+      ShowHint = True
+      TabOrder = 0
+      Text = '0'
+    end
+    object RefitBakMDEdit: TEdit
+      Left = 238
+      Height = 21
+      Top = 18
+      Width = 28
+      TabOrder = 3
+      Text = '0'
+    end
+    object RefitBakJDEdit: TEdit
+      Left = 238
+      Height = 21
+      Top = 42
+      Width = 28
+      TabOrder = 7
+      Text = '0'
+    end
+    object RefitBakPPEdit: TEdit
+      Left = 238
+      Height = 21
+      Top = 66
+      Width = 28
+      OnChange = RefitBakPPEditChange
+      TabOrder = 11
+      Text = '0'
+    end
+    object RefitBakMDChkBx: TCheckBox
+      Left = 190
+      Height = 19
+      Top = 18
+      Width = 42
+      Caption = 'Refit'
+      OnChange = RefitBakMDChkBxChange
+      TabOrder = 2
+    end
+    object RefitBakJDChkbx: TCheckBox
+      Left = 190
+      Height = 19
+      Top = 42
+      Width = 42
+      Caption = 'Refit'
+      OnChange = RefitBakJDChkbxChange
+      TabOrder = 6
+    end
+    object RefitBakPPChkBx: TCheckBox
+      Left = 190
+      Height = 19
+      Top = 66
+      Width = 42
+      Caption = 'Refit'
+      OnChange = RefitBakPPChkBxChange
+      TabOrder = 10
+    end
+    object T20BakPPEdit: TEdit
+      Left = 78
+      Height = 21
+      Top = 90
+      Width = 73
+      TabOrder = 12
+      Text = '0.000'
+    end
+    object T20NoBakPPEdit: TEdit
+      Left = 158
+      Height = 21
+      Top = 90
+      Width = 25
+      TabOrder = 13
+      Text = '0'
+    end
+    object T20RefitBakPPChkBx: TCheckBox
+      Left = 190
+      Height = 19
+      Top = 90
+      Width = 42
+      Caption = 'Refit'
+      OnChange = T20RefitBakPPChkBxChange
+      TabOrder = 14
+    end
+    object T20RefitBakPPEdit: TEdit
+      Left = 238
+      Height = 21
+      Top = 90
+      Width = 28
+      TabOrder = 15
+      Text = '0'
+    end
+  end
+  object T20PowerGrp: TGroupBox
+    Left = 216
+    Height = 81
+    Top = 248
+    Width = 241
+    Caption = 'Power'
+    ClientHeight = 63
+    ClientWidth = 237
+    TabOrder = 5
+    object PowerTonsStatLbl: TLabel
+      Left = 6
+      Height = 14
+      Top = 18
+      Width = 58
+      Caption = 'Power Plant'
+      ParentColor = False
+    end
+    object TonsLbl: TLabel
+      Left = 86
+      Height = 14
+      Top = 0
+      Width = 25
+      Caption = 'Tons'
+      ParentColor = False
+    end
+    object EPGenT20StatLbl: TLabel
+      Left = 6
+      Height = 14
+      Top = 42
+      Width = 68
+      Caption = 'EP Generated'
+      ParentColor = False
+    end
+    object EPGenT20Lbl: TLabel
+      Left = 78
+      Height = 14
+      Top = 42
+      Width = 68
+      Caption = 'EPGenT20Lbl'
+      ParentColor = False
+    end
+    object T20PowerRefitStatLbl: TLabel
+      Left = 198
+      Height = 14
+      Top = 0
+      Width = 14
+      Caption = 'TL'
+      ParentColor = False
+    end
+    object PowerTonsEdit: TEdit
+      Left = 67
+      Height = 21
+      Hint = 'Enter the Power Plant Tonnage'
+      Top = 14
+      Width = 73
+      ParentShowHint = False
+      ShowHint = True
+      TabOrder = 0
+      Text = '1.000'
+    end
+    object T20RefitPPEdit: TEdit
+      Left = 190
+      Height = 21
+      Top = 14
+      Width = 33
+      TabOrder = 2
+      Text = '0'
+    end
+    object T20RefitPPChkBx: TCheckBox
+      Left = 142
+      Height = 19
+      Top = 14
+      Width = 42
+      Caption = 'Refit'
+      OnChange = T20RefitPPChkBxChange
+      TabOrder = 1
+    end
+  end
+  object UpgradeSpaceEdit: TEdit
+    Left = 104
+    Height = 21
+    Top = 184
+    Width = 97
+    TabOrder = 6
+    Text = '0'
+  end
+  object SingleEngSpaceChkBx: TCheckBox
+    Left = 431
+    Height = 19
+    Top = 152
+    Width = 105
+    Caption = 'Single Eng Space'
+    OnChange = SingleEngSpaceChkBxChange
+    TabOrder = 7
+  end
+  object UpgradeSpaceStatLbl: TLabel
+    Left = 8
+    Height = 14
+    Top = 188
+    Width = 76
+    Caption = 'Upgrade Space'
+    ParentColor = False
+  end
+  object DriveUpgradeChkBx: TCheckBox
+    Left = 431
+    Height = 19
+    Top = 176
+    Width = 94
+    Caption = 'Drive Upgrades'
+    TabOrder = 8
+  end
+end

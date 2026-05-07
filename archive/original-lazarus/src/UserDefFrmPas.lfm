@@ -1,0 +1,790 @@
+object UserDefFrm: TUserDefFrm
+  Left = 204
+  Top = 127
+  Width = 583
+  Height = 288
+  AutoSize = True
+  BorderWidth = 10
+  Caption = 'User Defined Components'
+  Color = clBtnFace
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'MS Sans Serif'
+  Font.Style = []
+  KeyPreview = True
+  Position = poDesktopCenter
+  OnClose = FormClose
+  OnCreate = FormCreate
+  OnKeyDown = FormKeyDown
+  PixelsPerInch = 96
+  object RemHpLbl: TLabel
+    Left = 344
+    Top = 216
+    Width = 50
+    Height = 13
+    Caption = 'RemHpLbl'
+  end
+  object Item1StatLbl: TLabel
+    Left = 0
+    Top = 16
+    Width = 29
+    Height = 13
+    Caption = 'Item 1'
+  end
+  object Item2StatLbl: TLabel
+    Left = 0
+    Top = 40
+    Width = 29
+    Height = 13
+    Caption = 'Item 2'
+  end
+  object Item3StatLbl: TLabel
+    Left = 0
+    Top = 64
+    Width = 29
+    Height = 13
+    Caption = 'Item 3'
+  end
+  object Item4StatLbl: TLabel
+    Left = 0
+    Top = 88
+    Width = 29
+    Height = 13
+    Caption = 'Item 4'
+  end
+  object Item5StatLbl: TLabel
+    Left = 0
+    Top = 112
+    Width = 29
+    Height = 13
+    Caption = 'Item 5'
+  end
+  object Item6StatLbl: TLabel
+    Left = 0
+    Top = 136
+    Width = 29
+    Height = 13
+    Caption = 'Item 6'
+  end
+  object Item7StatLbl: TLabel
+    Left = 0
+    Top = 160
+    Width = 29
+    Height = 13
+    Caption = 'Item 7'
+  end
+  object Item8StatLbl: TLabel
+    Left = 0
+    Top = 184
+    Width = 29
+    Height = 13
+    Caption = 'Item 8'
+  end
+  object NumStatLbl: TLabel
+    Left = 40
+    Top = 0
+    Width = 39
+    Height = 13
+    Caption = 'Quantity'
+  end
+  object SizeStatLbl: TLabel
+    Left = 96
+    Top = 0
+    Width = 43
+    Height = 13
+    Caption = 'Tonnage'
+  end
+  object DescStatLbl: TLabel
+    Left = 200
+    Top = 0
+    Width = 53
+    Height = 13
+    Caption = 'Description'
+  end
+  object CrewStatLbl: TLabel
+    Left = 312
+    Top = 0
+    Width = 24
+    Height = 13
+    Caption = 'Crew'
+  end
+  object EpStatLbl: TLabel
+    Left = 376
+    Top = 0
+    Width = 14
+    Height = 13
+    Caption = 'EP'
+  end
+  object CostStatLbl: TLabel
+    Left = 456
+    Top = 0
+    Width = 21
+    Height = 13
+    Caption = 'Cost'
+  end
+  object HpStatLbl: TLabel
+    Left = 504
+    Top = 0
+    Width = 51
+    Height = 13
+    Caption = 'Hardpoints'
+  end
+  object RemHpStatLbl: TLabel
+    Left = 232
+    Top = 216
+    Width = 104
+    Height = 13
+    Caption = 'Hardpoints Remaining'
+  end
+  object OKBtn: TButton
+    Left = 48
+    Top = 216
+    Width = 75
+    Height = 25
+    Hint = 'Apply your changes and return to the Main Form'
+    Caption = '&OK'
+    Default = True
+    ParentShowHint = False
+    ShowHint = True
+    TabOrder = 0
+    OnClick = OKBtnClick
+  end
+  object CancelBtn: TButton
+    Left = 136
+    Top = 216
+    Width = 75
+    Height = 25
+    Hint = 'Cancel your changes and return to the Main Form'
+    Cancel = True
+    Caption = '&Cancel'
+    ParentShowHint = False
+    ShowHint = True
+    TabOrder = 1
+    OnClick = CancelBtnClick
+  end
+  object Item1NumEdit: TEdit
+    Left = 40
+    Top = 16
+    Width = 33
+    Height = 21
+    Hint = 'Enter the number of these Items'
+    ParentShowHint = False
+    ShowHint = True
+    TabOrder = 2
+    Text = '0'
+  end
+  object Item1SizeEdit: TEdit
+    Left = 80
+    Top = 16
+    Width = 73
+    Height = 21
+    Hint = 'Enter the tonnage  of this type of Item'
+    ParentShowHint = False
+    ShowHint = True
+    TabOrder = 3
+    Text = '0.000'
+  end
+  object Item1DescEdit: TEdit
+    Left = 160
+    Top = 16
+    Width = 137
+    Height = 21
+    Hint = 'Enter this Item'#39's Description'
+    ParentShowHint = False
+    ShowHint = True
+    TabOrder = 4
+    Text = 'None'
+  end
+  object Item1CrewEdit: TEdit
+    Left = 304
+    Top = 16
+    Width = 41
+    Height = 21
+    Hint = 'Enter the Crew required by this type of Item'
+    ParentShowHint = False
+    ShowHint = True
+    TabOrder = 5
+    Text = '0'
+  end
+  object Item1EpEdit: TEdit
+    Left = 352
+    Top = 16
+    Width = 73
+    Height = 21
+    Hint = 'Enter the Energy Points required by this type of Item'
+    ParentShowHint = False
+    ShowHint = True
+    TabOrder = 6
+    Text = '0.000'
+  end
+  object Item1CostEdit: TEdit
+    Left = 432
+    Top = 16
+    Width = 73
+    Height = 21
+    Hint = 'Enter the Cost of this type of Item'
+    ParentShowHint = False
+    ShowHint = True
+    TabOrder = 7
+    Text = '0.000'
+  end
+  object Item1HpEdit: TEdit
+    Left = 512
+    Top = 16
+    Width = 41
+    Height = 21
+    Hint = 'Enter the Hardpoints required by this type of Item'
+    ParentShowHint = False
+    ShowHint = True
+    TabOrder = 8
+    Text = '0'
+    OnChange = Item1HpEditChange
+  end
+  object Item2NumEdit: TEdit
+    Left = 40
+    Top = 40
+    Width = 33
+    Height = 21
+    Hint = 'Enter the number of these Items'
+    ParentShowHint = False
+    ShowHint = True
+    TabOrder = 9
+    Text = '0'
+  end
+  object Item2SizeEdit: TEdit
+    Left = 80
+    Top = 40
+    Width = 73
+    Height = 21
+    Hint = 'Enter the tonnage  of this type of Item'
+    ParentShowHint = False
+    ShowHint = True
+    TabOrder = 10
+    Text = '0.000'
+  end
+  object Item2DescEdit: TEdit
+    Left = 160
+    Top = 40
+    Width = 137
+    Height = 21
+    Hint = 'Enter this Item'#39's Description'
+    ParentShowHint = False
+    ShowHint = True
+    TabOrder = 11
+    Text = 'None'
+  end
+  object Item2CrewEdit: TEdit
+    Left = 304
+    Top = 40
+    Width = 41
+    Height = 21
+    Hint = 'Enter the Crew required by this type of Item'
+    ParentShowHint = False
+    ShowHint = True
+    TabOrder = 12
+    Text = '0'
+  end
+  object Item2EpEdit: TEdit
+    Left = 352
+    Top = 40
+    Width = 73
+    Height = 21
+    Hint = 'Enter the Energy Points required by this type of Item'
+    ParentShowHint = False
+    ShowHint = True
+    TabOrder = 13
+    Text = '0.000'
+  end
+  object Item2CostEdit: TEdit
+    Left = 432
+    Top = 40
+    Width = 73
+    Height = 21
+    Hint = 'Enter the Cost of this type of Item'
+    ParentShowHint = False
+    ShowHint = True
+    TabOrder = 14
+    Text = '0.000'
+  end
+  object Item2HpEdit: TEdit
+    Left = 512
+    Top = 40
+    Width = 41
+    Height = 21
+    Hint = 'Enter the Hardpoints required by this type of Item'
+    ParentShowHint = False
+    ShowHint = True
+    TabOrder = 15
+    Text = '0'
+    OnChange = Item2HpEditChange
+  end
+  object Item3NumEdit: TEdit
+    Left = 40
+    Top = 64
+    Width = 33
+    Height = 21
+    Hint = 'Enter the number of these Items'
+    ParentShowHint = False
+    ShowHint = True
+    TabOrder = 16
+    Text = '0'
+  end
+  object Item3SizeEdit: TEdit
+    Left = 80
+    Top = 64
+    Width = 73
+    Height = 21
+    Hint = 'Enter the tonnage  of this type of Item'
+    ParentShowHint = False
+    ShowHint = True
+    TabOrder = 17
+    Text = '0.000'
+  end
+  object Item3DescEdit: TEdit
+    Left = 160
+    Top = 64
+    Width = 137
+    Height = 21
+    Hint = 'Enter this Item'#39's Description'
+    ParentShowHint = False
+    ShowHint = True
+    TabOrder = 18
+    Text = 'None'
+  end
+  object Item3CrewEdit: TEdit
+    Left = 304
+    Top = 64
+    Width = 41
+    Height = 21
+    Hint = 'Enter the Crew required by this type of Item'
+    ParentShowHint = False
+    ShowHint = True
+    TabOrder = 19
+    Text = '0'
+  end
+  object Item3EpEdit: TEdit
+    Left = 352
+    Top = 64
+    Width = 73
+    Height = 21
+    Hint = 'Enter the Energy Points required by this type of Item'
+    ParentShowHint = False
+    ShowHint = True
+    TabOrder = 20
+    Text = '0.000'
+  end
+  object Item3CostEdit: TEdit
+    Left = 432
+    Top = 64
+    Width = 73
+    Height = 21
+    Hint = 'Enter the Cost of this type of Item'
+    ParentShowHint = False
+    ShowHint = True
+    TabOrder = 21
+    Text = '0.000'
+  end
+  object Item3HpEdit: TEdit
+    Left = 512
+    Top = 64
+    Width = 41
+    Height = 21
+    Hint = 'Enter the Hardpoints required by this type of Item'
+    ParentShowHint = False
+    ShowHint = True
+    TabOrder = 22
+    Text = '0'
+    OnChange = Item3HpEditChange
+  end
+  object Item4NumEdit: TEdit
+    Left = 40
+    Top = 88
+    Width = 33
+    Height = 21
+    Hint = 'Enter the number of these Items'
+    ParentShowHint = False
+    ShowHint = True
+    TabOrder = 23
+    Text = '0'
+  end
+  object Item4SizeEdit: TEdit
+    Left = 80
+    Top = 88
+    Width = 73
+    Height = 21
+    Hint = 'Enter the tonnage  of this type of Item'
+    ParentShowHint = False
+    ShowHint = True
+    TabOrder = 24
+    Text = '0.000'
+  end
+  object Item4DescEdit: TEdit
+    Left = 160
+    Top = 88
+    Width = 137
+    Height = 21
+    Hint = 'Enter this Item'#39's Description'
+    ParentShowHint = False
+    ShowHint = True
+    TabOrder = 25
+    Text = 'None'
+  end
+  object Item4CrewEdit: TEdit
+    Left = 304
+    Top = 88
+    Width = 41
+    Height = 21
+    Hint = 'Enter the Crew required by this type of Item'
+    ParentShowHint = False
+    ShowHint = True
+    TabOrder = 26
+    Text = '0'
+  end
+  object Item4EpEdit: TEdit
+    Left = 352
+    Top = 88
+    Width = 73
+    Height = 21
+    Hint = 'Enter the Energy Points required by this type of Item'
+    ParentShowHint = False
+    ShowHint = True
+    TabOrder = 27
+    Text = '0.000'
+  end
+  object Item4CostEdit: TEdit
+    Left = 432
+    Top = 88
+    Width = 73
+    Height = 21
+    Hint = 'Enter the Cost of this type of Item'
+    ParentShowHint = False
+    ShowHint = True
+    TabOrder = 29
+    Text = '0.000'
+  end
+  object Item4HpEdit: TEdit
+    Left = 512
+    Top = 88
+    Width = 41
+    Height = 21
+    Hint = 'Enter the Hardpoints required by this type of Item'
+    ParentShowHint = False
+    ShowHint = True
+    TabOrder = 31
+    Text = '0'
+    OnChange = Item4HpEditChange
+  end
+  object Item5NumEdit: TEdit
+    Left = 40
+    Top = 112
+    Width = 33
+    Height = 21
+    Hint = 'Enter the number of these Items'
+    ParentShowHint = False
+    ShowHint = True
+    TabOrder = 33
+    Text = '0'
+  end
+  object Item5SizeEdit: TEdit
+    Left = 80
+    Top = 112
+    Width = 73
+    Height = 21
+    Hint = 'Enter the tonnage  of this type of Item'
+    ParentShowHint = False
+    ShowHint = True
+    TabOrder = 35
+    Text = '0.000'
+  end
+  object Item5DescEdit: TEdit
+    Left = 160
+    Top = 112
+    Width = 137
+    Height = 21
+    Hint = 'Enter this Item'#39's Description'
+    ParentShowHint = False
+    ShowHint = True
+    TabOrder = 37
+    Text = 'None'
+  end
+  object Item5CrewEdit: TEdit
+    Left = 304
+    Top = 112
+    Width = 41
+    Height = 21
+    Hint = 'Enter the Crew required by this type of Item'
+    ParentShowHint = False
+    ShowHint = True
+    TabOrder = 39
+    Text = '0'
+  end
+  object Item5EpEdit: TEdit
+    Left = 352
+    Top = 112
+    Width = 73
+    Height = 21
+    Hint = 'Enter the Energy Points required by this type of Item'
+    ParentShowHint = False
+    ShowHint = True
+    TabOrder = 41
+    Text = '0.000'
+  end
+  object Item5CostEdit: TEdit
+    Left = 432
+    Top = 112
+    Width = 73
+    Height = 21
+    Hint = 'Enter the Cost of this type of Item'
+    ParentShowHint = False
+    ShowHint = True
+    TabOrder = 43
+    Text = '0.000'
+  end
+  object Item5HpEdit: TEdit
+    Left = 512
+    Top = 112
+    Width = 41
+    Height = 21
+    Hint = 'Enter the Hardpoints required by this type of Item'
+    ParentShowHint = False
+    ShowHint = True
+    TabOrder = 45
+    Text = '0'
+    OnChange = Item5HpEditChange
+  end
+  object Item6NumEdit: TEdit
+    Left = 40
+    Top = 136
+    Width = 33
+    Height = 21
+    Hint = 'Enter the number of these Items'
+    ParentShowHint = False
+    ShowHint = True
+    TabOrder = 47
+    Text = '0'
+  end
+  object Item6SizeEdit: TEdit
+    Left = 80
+    Top = 136
+    Width = 73
+    Height = 21
+    Hint = 'Enter the tonnage  of this type of Item'
+    ParentShowHint = False
+    ShowHint = True
+    TabOrder = 49
+    Text = '0.000'
+  end
+  object Item6DescEdit: TEdit
+    Left = 160
+    Top = 136
+    Width = 137
+    Height = 21
+    Hint = 'Enter this Item'#39's Description'
+    ParentShowHint = False
+    ShowHint = True
+    TabOrder = 51
+    Text = 'None'
+  end
+  object Item6CrewEdit: TEdit
+    Left = 304
+    Top = 136
+    Width = 41
+    Height = 21
+    Hint = 'Enter the Crew required by this type of Item'
+    ParentShowHint = False
+    ShowHint = True
+    TabOrder = 53
+    Text = '0'
+  end
+  object Item6EpEdit: TEdit
+    Left = 352
+    Top = 136
+    Width = 73
+    Height = 21
+    Hint = 'Enter the Energy Points required by this type of Item'
+    ParentShowHint = False
+    ShowHint = True
+    TabOrder = 55
+    Text = '0.000'
+  end
+  object Item6CostEdit: TEdit
+    Left = 432
+    Top = 136
+    Width = 73
+    Height = 21
+    Hint = 'Enter the Cost of this type of Item'
+    ParentShowHint = False
+    ShowHint = True
+    TabOrder = 57
+    Text = '0.000'
+  end
+  object Item6HpEdit: TEdit
+    Left = 512
+    Top = 136
+    Width = 41
+    Height = 21
+    Hint = 'Enter the Hardpoints required by this type of Item'
+    ParentShowHint = False
+    ShowHint = True
+    TabOrder = 28
+    Text = '0'
+    OnChange = Item6HpEditChange
+  end
+  object Item7NumEdit: TEdit
+    Left = 40
+    Top = 160
+    Width = 33
+    Height = 21
+    Hint = 'Enter the number of these Items'
+    ParentShowHint = False
+    ShowHint = True
+    TabOrder = 30
+    Text = '0'
+  end
+  object Item7SizeEdit: TEdit
+    Left = 80
+    Top = 160
+    Width = 73
+    Height = 21
+    Hint = 'Enter the tonnage  of this type of Item'
+    ParentShowHint = False
+    ShowHint = True
+    TabOrder = 32
+    Text = '0.000'
+  end
+  object Item7DescEdit: TEdit
+    Left = 160
+    Top = 160
+    Width = 137
+    Height = 21
+    Hint = 'Enter this Item'#39's Description'
+    ParentShowHint = False
+    ShowHint = True
+    TabOrder = 34
+    Text = 'None'
+  end
+  object Item7CrewEdit: TEdit
+    Left = 304
+    Top = 160
+    Width = 41
+    Height = 21
+    Hint = 'Enter the Crew required by this type of Item'
+    ParentShowHint = False
+    ShowHint = True
+    TabOrder = 36
+    Text = '0'
+  end
+  object Item7EpEdit: TEdit
+    Left = 352
+    Top = 160
+    Width = 73
+    Height = 21
+    Hint = 'Enter the Energy Points required by this type of Item'
+    ParentShowHint = False
+    ShowHint = True
+    TabOrder = 38
+    Text = '0.000'
+  end
+  object Item7CostEdit: TEdit
+    Left = 432
+    Top = 160
+    Width = 73
+    Height = 21
+    Hint = 'Enter the Cost of this type of Item'
+    ParentShowHint = False
+    ShowHint = True
+    TabOrder = 40
+    Text = '0.000'
+  end
+  object Item7HpEdit: TEdit
+    Left = 512
+    Top = 160
+    Width = 41
+    Height = 21
+    Hint = 'Enter the Hardpoints required by this type of Item'
+    ParentShowHint = False
+    ShowHint = True
+    TabOrder = 42
+    Text = '0'
+    OnChange = Item7HpEditChange
+  end
+  object Item8NumEdit: TEdit
+    Left = 40
+    Top = 184
+    Width = 33
+    Height = 21
+    Hint = 'Enter the number of these Items'
+    ParentShowHint = False
+    ShowHint = True
+    TabOrder = 44
+    Text = '0'
+  end
+  object Item8SizeEdit: TEdit
+    Left = 80
+    Top = 184
+    Width = 73
+    Height = 21
+    Hint = 'Enter the tonnage  of this type of Item'
+    ParentShowHint = False
+    ShowHint = True
+    TabOrder = 46
+    Text = '0.000'
+  end
+  object Item8DescEdit: TEdit
+    Left = 160
+    Top = 184
+    Width = 137
+    Height = 21
+    Hint = 'Enter this Item'#39's Description'
+    ParentShowHint = False
+    ShowHint = True
+    TabOrder = 48
+    Text = 'None'
+  end
+  object Item8CrewEdit: TEdit
+    Left = 304
+    Top = 184
+    Width = 41
+    Height = 21
+    Hint = 'Enter the Crew required by this type of Item'
+    ParentShowHint = False
+    ShowHint = True
+    TabOrder = 50
+    Text = '0'
+  end
+  object Item8EpEdit: TEdit
+    Left = 352
+    Top = 184
+    Width = 73
+    Height = 21
+    Hint = 'Enter the Energy Points required by this type of Item'
+    ParentShowHint = False
+    ShowHint = True
+    TabOrder = 52
+    Text = '0.000'
+  end
+  object Item8CostEdit: TEdit
+    Left = 432
+    Top = 184
+    Width = 73
+    Height = 21
+    Hint = 'Enter the Cost of this type of Item'
+    ParentShowHint = False
+    ShowHint = True
+    TabOrder = 54
+    Text = '0.000'
+  end
+  object Item8HpEdit: TEdit
+    Left = 512
+    Top = 184
+    Width = 41
+    Height = 21
+    Hint = 'Enter the Hardpoints required by this type of Item'
+    ParentShowHint = False
+    ShowHint = True
+    TabOrder = 56
+    Text = '0'
+    OnChange = Item8HpEditChange
+  end
+end

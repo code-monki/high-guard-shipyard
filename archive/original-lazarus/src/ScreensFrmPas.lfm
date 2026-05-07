@@ -1,0 +1,238 @@
+object ScreensFrm: TScreensFrm
+  Left = 192
+  Top = 107
+  Width = 231
+  Height = 336
+  AutoSize = True
+  BorderWidth = 10
+  Caption = 'Screens'
+  Color = clBtnFace
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'MS Sans Serif'
+  Font.Style = []
+  KeyPreview = True
+  Position = poDesktopCenter
+  OnClose = FormClose
+  OnCreate = FormCreate
+  OnKeyDown = FormKeyDown
+  PixelsPerInch = 96
+  object OKBtn: TButton
+    Left = 0
+    Top = 264
+    Width = 75
+    Height = 25
+    Hint = 'Apply your changes and return to the Main Form'
+    Caption = '&OK'
+    Default = True
+    ParentShowHint = False
+    ShowHint = True
+    TabOrder = 2
+    OnClick = OKBtnClick
+  end
+  object CancelBtn: TButton
+    Left = 128
+    Top = 264
+    Width = 75
+    Height = 25
+    Hint = 'Cancel your changes and return to the Main Form'
+    Cancel = True
+    Caption = '&Cancel'
+    ParentShowHint = False
+    ShowHint = True
+    TabOrder = 3
+    OnClick = CancelBtnClick
+  end
+  object BakGrpBx: TGroupBox
+    Left = 0
+    Top = 136
+    Width = 201
+    Height = 121
+    Caption = 'Backups'
+    TabOrder = 1
+    object BakNucDampStatLbl: TLabel
+      Left = 6
+      Top = 26
+      Width = 77
+      Height = 13
+      Caption = 'Nuclear Damper'
+    end
+    object BakMesScrnStatLbl: TLabel
+      Left = 6
+      Top = 50
+      Width = 69
+      Height = 13
+      Caption = 'Meson Screen'
+    end
+    object BakBlkGlbStatLbl: TLabel
+      Left = 6
+      Top = 74
+      Width = 58
+      Height = 13
+      Caption = 'Black Globe'
+    end
+    object NumStatLbl: TLabel
+      Left = 150
+      Top = 2
+      Width = 37
+      Height = 13
+      Caption = 'Number'
+    end
+    object BakBlkGlbComboBx: TComboBox
+      Left = 94
+      Top = 74
+      Width = 57
+      Height = 21
+      Hint = 'Select the backup Black Globe Factor'
+      ItemHeight = 13
+      ParentShowHint = False
+      ShowHint = True
+      TabOrder = 4
+      Text = 'BakBlkGlbComboBx'
+      OnChange = BakBlkGlbComboBxChange
+    end
+    object BakBlkGlbEdit: TEdit
+      Left = 158
+      Top = 74
+      Width = 25
+      Height = 21
+      Hint = 'Enter the number of backup Black Globes installed'
+      ParentShowHint = False
+      ShowHint = True
+      TabOrder = 5
+      Text = 'BakBlkGlbEdit'
+    end
+    object BakMesScrnEdit: TEdit
+      Left = 158
+      Top = 50
+      Width = 25
+      Height = 21
+      Hint = 'Enter the number of backup Meson Screens installed'
+      ParentShowHint = False
+      ShowHint = True
+      TabOrder = 3
+      Text = 'BakMesScrnEdit'
+    end
+    object BakMesScrnComboBx: TComboBox
+      Left = 94
+      Top = 50
+      Width = 57
+      Height = 21
+      Hint = 'Select the backup Meson Screen Factor'
+      ItemHeight = 13
+      ParentShowHint = False
+      ShowHint = True
+      TabOrder = 2
+      Text = 'BakMesScrnComboBx'
+      OnChange = BakMesScrnComboBxChange
+    end
+    object BakNucDampComboBx: TComboBox
+      Left = 94
+      Top = 26
+      Width = 57
+      Height = 21
+      Hint = 'Select the backup Nuclear Damper Factor'
+      ItemHeight = 13
+      ParentShowHint = False
+      ShowHint = True
+      TabOrder = 0
+      Text = 'BakNucDampComboBx'
+      OnChange = BakNucDampComboBxChange
+    end
+    object BakNucDampEdit: TEdit
+      Left = 158
+      Top = 26
+      Width = 25
+      Height = 21
+      Hint = 'Enter the number of backup Nuclear Dampers installed'
+      ParentShowHint = False
+      ShowHint = True
+      TabOrder = 1
+      Text = 'BakNucDampEdit'
+    end
+  end
+  object MainGrpBx: TGroupBox
+    Left = 0
+    Top = 0
+    Width = 201
+    Height = 129
+    Caption = 'Main'
+    TabOrder = 0
+    object NucDampStatLbl: TLabel
+      Left = 6
+      Top = 10
+      Width = 77
+      Height = 13
+      Caption = 'Nuclear Damper'
+    end
+    object BlkGlbStatLbl: TLabel
+      Left = 6
+      Top = 58
+      Width = 58
+      Height = 13
+      Caption = 'Black Globe'
+    end
+    object MesSrnStatLbl: TLabel
+      Left = 6
+      Top = 34
+      Width = 69
+      Height = 13
+      Caption = 'Meson Screen'
+    end
+    object ExtCapStatLbl: TLabel
+      Left = 6
+      Top = 82
+      Width = 77
+      Height = 13
+      Caption = 'Extra Capacitors'
+    end
+    object NucDampComboBx: TComboBox
+      Left = 94
+      Top = 10
+      Width = 57
+      Height = 21
+      Hint = 'Select the Nucleat Damper Factor'
+      ItemHeight = 13
+      ParentShowHint = False
+      ShowHint = True
+      TabOrder = 0
+      Text = 'NucDampComboBx'
+    end
+    object MesScrnComboBx: TComboBox
+      Left = 94
+      Top = 34
+      Width = 57
+      Height = 21
+      Hint = 'Select the Meson Screen Factor'
+      ItemHeight = 13
+      ParentShowHint = False
+      ShowHint = True
+      TabOrder = 1
+      Text = 'MesScrnComboBx'
+    end
+    object BlkGlbComboBx: TComboBox
+      Left = 94
+      Top = 58
+      Width = 57
+      Height = 21
+      Hint = 'Select the Black Globe Factor'
+      ItemHeight = 13
+      ParentShowHint = False
+      ShowHint = True
+      TabOrder = 2
+      Text = 'BlkGlbComboBx'
+    end
+    object ExtCapsEdit: TEdit
+      Left = 94
+      Top = 82
+      Width = 57
+      Height = 21
+      Hint = 'Enter the tonnage of extra capacitors'
+      ParentShowHint = False
+      ShowHint = True
+      TabOrder = 3
+      Text = 'ExtCapsEdit'
+    end
+  end
+end

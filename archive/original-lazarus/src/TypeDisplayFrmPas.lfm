@@ -1,0 +1,54 @@
+object TypeDisplayFrm: TTypeDisplayFrm
+  Left = 226
+  Top = 103
+  Width = 261
+  Height = 424
+  AutoSize = True
+  BorderWidth = 10
+  Caption = 'Ship Type Codes'
+  Color = clBtnFace
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'MS Sans Serif'
+  Font.Style = []
+  Position = poDesktopCenter
+  OnClose = FormClose
+  OnCreate = FormCreate
+  PixelsPerInch = 96
+  object OkBitBtn: TBitBtn
+    Left = 72
+    Top = 352
+    Width = 75
+    Height = 25
+    TabOrder = 0
+    OnClick = OkBitBtnClick
+    Kind = bkOK
+  end
+  object PrimaryMemo: TMemo
+    Left = 0
+    Top = 0
+    Width = 113
+    Height = 345
+    TabStop = False
+    BorderStyle = bsNone
+    Color = clBtnFace
+    Lines.Strings = (
+      'PrimaryMemo')
+    ReadOnly = True
+    TabOrder = 1
+  end
+  object SecondaryMemo: TMemo
+    Left = 120
+    Top = 0
+    Width = 113
+    Height = 345
+    TabStop = False
+    BorderStyle = bsNone
+    Color = clBtnFace
+    Lines.Strings = (
+      'SecondaryMemo')
+    ReadOnly = True
+    TabOrder = 2
+  end
+end
