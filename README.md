@@ -12,7 +12,7 @@ The original source code in this repository was provided by Nicole Susans.
 ## Attribution
 
 - Original desktop application: High Guard Shipyard v2.x.
-- Original author: Andrea Vallance (Andrea Moffatt-Vallance).
+- Original author: Andrea Vallance.
 - Source in this repository provided by Nicole Susans.
 
 ## Local development (web app)
