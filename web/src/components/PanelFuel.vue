@@ -1,4 +1,5 @@
 <script setup lang="ts">
+/* PanelFuel — fuel inputs: power plant and jump fuel quantities, liquid-hydrogen tanks, scoops, and purification. */
 import { storeToRefs } from 'pinia'
 import { useShipStore } from '../stores/ship'
 

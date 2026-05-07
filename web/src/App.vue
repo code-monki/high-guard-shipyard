@@ -1,4 +1,5 @@
 <script setup lang="ts">
+/* App.vue — Root application shell: identity strip, sidebar navigation, status meters, panel routing, theme control, and file import/export. */
 import { onMounted, ref, watch, computed } from 'vue'
 import { storeToRefs } from 'pinia'
 import { useShipStore } from './stores/ship'
@@ -114,14 +115,43 @@ const statusClass = (remaining: number): string =>
   remaining < 0 ? 'status-over' : remaining === 0 ? 'status-exact' : 'status-ok'
 
 // ── Dialogs ────────────────────────────────────────────────────────────────
-const helpDialog  = ref<HTMLDialogElement | null>(null)
-const aboutDialog = ref<HTMLDialogElement | null>(null)
-const openHelp  = (): void => helpDialog.value?.showModal()
-const openAbout = (): void => aboutDialog.value?.showModal()
+const helpDialog   = ref<HTMLDialogElement | null>(null)
+const aboutDialog  = ref<HTMLDialogElement | null>(null)
+const issuesDialog = ref<HTMLDialogElement | null>(null)
+const openHelp   = (): void => helpDialog.value?.showModal()
+const openAbout  = (): void => aboutDialog.value?.showModal()
+const openIssues = (): void => issuesDialog.value?.showModal()
+
+/**
+ * Maps a validation issue code number to the PanelId where the user can fix it.
+ * @param code - Numeric issue code from `ValidationIssue.code`.
+ */
+const panelForCode = (code: number): PanelId => {
+  if (code === 1 || code === 6 || code === 7) return 'hull'
+  if (code === 2) return 'hull'
+  if (code === 5 || (code >= 8 && code <= 26)) return 'engineering'
+  if (code >= 27 && code <= 32) return 'fuel'
+  if ((code >= 33 && code <= 50) || code === 107 || code === 108 || (code >= 2001 && code <= 2004)) return 'avionics'
+  if (code >= 51 && code <= 89) return 'weapons'
+  if (code >= 90 && code <= 95) return 'screens'
+  if (code >= 96 && code <= 106) return 'accommodations'
+  return 'results'
+}
+
+/** Navigates to the panel responsible for the given validation issue code and closes the issues dialog. */
+const navigateToIssue = (code: number): void => {
+  activePanel.value = panelForCode(code)
+  issuesDialog.value?.close()
+}
 
 // ── Nav keyboard support (↑ / ↓ arrows) ───────────────────────────────────
 const navEl = ref<HTMLElement | null>(null)
 
+/**
+ * Handles ArrowUp/ArrowDown keydown events on sidebar nav buttons to move focus between panels.
+ * @param event - The keyboard event from the nav button.
+ * @param id - The PanelId of the button that received the event.
+ */
 const onNavKeydown = (event: KeyboardEvent, id: PanelId): void => {
   const idx = navItems.findIndex(item => item.id === id)
   let next = -1
@@ -272,9 +302,10 @@ const onNavKeydown = (event: KeyboardEvent, id: PanelId): void => {
             <p class="status-meter-detail">{{ totalEpDemand }} demand / {{ totalEpOutput }} output</p>
           </div>
 
-          <div v-if="validationIssues.length > 0" class="status-issues">
+          <button v-if="validationIssues.length > 0" type="button" class="status-issues" @click="openIssues()" aria-haspopup="dialog">
             <span class="status-issues-count">{{ validationIssues.length }} issue{{ validationIssues.length > 1 ? 's' : '' }}</span>
-          </div>
+            <span class="status-issues-hint">click to review</span>
+          </button>
         </div>
 
         <!-- Nav links -->
@@ -349,6 +380,25 @@ const onNavKeydown = (event: KeyboardEvent, id: PanelId): void => {
           </tbody>
         </table>
 
+      </div>
+    </dialog>
+
+    <!-- ── Issues dialog ── -->
+    <dialog ref="issuesDialog" class="app-dialog" aria-labelledby="issues-title">
+      <div class="dialog-header">
+        <h2 id="issues-title">Design Issues</h2>
+        <button type="button" class="dialog-close" aria-label="Close" @click="issuesDialog?.close()">✕</button>
+      </div>
+      <div class="dialog-body">
+        <p class="issues-dialog-intro">Click a panel name to navigate directly to the relevant section.</p>
+        <ul class="issues-dialog-list">
+          <li v-for="issue in validationIssues" :key="issue.code" class="issues-dialog-item">
+            <span class="issues-dialog-msg">[{{ issue.code }}] {{ issue.message }}</span>
+            <button type="button" class="issues-dialog-nav" @click="navigateToIssue(issue.code)">
+              {{ navItems.find(n => n.id === panelForCode(issue.code))?.label ?? 'Results' }} →
+            </button>
+          </li>
+        </ul>
       </div>
     </dialog>
 

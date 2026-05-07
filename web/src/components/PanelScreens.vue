@@ -1,4 +1,5 @@
 <script setup lang="ts">
+/* PanelScreens — defensive screens inputs: nuclear dampers, meson screens, black globes, and extra capacitors. */
 import { storeToRefs } from 'pinia'
 import { useShipStore } from '../stores/ship'
 

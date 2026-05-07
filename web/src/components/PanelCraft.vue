@@ -1,4 +1,5 @@
 <script setup lang="ts">
+/* PanelCraft — craft facilities inputs: carried small craft and vehicles, fighter squadrons, and launch catapults. */
 import { storeToRefs } from 'pinia'
 import { useShipStore } from '../stores/ship'
 

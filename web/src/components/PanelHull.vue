@@ -1,4 +1,5 @@
 <script setup lang="ts">
+/* PanelHull — hull configuration inputs: hull type, armour, streamlining, airframe, and extra structure. */
 import { storeToRefs } from 'pinia'
 import { useShipStore } from '../stores/ship'
 

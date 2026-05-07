@@ -1,3 +1,5 @@
+/* ship.ts — Pinia store that holds all reactive ship-design state, derives module computations, runs validation, and exposes import/export actions. */
+
 import { computed, ref, watchEffect } from 'vue'
 import { defineStore } from 'pinia'
 import {
@@ -275,9 +277,11 @@ export const useShipStore = defineStore('ship', () => {
   })
   const legacyOptionsInputs = ref<LegacyOptionsInputs>(defaultLegacyOptionsInputs())
 
+  /** Computed hull module result (tonnage consumed and cost). */
   const hullModule = computed(() =>
     computeHullModule(design.value.tonnage, design.value.techLevel, hullInputs.value),
   )
+  /** Computed engineering module result (drive/power-plant tonnage, cost, EP output and M-Drive demand). */
   const engineModule = computed(() =>
     computeEngineModule(
       design.value.tonnage,
@@ -287,6 +291,7 @@ export const useShipStore = defineStore('ship', () => {
       engineInputs.value,
     ),
   )
+  /** Computed fuel module result (tankage tonnage and cost). */
   const fuelModule = computed(() =>
     computeFuelModule(
       design.value.tonnage,
@@ -297,6 +302,7 @@ export const useShipStore = defineStore('ship', () => {
       fuelInputs.value,
     ),
   )
+  /** Computed avionics module result (computers, bridges, sensors tonnage, cost, and EP demand). */
   const avionicsModule = computed(() =>
     computeAvionicsModule(
       design.value.tonnage,
@@ -306,6 +312,7 @@ export const useShipStore = defineStore('ship', () => {
       avionicsInputs.value,
     ),
   )
+  /** Computed screens module result (dampers, meson screens, black globes tonnage, cost, and EP demand). */
   const screensModule = computed(() =>
     computeScreensModule(
       design.value.tonnage,
@@ -313,6 +320,7 @@ export const useShipStore = defineStore('ship', () => {
       screenInputs.value,
     ),
   )
+  /** Computed spinal mount module result (tonnage, cost, and EP demand). */
   const spinalModule = computed(() =>
     computeSpinalModule(
       design.value.techLevel,
@@ -320,6 +328,7 @@ export const useShipStore = defineStore('ship', () => {
       weaponInputs.value,
     ),
   )
+  /** Computed 100-ton bays module result (tonnage, cost, and EP demand). */
   const bigBaysModule = computed(() =>
     computeBigBaysModule(
       design.value.techLevel,
@@ -327,6 +336,7 @@ export const useShipStore = defineStore('ship', () => {
       weaponInputs.value,
     ),
   )
+  /** Computed 50-ton bays module result (tonnage, cost, and EP demand). */
   const littleBaysModule = computed(() =>
     computeLittleBaysModule(
       design.value.techLevel,
@@ -334,6 +344,7 @@ export const useShipStore = defineStore('ship', () => {
       weaponInputs.value,
     ),
   )
+  /** Computed turrets module result (tonnage, cost, and EP demand). */
   const turretsModule = computed(() =>
     computeTurretsModule(
       design.value.techLevel,
@@ -342,6 +353,7 @@ export const useShipStore = defineStore('ship', () => {
       legacyOptionsInputs.value.chargeForHardpoints,
     ),
   )
+  /** Computed accommodations module result (quarters, passengers, facilities tonnage and cost). */
   const accomModule = computed(() =>
     computeAccomModule(
       design.value.techLevel,
@@ -350,12 +362,14 @@ export const useShipStore = defineStore('ship', () => {
       accomInputs.value,
     ),
   )
+  /** Computed user-defined components module result (aggregate tonnage, cost, and EP demand). */
   const userDefModule = computed(() =>
     computeUserDefModule(
       design.value.techLevel,
       userDefInputs.value,
     ),
   )
+  /** Computed craft facilities module result (small craft and launcher tonnage and cost). */
   const craftModule = computed(() =>
     computeCraftModule(
       design.value.techLevel,
@@ -379,15 +393,19 @@ export const useShipStore = defineStore('ship', () => {
     craftModule.value,
   ])
 
+  /** Sum of tonnage across all design modules. */
   const usedTonnage = computed(() =>
     modules.value.reduce((total, module) => total + module.tonnage, 0),
   )
+  /** Sum of cost (MCr) across all design modules. */
   const usedBudget = computed(() =>
     modules.value.reduce((total, module) => total + module.costMcr, 0),
   )
+  /** Total Energy Points produced by all power-plant modules. */
   const totalEpOutput = computed(() =>
     modules.value.reduce((total, module) => total + (module.epOutput ?? 0), 0),
   )
+  /** Total Energy Points consumed by all modules. */
   const totalEpDemand = computed(() =>
     modules.value.reduce((total, module) => total + (module.epDemand ?? 0), 0),
   )
@@ -607,6 +625,7 @@ export const useShipStore = defineStore('ship', () => {
     }
   }
 
+  /** All rule violations for the current design state; empty array when the design is valid. */
   const validationIssues = computed(() =>
     validateDesign(
       design.value,
@@ -655,6 +674,7 @@ export const useShipStore = defineStore('ship', () => {
     }
   })
 
+  /** Resets all design inputs and module state to the built-in default example ship. */
   const resetDesign = () => {
     hgsRawLines.value = null
     design.value = defaultDesign()
@@ -874,6 +894,7 @@ export const useShipStore = defineStore('ship', () => {
     legacyOptionsInputs.value = defaultLegacyOptionsInputs()
   }
 
+  /** Parses a .hgs file text string and replaces all current design inputs with the parsed values. */
   const importHgsText = (text: string): void => {
     const parsed = parseHgsText(text)
     hgsRawLines.value = parsed.rawLines
@@ -923,6 +944,7 @@ export const useShipStore = defineStore('ship', () => {
     }
   }
 
+  /** Serialises the current design to a .hgs-format string suitable for download as a file. */
   const exportHgsText = (): string =>
     serializeHgsText({
       rawLines: hgsRawLines.value ?? [],

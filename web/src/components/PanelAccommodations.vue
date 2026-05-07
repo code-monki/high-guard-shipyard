@@ -1,4 +1,5 @@
 <script setup lang="ts">
+/* PanelAccommodations — accommodation inputs: quarters, passengers, cargo, drop capsules, crew, and facilities. */
 import { storeToRefs } from 'pinia'
 import { useShipStore } from '../stores/ship'
 

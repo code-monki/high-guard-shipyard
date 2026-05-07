@@ -1,4 +1,5 @@
 <script setup lang="ts">
+/* PanelUserDefined — user-defined component inputs: up to 8 custom items with tonnage, crew, EP, cost, and hardpoints. */
 import { storeToRefs } from 'pinia'
 import { useShipStore } from '../stores/ship'
 

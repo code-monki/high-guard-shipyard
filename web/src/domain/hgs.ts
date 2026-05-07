@@ -1,3 +1,5 @@
+/* hgs.ts — Parser and serialiser for the legacy .hgs CSV file format produced by the original High Guard Shipyard desktop application. */
+
 import type {
   AccomInputs,
   AvionicsInputs,
@@ -79,7 +81,12 @@ const withLen = (arr: string[], len: number): string[] => {
   return next
 }
 
+/**
+ * Fully-parsed representation of a .hgs file, with one typed sub-object per design section.
+ * `rawLines` preserves the original CSV lines so unchanged sections round-trip byte-for-byte.
+ */
 export interface ParsedHgs {
+  /** Original lines from the source .hgs text, used by `serializeHgsText` to preserve untouched data. */
   rawLines: string[]
   design: ShipDesign
   hull: HullInputs
@@ -95,6 +102,7 @@ export interface ParsedHgs {
   legacyOptions?: LegacyOptionsInputs
 }
 
+/** Returns a zero-valued `LegacyOptionsInputs` object matching the desktop application's default state. */
 export const defaultLegacyOptionsInputs = (): LegacyOptionsInputs => ({
   chargeForHardpoints: false,
   autoCalcAccom: false,
@@ -102,6 +110,11 @@ export const defaultLegacyOptionsInputs = (): LegacyOptionsInputs => ({
   milStdMod: 0,
 })
 
+/**
+ * Parses legacy .hgs CSV text (produced by the original desktop application) into a typed `ParsedHgs` object.
+ * @param text - Raw .hgs file contents (LF or CRLF line endings accepted).
+ * @returns Fully-populated `ParsedHgs`; throws if the file has fewer than the minimum required lines.
+ */
 export const parseHgsText = (text: string): ParsedHgs => {
   const lines = text.replace(/\r\n/g, '\n').split('\n').filter((l) => l.length > 0)
   if (lines.length < MIN_HGS_LINES) throw new Error('Invalid .hgs: too few lines')
@@ -374,6 +387,10 @@ export const parseHgsText = (text: string): ParsedHgs => {
   }
 }
 
+/**
+ * Serialises a `ParsedHgs` back to .hgs CSV text, preserving original line content where values are unchanged.
+ * @returns A multi-line string suitable for saving as a .hgs file.
+ */
 export const serializeHgsText = (parsed: ParsedHgs): string => {
   const lines = [...DEFAULT_HGS_TEMPLATE_LINES]
   for (let i = 0; i < parsed.rawLines.length; i += 1) lines[i] = parsed.rawLines[i]
