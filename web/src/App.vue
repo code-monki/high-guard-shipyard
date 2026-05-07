@@ -1,6 +1,6 @@
 <script setup lang="ts">
 /* App.vue — Root application shell: identity strip, sidebar navigation, status meters, panel routing, theme control, and file import/export. */
-import { onMounted, ref, watch, computed } from 'vue'
+import { onMounted, onUnmounted, ref, watch, computed } from 'vue'
 import { storeToRefs } from 'pinia'
 import { useShipStore } from './stores/ship'
 import PanelHull from './components/PanelHull.vue'
@@ -45,6 +45,8 @@ watch(themeId, (id) => {
 // ── File I/O ───────────────────────────────────────────────────────────────
 const filePicker = ref<HTMLInputElement | null>(null)
 const ioMessage = ref('')
+type ExportFormat = 'hgs' | 'json'
+const exportFormat = ref<ExportFormat>('hgs')
 
 const openImportDialog = (): void => {
   ioMessage.value = ''
@@ -57,7 +59,12 @@ const onImportFile = async (event: Event): Promise<void> => {
   if (!file) return
   try {
     const text = await file.text()
-    shipStore.importHgsText(text)
+    const ext = file.name.split('.').pop()?.toLowerCase()
+    if (ext === 'json') {
+      shipStore.importJsonText(text)
+    } else {
+      shipStore.importHgsText(text)
+    }
     ioMessage.value = `Imported ${file.name}`
   } catch (error) {
     ioMessage.value = error instanceof Error ? `Import failed: ${error.message}` : 'Import failed'
@@ -66,22 +73,39 @@ const onImportFile = async (event: Event): Promise<void> => {
   }
 }
 
-const exportHgs = (): void => {
+const exportDesign = async (): Promise<void> => {
+  const base = design.value.shipClass || design.value.shipName || 'ship-design'
+  const safe = base.replace(/[^a-z0-9-_]+/gi, '_').toLowerCase()
+  const fmt = exportFormat.value
+  const isJson = fmt === 'json'
+  const filename = `${safe}.${fmt}`
+  const getText = () => isJson ? shipStore.exportJsonText() : shipStore.exportHgsText()
   try {
-    const text = shipStore.exportHgsText()
-    const blob = new Blob([text], { type: 'text/plain;charset=utf-8' })
-    const url = URL.createObjectURL(blob)
-    const anchor = document.createElement('a')
-    const base = design.value.shipClass || design.value.shipName || 'ship-design'
-    const safe = base.replace(/[^a-z0-9-_]+/gi, '_').toLowerCase()
-    anchor.href = url
-    anchor.download = `${safe}.hgs`
-    document.body.appendChild(anchor)
-    anchor.click()
-    document.body.removeChild(anchor)
-    URL.revokeObjectURL(url)
-    ioMessage.value = `Exported ${anchor.download}`
+    if ('showSaveFilePicker' in window) {
+      const handle = await (window as Window & { showSaveFilePicker: (o: object) => Promise<FileSystemFileHandle> }).showSaveFilePicker({
+        suggestedName: filename,
+        types: isJson
+          ? [{ description: 'JSON file', accept: { 'application/json': ['.json'] } }]
+          : [{ description: 'High Guard Shipyard file', accept: { 'text/plain': ['.hgs'] } }],
+      })
+      const writable = await handle.createWritable()
+      await writable.write(getText())
+      await writable.close()
+      ioMessage.value = `Exported ${handle.name}`
+    } else {
+      const blob = new Blob([getText()], { type: isJson ? 'application/json;charset=utf-8' : 'text/plain;charset=utf-8' })
+      const url = URL.createObjectURL(blob)
+      const anchor = document.createElement('a')
+      anchor.href = url
+      anchor.download = filename
+      document.body.appendChild(anchor)
+      anchor.click()
+      document.body.removeChild(anchor)
+      URL.revokeObjectURL(url)
+      ioMessage.value = `Exported ${anchor.download}`
+    }
   } catch (error) {
+    if (error instanceof Error && error.name === 'AbortError') return
     ioMessage.value = error instanceof Error ? `Export failed: ${error.message}` : 'Export failed'
   }
 }
@@ -113,6 +137,16 @@ const epPct      = computed(() => totalEpOutput.value > 0 ? Math.min(100, (total
 
 const statusClass = (remaining: number): string =>
   remaining < 0 ? 'status-over' : remaining === 0 ? 'status-exact' : 'status-ok'
+
+// ── Overflow menu ─────────────────────────────────────────────────────────
+const moreMenuOpen = ref(false)
+const moreMenuEl   = ref<HTMLElement | null>(null)
+const onDocClick   = (e: MouseEvent) => {
+  if (moreMenuEl.value && !moreMenuEl.value.contains(e.target as Node))
+    moreMenuOpen.value = false
+}
+onMounted(()   => document.addEventListener('click', onDocClick))
+onUnmounted(() => document.removeEventListener('click', onDocClick))
 
 // ── Dialogs ────────────────────────────────────────────────────────────────
 const helpDialog   = ref<HTMLDialogElement | null>(null)
@@ -183,14 +217,29 @@ const onNavKeydown = (event: KeyboardEvent, id: PanelId): void => {
             <button type="button" class="theme-btn" :class="{ active: themeId === 'sepia' }" @click="themeId = 'sepia'">Sepia</button>
           </div>
         </div>
-        <input ref="filePicker" type="file" accept=".hgs,text/plain" class="hidden-file"
+        <input ref="filePicker" type="file" accept=".hgs,.json,text/plain,application/json" class="hidden-file"
           aria-hidden="true" tabindex="-1" @change="onImportFile" />
-        <button type="button" class="btn-ghost" @click="openImportDialog">Import .hgs</button>
-        <button type="button" class="btn-ghost" @click="exportHgs">Export .hgs</button>
+        <button type="button" class="btn-ghost" @click="openImportDialog">Import</button>
+        <div class="export-group" role="group" aria-label="Export">
+          <select v-model="exportFormat" class="export-format-select" aria-label="Export format">
+            <option value="hgs">.hgs</option>
+            <option value="json">.json</option>
+          </select>
+          <button type="button" class="btn-ghost export-btn" @click="exportDesign">Export</button>
+        </div>
         <button type="button" class="btn-ghost" @click="printSummary">Print</button>
-        <button type="button" class="btn-ghost" @click="shipStore.resetDesign()">Reset</button>
-        <button type="button" class="btn-ghost" @click="openHelp">Help</button>
-        <button type="button" class="btn-ghost" @click="openAbout">About</button>
+        <div ref="moreMenuEl" class="more-menu">
+          <button type="button" class="btn-ghost" aria-haspopup="true" :aria-expanded="moreMenuOpen"
+            @click.stop="moreMenuOpen = !moreMenuOpen">⋯</button>
+          <div v-if="moreMenuOpen" class="more-menu-dropdown" role="menu">
+            <button type="button" class="more-menu-item" role="menuitem"
+              @click="shipStore.resetDesign(); moreMenuOpen = false">Reset</button>
+            <button type="button" class="more-menu-item" role="menuitem"
+              @click="openHelp(); moreMenuOpen = false">Help</button>
+            <button type="button" class="more-menu-item" role="menuitem"
+              @click="openAbout(); moreMenuOpen = false">About</button>
+          </div>
+        </div>
       </div>
     </header>
 
@@ -365,8 +414,8 @@ const onNavKeydown = (event: KeyboardEvent, id: PanelId): void => {
 
         <h3>File operations</h3>
         <dl class="help-dl">
-          <dt>Import .hgs</dt><dd>Load a design file saved by the original High Guard Shipyard desktop application or a previous export from this tool.</dd>
-          <dt>Export .hgs</dt><dd>Save the current design in the legacy .hgs text format, compatible with the desktop application.</dd>
+          <dt>Import</dt><dd>Open a file picker to load a design. Accepts <code>.hgs</code> files (original desktop application format) and <code>.json</code> files exported by this tool. Format is detected automatically from the file extension.</dd>
+          <dt>Export</dt><dd>Save the current design. In supported browsers (Chrome, Edge) a native save dialog lets you choose between <code>.hgs</code> and <code>.json</code>. In other browsers the file downloads automatically as <code>.hgs</code>.</dd>
           <dt>Print</dt><dd>Print a full-page summary. Use <em>Print this card</em> on the Results panel to print only the compact summary card.</dd>
         </dl>
 
@@ -421,7 +470,7 @@ const onNavKeydown = (event: KeyboardEvent, id: PanelId): void => {
 
         <h3>Source &amp; licence</h3>
         <p>The source code for this web port is available on GitHub:<br>
-          <a class="about-link" href="https://github.com/CodeMonki/high-guard-shipyard" target="_blank" rel="noopener">github.com/CodeMonki/high-guard-shipyard</a>
+          <a class="about-link" href="https://github.com/code-monki/high-guard-shipyard" target="_blank" rel="noopener">github.com/code-monki/high-guard-shipyard</a>
         </p>
         <p class="about-legal">Traveller is a registered trademark of Far Future Enterprises. High Guard is published under licence. This tool is a non-commercial fan project and is not affiliated with or endorsed by Far Future Enterprises.</p>
 

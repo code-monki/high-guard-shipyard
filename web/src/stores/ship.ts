@@ -961,6 +961,48 @@ export const useShipStore = defineStore('ship', () => {
       legacyOptions: legacyOptionsInputs.value,
     })
 
+  /** Parses a JSON string exported by this tool and replaces all current design inputs with the parsed values. */
+  const importJsonText = (text: string): void => {
+    const data: unknown = JSON.parse(text)
+    if (!data || typeof data !== 'object' || !('design' in data)) {
+      throw new Error('Not a valid High Guard Shipyard JSON file')
+    }
+    const d = data as Record<string, unknown>
+    hgsRawLines.value = null
+    if (d.design) design.value = { ...design.value, ...(d.design as object) }
+    if (d.hull) hullInputs.value = { ...hullInputs.value, ...(d.hull as object) }
+    if (d.engine) engineInputs.value = { ...engineInputs.value, ...(d.engine as object) }
+    if (d.fuel) fuelInputs.value = { ...fuelInputs.value, ...(d.fuel as object) }
+    if (d.avionics) avionicsInputs.value = { ...avionicsInputs.value, ...(d.avionics as object) }
+    if (d.weapons) weaponInputs.value = { ...weaponInputs.value, ...(d.weapons as object) }
+    if (d.screens) screenInputs.value = { ...screenInputs.value, ...(d.screens as object) }
+    if (d.accom) accomInputs.value = { ...accomInputs.value, ...(d.accom as object) }
+    if (d.userDef) userDefInputs.value = { ...userDefInputs.value, ...(d.userDef as object) }
+    if (d.craft) craftInputs.value = { ...craftInputs.value, ...(d.craft as object) }
+    if (d.legacyOptions) legacyOptionsInputs.value = { ...legacyOptionsInputs.value, ...(d.legacyOptions as object) }
+  }
+
+  /** Serialises the current design to a JSON string suitable for download as a file. */
+  const exportJsonText = (): string =>
+    JSON.stringify(
+      {
+        version: 1,
+        design: design.value,
+        hull: hullInputs.value,
+        engine: engineInputs.value,
+        fuel: fuelInputs.value,
+        avionics: avionicsInputs.value,
+        weapons: weaponInputs.value,
+        screens: screenInputs.value,
+        accom: accomInputs.value,
+        userDef: userDefInputs.value,
+        craft: craftInputs.value,
+        legacyOptions: legacyOptionsInputs.value,
+      },
+      null,
+      2,
+    )
+
   return {
     design,
     hullInputs,
@@ -997,5 +1039,7 @@ export const useShipStore = defineStore('ship', () => {
     resetDesign,
     importHgsText,
     exportHgsText,
+    importJsonText,
+    exportJsonText,
   }
 })
