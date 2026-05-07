@@ -264,7 +264,7 @@ const onNavKeydown = (event: KeyboardEvent, id: PanelId): void => {
             <div class="status-meter-header">
               <span class="status-meter-label">Tonnage</span>
               <span class="status-meter-value" :class="statusClass(remainingTonnage)">
-                {{ remainingTonnage >= 0 ? remainingTonnage + ' rem' : Math.abs(remainingTonnage) + ' over' }}
+                {{ remainingTonnage >= 0 ? remainingTonnage + ' remaining' : Math.abs(remainingTonnage) + ' over' }}
               </span>
             </div>
             <div class="status-bar-track">
@@ -278,7 +278,7 @@ const onNavKeydown = (event: KeyboardEvent, id: PanelId): void => {
             <div class="status-meter-header">
               <span class="status-meter-label">Budget</span>
               <span class="status-meter-value" :class="statusClass(remainingBudget)">
-                {{ remainingBudget >= 0 ? remainingBudget + ' rem' : Math.abs(remainingBudget) + ' over' }}
+                {{ remainingBudget >= 0 ? remainingBudget + ' remaining' : Math.abs(remainingBudget) + ' over' }}
               </span>
             </div>
             <div class="status-bar-track">
@@ -292,7 +292,7 @@ const onNavKeydown = (event: KeyboardEvent, id: PanelId): void => {
             <div class="status-meter-header">
               <span class="status-meter-label">Energy</span>
               <span class="status-meter-value" :class="statusClass(remainingEp)">
-                {{ remainingEp >= 0 ? remainingEp + ' rem' : Math.abs(remainingEp) + ' deficit' }}
+                {{ remainingEp >= 0 ? remainingEp + ' remaining' : Math.abs(remainingEp) + ' deficit' }}
               </span>
             </div>
             <div class="status-bar-track">
