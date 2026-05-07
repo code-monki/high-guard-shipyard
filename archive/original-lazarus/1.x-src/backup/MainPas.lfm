@@ -1,0 +1,953 @@
+inherited MainFrm: TMainFrm
+  Left = 256
+  Height = 543
+  Top = 123
+  Width = 456
+  AutoSize = True
+  BorderWidth = 10
+  Caption = 'High Guard Shipyard 1.3'
+  ClientHeight = 523
+  ClientWidth = 456
+  KeyPreview = True
+  Menu = MainMenu
+  OnClose = FormClose
+  OnCreate = FormCreate
+  OnKeyDown = FormKeyDown
+  Position = poScreenCenter
+  object ClassStatLbl: TLabel[0]
+    Left = 192
+    Height = 14
+    Top = 0
+    Width = 26
+    Caption = 'Class'
+    ParentColor = False
+  end
+  object TypeStatLbl: TLabel[1]
+    Left = 0
+    Height = 14
+    Top = 24
+    Width = 25
+    Caption = 'Type'
+    ParentColor = False
+  end
+  object TechStatLbl: TLabel[2]
+    Left = 7
+    Height = 14
+    Top = 80
+    Width = 26
+    Caption = 'Tech'
+    ParentColor = False
+  end
+  object CodeStatLbl: TLabel[3]
+    Left = 7
+    Height = 14
+    Top = 56
+    Width = 26
+    Caption = 'Code'
+    ParentColor = False
+  end
+  object ArchStatLbl: TLabel[4]
+    Left = 192
+    Height = 14
+    Top = 24
+    Width = 43
+    Caption = 'Architect'
+    ParentColor = False
+  end
+  object TonnageStatLbl: TLabel[5]
+    Left = 95
+    Height = 14
+    Top = 56
+    Width = 44
+    Caption = 'Tonnage'
+    ParentColor = False
+  end
+  object BudgetStatLbl: TLabel[6]
+    Left = 95
+    Height = 14
+    Top = 80
+    Width = 57
+    Caption = 'Budget MCr'
+    ParentColor = False
+  end
+  object TonsRemLbl: TLabel[7]
+    Left = 311
+    Height = 14
+    Hint = 'This is the amount of space unallocated'
+    Top = 61
+    Width = 61
+    Caption = 'TonsRemLbl'
+    ParentColor = False
+    ParentShowHint = False
+    ShowHint = True
+  end
+  object BudRemLbl: TLabel[8]
+    Left = 311
+    Height = 14
+    Hint = 'This is the budget left unused'
+    Top = 85
+    Width = 56
+    Caption = 'BudRemLbl'
+    ParentColor = False
+    ParentShowHint = False
+    ShowHint = True
+  end
+  object EPLbl: TLabel[9]
+    Left = 32
+    Height = 14
+    Hint = 'This is how many EP the ship generates'
+    Top = 128
+    Width = 29
+    Caption = 'EPLbl'
+    ParentColor = False
+    ParentShowHint = False
+    ShowHint = True
+  end
+  object EPRemLbl: TLabel[10]
+    Left = 200
+    Height = 14
+    Hint = 'This is how many EP are left unused'
+    Top = 128
+    Width = 51
+    Caption = 'EPRemLbl'
+    ParentColor = False
+    ParentShowHint = False
+    ShowHint = True
+  end
+  object ShipNameStatLbl: TLabel[11]
+    Left = 0
+    Height = 14
+    Top = 0
+    Width = 22
+    Caption = 'Ship'
+    ParentColor = False
+  end
+  object AgilityLbl: TLabel[12]
+    Left = 352
+    Height = 14
+    Top = 128
+    Width = 42
+    Caption = 'AgilityLbl'
+    ParentColor = False
+  end
+  object ValidLbl: TLabel[13]
+    Left = 292
+    Height = 14
+    Top = 224
+    Width = 47
+    Caption = 'ValidLbl'
+    Color = clBtnFace
+    Font.Color = clWindowText
+    Font.Height = -11
+    Font.Name = 'MS Sans Serif'
+    Font.Style = [fsBold]
+    ParentColor = False
+    ParentFont = False
+    Transparent = False
+  end
+  object TestLbl: TLabel[14]
+    Left = 16
+    Height = 14
+    Top = 416
+    Width = 36
+    Caption = 'TestLbl'
+    ParentColor = False
+  end
+  object OptionalLbl: TLabel[15]
+    Left = 292
+    Height = 14
+    Top = 243
+    Width = 66
+    Caption = 'OptionalLbl'
+    Font.Color = clWindowText
+    Font.Height = -11
+    Font.Name = 'MS Sans Serif'
+    Font.Style = [fsBold]
+    ParentColor = False
+    ParentFont = False
+  end
+  object EPStatLbl: TLabel[16]
+    Left = 8
+    Height = 14
+    Top = 128
+    Width = 15
+    Caption = 'EP'
+    ParentColor = False
+  end
+  object EPRemStatLbl: TLabel[17]
+    Left = 128
+    Height = 14
+    Top = 128
+    Width = 68
+    Caption = 'EP Remaining'
+    ParentColor = False
+  end
+  object TonsRemStatLbl: TLabel[18]
+    Left = 247
+    Height = 14
+    Top = 61
+    Width = 51
+    Caption = 'Remaining'
+    ParentColor = False
+  end
+  object BudRemStatLbl: TLabel[19]
+    Left = 247
+    Height = 14
+    Top = 85
+    Width = 51
+    Caption = 'Remaining'
+    ParentColor = False
+  end
+  object AgilityStatLbl: TLabel[20]
+    Left = 320
+    Height = 14
+    Top = 128
+    Width = 28
+    Caption = 'Agility'
+    ParentColor = False
+  end
+  object RefitTechLbl: TLabel[21]
+    Left = 7
+    Height = 14
+    Top = 107
+    Width = 39
+    Caption = 'Refit TL'
+    ParentColor = False
+  end
+  object RefitBudgetLbl: TLabel[22]
+    Left = 95
+    Height = 14
+    Top = 107
+    Width = 45
+    Caption = 'Refit MCr'
+    ParentColor = False
+  end
+  object RefRemStatLbl: TLabel[23]
+    Left = 247
+    Height = 14
+    Top = 107
+    Width = 51
+    Caption = 'Remaining'
+    ParentColor = False
+  end
+  object RefRemLbl: TLabel[24]
+    Left = 311
+    Height = 14
+    Top = 107
+    Width = 54
+    Caption = 'RefRemLbl'
+    ParentColor = False
+  end
+  object ClassEdit: TEdit[25]
+    Left = 240
+    Height = 21
+    Hint = 'Enter the name of the class'
+    Top = 0
+    Width = 145
+    OnChange = ShipNameEditChange
+    OnKeyDown = ClassEditKeyDown
+    ParentShowHint = False
+    ShowHint = True
+    TabOrder = 1
+    Text = 'ClassEdit'
+  end
+  object TypeEdit: TEdit[26]
+    Left = 32
+    Height = 21
+    Hint = 'Enter the type of ship'
+    Top = 24
+    Width = 145
+    OnChange = ShipNameEditChange
+    OnKeyDown = TypeEditKeyDown
+    ParentShowHint = False
+    ShowHint = True
+    TabOrder = 2
+    Text = 'TypeEdit'
+  end
+  object TechLevelEdit: TEdit[27]
+    Left = 55
+    Height = 21
+    Hint = 'Enter the tech level of the ship'
+    Top = 80
+    Width = 25
+    OnChange = TechLevelEditChange
+    OnKeyDown = TechLevelEditKeyDown
+    ParentShowHint = False
+    ShowHint = True
+    TabOrder = 6
+    Text = 'TechLevelEdit'
+  end
+  object CodeEdit: TEdit[28]
+    Left = 55
+    Height = 21
+    Hint = 'Enter the two letter ship code'
+    Top = 56
+    Width = 25
+    OnChange = ShipNameEditChange
+    OnKeyDown = CodeEditKeyDown
+    ParentShowHint = False
+    ShowHint = True
+    TabOrder = 4
+    Text = 'CodeEdit'
+  end
+  object ArchEdit: TEdit[29]
+    Left = 240
+    Height = 21
+    Hint = 'Enter the architects name'
+    Top = 24
+    Width = 145
+    OnChange = ShipNameEditChange
+    ParentShowHint = False
+    ShowHint = True
+    TabOrder = 3
+    Text = 'ArchEdit'
+  end
+  object ShipFrmBtn: TButton[30]
+    Left = 248
+    Height = 25
+    Hint = 'Display the ship''s UCP'
+    Top = 312
+    Width = 75
+    Caption = 'Shi&p Card'
+    OnClick = ShipFrmBtnClick
+    ParentShowHint = False
+    ShowHint = True
+    TabOrder = 16
+  end
+  object TonnageEdit: TEdit[31]
+    Left = 159
+    Height = 21
+    Hint = 'Enter the tonnage of the ship'
+    Top = 56
+    Width = 81
+    OnChange = TonnageEditChange
+    OnKeyDown = TonnageEditKeyDown
+    ParentShowHint = False
+    ShowHint = True
+    TabOrder = 5
+    Text = 'TonnageEdit'
+  end
+  object BudgetEdit: TEdit[32]
+    Left = 159
+    Height = 21
+    Hint = 'Enter the maximum budget'
+    Top = 80
+    Width = 81
+    OnChange = ShipNameEditChange
+    OnKeyDown = BudgetEditKeyDown
+    ParentShowHint = False
+    ShowHint = True
+    TabOrder = 7
+    Text = 'BudgetEdit'
+  end
+  object RaceRadGrp: TRadioGroup[33]
+    Left = 8
+    Height = 65
+    Hint = 'Select the race for the ship'
+    Top = 144
+    Width = 265
+    AutoFill = True
+    Caption = 'Race'
+    ChildSizing.LeftRightSpacing = 6
+    ChildSizing.TopBottomSpacing = 6
+    ChildSizing.EnlargeHorizontal = crsHomogenousChildResize
+    ChildSizing.EnlargeVertical = crsHomogenousChildResize
+    ChildSizing.ShrinkHorizontal = crsScaleChilds
+    ChildSizing.ShrinkVertical = crsScaleChilds
+    ChildSizing.Layout = cclLeftToRightThenTopToBottom
+    ChildSizing.ControlsPerLine = 3
+    ClientHeight = 47
+    ClientWidth = 261
+    Columns = 3
+    Items.Strings = (
+      'Standard'
+      'K''Kree'
+      'Hiver/Mixed'
+      'Droyne'
+      'Hiver/Single'
+    )
+    OnClick = ShipNameEditChange
+    ParentShowHint = False
+    ShowHint = True
+    TabOrder = 10
+  end
+  object CommitBtn: TButton[34]
+    Left = 8
+    Height = 25
+    Hint = 'Apply your changes'
+    Top = 312
+    Width = 75
+    Caption = '&Apply'
+    Default = True
+    OnClick = CommitBtnClick
+    ParentShowHint = False
+    ShowHint = True
+    TabOrder = 13
+  end
+  object ResetBtn: TButton[35]
+    Left = 88
+    Height = 25
+    Hint = 'Cancel your changes'
+    Top = 312
+    Width = 75
+    Cancel = True
+    Caption = '&Reset'
+    OnClick = ResetBtnClick
+    ParentShowHint = False
+    ShowHint = True
+    TabOrder = 14
+  end
+  object ShipNameEdit: TEdit[36]
+    Left = 32
+    Height = 21
+    Hint = 'Enter the name of the ship'
+    Top = 0
+    Width = 145
+    OnChange = ShipNameEditChange
+    ParentShowHint = False
+    ShowHint = True
+    TabOrder = 0
+    Text = 'ShipNameEdit'
+  end
+  object CrewTypeRadGrp: TRadioGroup[37]
+    Left = 296
+    Height = 65
+    Hint = 'Select the crew rules to use'
+    Top = 144
+    Width = 81
+    AutoFill = True
+    Caption = 'Crew Rules'
+    ChildSizing.LeftRightSpacing = 6
+    ChildSizing.TopBottomSpacing = 6
+    ChildSizing.EnlargeHorizontal = crsHomogenousChildResize
+    ChildSizing.EnlargeVertical = crsHomogenousChildResize
+    ChildSizing.ShrinkHorizontal = crsScaleChilds
+    ChildSizing.ShrinkVertical = crsScaleChilds
+    ChildSizing.Layout = cclLeftToRightThenTopToBottom
+    ChildSizing.ControlsPerLine = 1
+    ClientHeight = 47
+    ClientWidth = 77
+    Items.Strings = (
+      'Book 2'
+      'Book 5'
+    )
+    OnClick = CrewTypeRadGrpClick
+    ParentShowHint = False
+    ShowHint = True
+    TabOrder = 11
+  end
+  object CommentsBtn: TButton[38]
+    Left = 168
+    Height = 25
+    Hint = 'Add design comments'
+    Top = 312
+    Width = 75
+    Caption = 'Co&mments'
+    OnClick = CommentsBtnClick
+    ParentShowHint = False
+    ShowHint = True
+    TabOrder = 15
+  end
+  object DesRulesRadGrp: TRadioGroup[39]
+    Left = 8
+    Height = 41
+    Hint = 'Select the Design Rules to be used'
+    Top = 216
+    Width = 265
+    AutoFill = True
+    Caption = 'Design Rules'
+    ChildSizing.LeftRightSpacing = 6
+    ChildSizing.TopBottomSpacing = 6
+    ChildSizing.EnlargeHorizontal = crsHomogenousChildResize
+    ChildSizing.EnlargeVertical = crsHomogenousChildResize
+    ChildSizing.ShrinkHorizontal = crsScaleChilds
+    ChildSizing.ShrinkVertical = crsScaleChilds
+    ChildSizing.Layout = cclLeftToRightThenTopToBottom
+    ChildSizing.ControlsPerLine = 5
+    ClientHeight = 23
+    ClientWidth = 261
+    Columns = 5
+    Items.Strings = (
+      'T20'
+      'High Guard'
+      'HG3'
+      'MgT'
+      'SF20'
+    )
+    OnClick = DesRulesRadGrpClick
+    ParentShowHint = False
+    ShowHint = True
+    TabOrder = 12
+  end
+  object RefitTechEdit: TEdit[40]
+    Left = 55
+    Height = 21
+    Hint = 'Enter the refit tech level of the ship'
+    Top = 104
+    Width = 25
+    OnChange = RefitTechEditChange
+    OnKeyDown = RefitTechEditKeyDown
+    ParentShowHint = False
+    ShowHint = True
+    TabOrder = 8
+    Text = 'RefitTechEdit'
+  end
+  object RefitBudgetEdit: TEdit[41]
+    Left = 159
+    Height = 21
+    Top = 104
+    Width = 81
+    OnChange = RefitBudgetEditChange
+    OnKeyDown = RefitBudgetEditKeyDown
+    TabOrder = 9
+    Text = 'RefitBudgetEdit'
+  end
+  object HullSpdBtn: TSpeedButton[42]
+    Left = 8
+    Height = 22
+    Top = 344
+    Width = 23
+    Caption = 'H'
+    NumGlyphs = 0
+    OnClick = HullMenuItemClick
+  end
+  object EngSpdBtn: TSpeedButton[43]
+    Left = 32
+    Height = 22
+    Top = 344
+    Width = 23
+    Caption = 'E'
+    NumGlyphs = 0
+    OnClick = EngMenuItemClick
+  end
+  object FuelSpdBtn: TSpeedButton[44]
+    Left = 56
+    Height = 22
+    Top = 344
+    Width = 23
+    Caption = 'F'
+    NumGlyphs = 0
+    OnClick = FuelMenuItemClick
+  end
+  object AviSpdBtn: TSpeedButton[45]
+    Left = 80
+    Height = 22
+    Top = 344
+    Width = 23
+    Caption = 'A'
+    NumGlyphs = 0
+    OnClick = AvionicsMenuItemClick
+  end
+  object SpinalSpdBtn: TSpeedButton[46]
+    Left = 124
+    Height = 22
+    Top = 344
+    Width = 23
+    Caption = 'M'
+    NumGlyphs = 0
+    OnClick = SpinalMountSubMenuItemClick
+  end
+  object BigBaySpdBtn: TSpeedButton[47]
+    Left = 148
+    Height = 22
+    Top = 344
+    Width = 23
+    Caption = 'B'
+    NumGlyphs = 0
+    OnClick = BigBaysSubMenuItemClick
+  end
+  object LittleBaySpdBtn: TSpeedButton[48]
+    Left = 172
+    Height = 22
+    Top = 344
+    Width = 23
+    Caption = 'L'
+    NumGlyphs = 0
+    OnClick = LittleBaysSubMenuItemClick
+  end
+  object TurretSpdBtn: TSpeedButton[49]
+    Left = 196
+    Height = 22
+    Top = 344
+    Width = 23
+    Caption = 'T'
+    NumGlyphs = 0
+    OnClick = TurretsSubMenuItemClick
+  end
+  object ScreensSpdBtn: TSpeedButton[50]
+    Left = 220
+    Height = 22
+    Top = 344
+    Width = 23
+    Caption = 'S'
+    NumGlyphs = 0
+    OnClick = ScreensMenuItemClick
+  end
+  object CraftSpdBtn: TSpeedButton[51]
+    Left = 263
+    Height = 22
+    Top = 344
+    Width = 23
+    Caption = 'C'
+    NumGlyphs = 0
+    OnClick = CraftMenuItemClick
+  end
+  object AccomSpdBtn: TSpeedButton[52]
+    Left = 287
+    Height = 22
+    Top = 344
+    Width = 23
+    Caption = 'O'
+    NumGlyphs = 0
+    OnClick = AccomMenuItemClick
+  end
+  object UserDefSpdBtn: TSpeedButton[53]
+    Left = 311
+    Height = 22
+    Top = 344
+    Width = 23
+    Caption = 'U'
+    NumGlyphs = 0
+    OnClick = UserMenuItemClick
+  end
+  object OptionsSpdBt: TSpeedButton[54]
+    Left = 335
+    Height = 22
+    Top = 344
+    Width = 23
+    Caption = 'P'
+    NumGlyphs = 0
+    OnClick = OptionsMenuItemClick
+  end
+  object SqdBtn: TButton[55]
+    Left = 344
+    Height = 25
+    Top = 312
+    Width = 75
+    Caption = 'Squadron'
+    OnClick = SqdBtnClick
+    TabOrder = 17
+  end
+  object TestBtn: TButton[56]
+    Left = 7
+    Height = 25
+    Top = 384
+    Width = 75
+    Caption = 'TestBtn'
+    OnClick = TestBtnClick
+    TabOrder = 18
+  end
+  object TestRadGrp: TRadioGroup[57]
+    Left = 95
+    Height = 38
+    Top = 384
+    Width = 216
+    AutoFill = True
+    Caption = 'TestRadGrp'
+    ChildSizing.LeftRightSpacing = 6
+    ChildSizing.TopBottomSpacing = 6
+    ChildSizing.EnlargeHorizontal = crsHomogenousChildResize
+    ChildSizing.EnlargeVertical = crsHomogenousChildResize
+    ChildSizing.ShrinkHorizontal = crsScaleChilds
+    ChildSizing.ShrinkVertical = crsScaleChilds
+    ChildSizing.Layout = cclLeftToRightThenTopToBottom
+    ChildSizing.ControlsPerLine = 4
+    ClientHeight = 20
+    ClientWidth = 212
+    Columns = 4
+    Items.Strings = (
+      'Test 1'
+      'Test 2'
+      'Test 3'
+      'Test 4'
+    )
+    TabOrder = 19
+  end
+  object TestChkBox: TCheckBox[58]
+    Left = 316
+    Height = 17
+    Top = 394
+    Width = 76
+    Caption = 'TestChkBox'
+    TabOrder = 20
+  end
+  object AltCrewRulesRadGrp: TRadioGroup[59]
+    Left = 8
+    Height = 41
+    Top = 264
+    Width = 265
+    AutoFill = True
+    Caption = 'Calculate Crew Code According To'
+    ChildSizing.LeftRightSpacing = 6
+    ChildSizing.TopBottomSpacing = 6
+    ChildSizing.EnlargeHorizontal = crsHomogenousChildResize
+    ChildSizing.EnlargeVertical = crsHomogenousChildResize
+    ChildSizing.ShrinkHorizontal = crsScaleChilds
+    ChildSizing.ShrinkVertical = crsScaleChilds
+    ChildSizing.Layout = cclLeftToRightThenTopToBottom
+    ChildSizing.ControlsPerLine = 5
+    ClientHeight = 23
+    ClientWidth = 261
+    Columns = 5
+    Items.Strings = (
+      'JTAS'
+      'Tarryn'
+      'Log2'
+      'Dean'
+      'Original'
+    )
+    OnClick = AltCrewRulesRadGrpClick
+    TabOrder = 21
+  end
+  object FlagChkBx: TCheckBox[60]
+    Left = 292
+    Height = 17
+    Top = 280
+    Width = 86
+    Caption = 'Fit As Flagship'
+    OnChange = FlagChkBxChange
+    TabOrder = 22
+  end
+  object MainMenu: TMainMenu[61]
+    left = 296
+    top = 448
+    object FileMenu: TMenuItem
+      Caption = '&File'
+      object NewMenuItem: TMenuItem
+        Caption = '&New'
+        ShortCut = 16462
+        OnClick = NewMenuItemClick
+      end
+      object OpenMenuItem: TMenuItem
+        Caption = '&Open...'
+        ShortCut = 16463
+        OnClick = OpenMenuItemClick
+      end
+      object SaveMenuItem: TMenuItem
+        Caption = '&Save'
+        ShortCut = 16467
+        OnClick = SaveMenuItemClick
+      end
+      object SaveAsMenuItem: TMenuItem
+        Caption = 'Save &As'
+        OnClick = SaveAsMenuItemClick
+      end
+      object N1: TMenuItem
+        Caption = '-'
+      end
+      object ExportUSPMenuItem: TMenuItem
+        Caption = 'Ex&port USP'
+        OnClick = ExportUSPMenuItemClick
+      end
+      object TxtExpMenuItem: TMenuItem
+        Caption = '&Text Export'
+        ShortCut = 16468
+        OnClick = TxtExpMenuItemClick
+      end
+      object CmpExpMenuItem: TMenuItem
+        Caption = 'Component Export'
+        OnClick = CmpExpMenuItemClick
+      end
+      object N2: TMenuItem
+        Caption = '-'
+      end
+      object CheckDesignMenuItem: TMenuItem
+        Caption = '&Check Design'
+        ShortCut = 16452
+        OnClick = CheckDesignMenuItemClick
+      end
+      object RefitMenuItem: TMenuItem
+        Caption = 'Re&fit'
+        OnClick = RefitMenuItemClick
+      end
+      object DefaultsMenuItem: TMenuItem
+        Caption = 'Make &Default'
+        OnClick = DefaultsMenuItemClick
+      end
+      object ClearAllMenuItem: TMenuItem
+        Caption = 'Clear All'
+        Enabled = False
+        OnClick = ClearAllMenuItemClick
+      end
+      object RestoreMenuItem: TMenuItem
+        Caption = '&Restore'
+        Enabled = False
+        OnClick = RestoreMenuItemClick
+      end
+      object ExitMenuItem: TMenuItem
+        Caption = 'E&xit'
+        ShortCut = 16472
+        OnClick = ExitMenuItemClick
+      end
+    end
+    object EditMenu: TMenuItem
+      Caption = '&Edit'
+      object UndoMenuItem: TMenuItem
+        Action = EditUndo
+      end
+      object CutMenuItem: TMenuItem
+        Action = EditCut
+      end
+      object CopyMenuItem: TMenuItem
+        Action = EditCopy
+      end
+      object PasteMenuItem: TMenuItem
+        Action = EditPaste
+      end
+    end
+    object DesignMenu: TMenuItem
+      Caption = '&Design'
+      object HullMenuItem: TMenuItem
+        Caption = '&Hull'
+        ShortCut = 8304
+        OnClick = HullMenuItemClick
+      end
+      object EngMenuItem: TMenuItem
+        Caption = '&Engineering'
+        ShortCut = 8305
+        OnClick = EngMenuItemClick
+      end
+      object FuelMenuItem: TMenuItem
+        Caption = '&Fuel'
+        ShortCut = 8306
+        OnClick = FuelMenuItemClick
+      end
+      object AvionicsMenuItem: TMenuItem
+        Caption = '&Avionics'
+        ShortCut = 8307
+        OnClick = AvionicsMenuItemClick
+      end
+      object N3: TMenuItem
+        Caption = '-'
+      end
+      object WeaponsMenuitem: TMenuItem
+        Caption = '&Weapons'
+        object SpinalMountSubMenuItem: TMenuItem
+          Caption = 'Spinal &Mount'
+          ShortCut = 8308
+          OnClick = SpinalMountSubMenuItemClick
+        end
+        object BigBaysSubMenuItem: TMenuItem
+          Caption = '&100T Bays'
+          ShortCut = 8309
+          OnClick = BigBaysSubMenuItemClick
+        end
+        object LittleBaysSubMenuItem: TMenuItem
+          Caption = '&50T Bays'
+          ShortCut = 8310
+          OnClick = LittleBaysSubMenuItemClick
+        end
+        object TurretsSubMenuItem: TMenuItem
+          Caption = '&Turrets'
+          ShortCut = 8311
+          OnClick = TurretsSubMenuItemClick
+        end
+      end
+      object ScreensMenuItem: TMenuItem
+        Caption = '&Screens'
+        ShortCut = 8312
+        OnClick = ScreensMenuItemClick
+      end
+      object N4: TMenuItem
+        Caption = '-'
+      end
+      object CraftMenuItem: TMenuItem
+        Caption = '&Craft'
+        ShortCut = 8313
+        OnClick = CraftMenuItemClick
+      end
+      object AccomMenuItem: TMenuItem
+        Caption = '&Other'
+        ShortCut = 8314
+        OnClick = AccomMenuItemClick
+      end
+      object UserMenuItem: TMenuItem
+        Caption = '&User Defined'
+        ShortCut = 8315
+        OnClick = UserMenuItemClick
+      end
+    end
+    object HelpMenu: TMenuItem
+      Caption = '&Help'
+      object AboutMenuItem: TMenuItem
+        Caption = '&About...'
+        OnClick = AboutMenuItemClick
+      end
+      object OptionsMenuItem: TMenuItem
+        Caption = '&Options'
+        ShortCut = 113
+        OnClick = OptionsMenuItemClick
+      end
+      object HelpMenuItem: TMenuItem
+        Caption = '&Help'
+        ShortCut = 112
+        OnClick = HelpMenuItemClick
+      end
+    end
+  end
+  object ImageList: TImageList[62]
+    left = 168
+    top = 448
+  end
+  object ActionList: TActionList[63]
+    Images = ImageList
+    left = 344
+    top = 448
+    object EditCopy: TEditCopy
+      Category = 'Edit'
+      Caption = '&Copy'
+      Hint = 'Copy'
+      ImageIndex = 1
+      ShortCut = 16451
+    end
+    object EditCut: TEditCut
+      Category = 'Edit'
+      Caption = 'Cu&t'
+      Hint = 'Cut'
+      ImageIndex = 0
+      ShortCut = 16472
+    end
+    object EditPaste: TEditPaste
+      Category = 'Edit'
+      Caption = '&Paste'
+      Hint = 'Paste'
+      ImageIndex = 2
+      ShortCut = 16470
+    end
+    object EditUndo: TEditUndo
+      Category = 'Edit'
+      Caption = '&Undo'
+      ImageIndex = 3
+      ShortCut = 32776
+    end
+  end
+  object OpenDialog: TOpenDialog[64]
+    DefaultExt = '.hgs'
+    Filter = 'High Guard Ship (*.hgs)|*.hgs|All Files (*.*)|*.*'
+    left = 216
+    top = 448
+  end
+  object SaveDialog: TSaveDialog[65]
+    DefaultExt = '.hgs'
+    Filter = 'High Guard Ship (*.hgs)|*.hgs|All Files (*.*)|*.*'
+    left = 72
+    top = 448
+  end
+  object ExportDialog: TSaveDialog[66]
+    DefaultExt = '.txt'
+    Filter = 'Text (*.txt)|*.txt'
+    left = 256
+    top = 448
+  end
+  object DescExpDialog: TSaveDialog[67]
+    DefaultExt = '.txt'
+    Filter = 'Text (*.txt)|*.txt'
+    left = 16
+    top = 448
+  end
+  object CompExpDialog: TSaveDialog[68]
+    Filter = 'Text (*.txt)|*.txt|All Files (*.*)|*.*'
+    left = 120
+    top = 448
+  end
+end

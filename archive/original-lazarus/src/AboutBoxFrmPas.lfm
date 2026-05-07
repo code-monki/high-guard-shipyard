@@ -1,0 +1,111 @@
+inherited AboutBoxFrm: TAboutBoxFrm
+  Left = 289
+  Height = 283
+  Top = 172
+  Width = 288
+  BorderStyle = bsDialog
+  BorderWidth = 10
+  Caption = 'About'
+  ClientHeight = 283
+  ClientWidth = 288
+  OnClose = FormClose
+  OnCreate = FormCreate
+  Position = poDesktopCenter
+  object NameStatLbl: TLabel[0]
+    Left = 40
+    Height = 22
+    Top = 0
+    Width = 194
+    Alignment = taCenter
+    Caption = 'High Guard Shipyard'
+    Font.Color = clWindowText
+    Font.Height = -19
+    Font.Name = 'Arial'
+    Font.Style = [fsBold]
+    ParentColor = False
+    ParentFont = False
+  end
+  object VersionLbl: TLabel[1]
+    Left = 80
+    Height = 16
+    Top = 24
+    Width = 62
+    Alignment = taCenter
+    Caption = 'VersionLbl'
+    Font.Color = clWindowText
+    Font.Height = -13
+    Font.Name = 'Arial'
+    Font.Style = [fsItalic]
+    ParentColor = False
+    ParentFont = False
+  end
+  object StarshipsListLbl: TLabel[2]
+    Left = 200
+    Height = 13
+    Top = 40
+    Width = 79
+    Caption = 'CT-Starships List'
+    Font.Color = clBlue
+    Font.Height = -11
+    Font.Name = 'MS Sans Serif'
+    Font.Style = [fsUnderline]
+    ParentColor = False
+    ParentFont = False
+    OnClick = StarshipsListLblClick
+  end
+  object QuikLinkLbl: TLabel[3]
+    Left = 96
+    Height = 13
+    Top = 40
+    Width = 91
+    Caption = 'Quiklink Interactive'
+    Font.Color = clBlue
+    Font.Height = -11
+    Font.Name = 'MS Sans Serif'
+    Font.Style = [fsUnderline]
+    ParentColor = False
+    ParentFont = False
+    OnClick = QuikLinkLblClick
+  end
+  object FarFutureLbl: TLabel[4]
+    Left = 8
+    Height = 13
+    Top = 40
+    Width = 71
+    Caption = 'Far Futures Ltd'
+    Font.Color = clBlue
+    Font.Height = -11
+    Font.Name = 'MS Sans Serif'
+    Font.Style = [fsUnderline]
+    ParentColor = False
+    ParentFont = False
+    OnClick = FarFutureLblClick
+  end
+  object OKBitBtn: TBitBtn[5]
+    Left = 88
+    Height = 25
+    Hint = 'Return to main form'
+    Top = 248
+    Width = 89
+    Anchors = [akTop, akLeft, akRight]
+    Kind = bkOK
+    OnClick = OKBitBtnClick
+    ParentShowHint = False
+    ShowHint = True
+    TabOrder = 0
+  end
+  object AboutMemo: TMemo[6]
+    Left = 8
+    Height = 177
+    Top = 56
+    Width = 273
+    Color = clBtnFace
+    Lines.Strings = (
+      'AboutMemo'
+    )
+    ReadOnly = True
+    ScrollBars = ssVertical
+    TabOrder = 1
+    TabStop = False
+  end
+end

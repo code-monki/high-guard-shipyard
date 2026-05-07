@@ -1,0 +1,769 @@
+object CraftFrm: TCraftFrm
+  Left = 192
+  Top = 107
+  Width = 525
+  Height = 328
+  AutoSize = True
+  BorderWidth = 10
+  Caption = 'Craft'
+  Color = clBtnFace
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'MS Sans Serif'
+  Font.Style = []
+  KeyPreview = True
+  Position = poDesktopCenter
+  OnClose = FormClose
+  OnCreate = FormCreate
+  OnKeyDown = FormKeyDown
+  PixelsPerInch = 96
+  object NumberStatLbl: TLabel
+    Left = 40
+    Top = 0
+    Width = 37
+    Height = 13
+    Caption = 'Number'
+  end
+  object SizeStatLbl: TLabel
+    Left = 96
+    Top = 0
+    Width = 43
+    Height = 13
+    Caption = 'Tonnage'
+  end
+  object DescrStatLbl: TLabel
+    Left = 192
+    Top = 0
+    Width = 53
+    Height = 13
+    Caption = 'Description'
+  end
+  object Craft1StatLbl: TLabel
+    Left = 0
+    Top = 16
+    Width = 31
+    Height = 13
+    Caption = 'Craft 1'
+  end
+  object Craft2StatLbl: TLabel
+    Left = 0
+    Top = 40
+    Width = 31
+    Height = 13
+    Caption = 'Craft 2'
+  end
+  object Craft3StatLbl: TLabel
+    Left = 0
+    Top = 64
+    Width = 31
+    Height = 13
+    Caption = 'Craft 3'
+  end
+  object Craft4StatLbl: TLabel
+    Left = 0
+    Top = 88
+    Width = 31
+    Height = 13
+    Caption = 'Craft 4'
+  end
+  object Craft5StatLbl: TLabel
+    Left = 0
+    Top = 112
+    Width = 31
+    Height = 13
+    Caption = 'Craft 5'
+  end
+  object Craft6StatLbl: TLabel
+    Left = 0
+    Top = 136
+    Width = 31
+    Height = 13
+    Caption = 'Craft 6'
+  end
+  object LaunchFac1StatLbl: TLabel
+    Left = 160
+    Top = 232
+    Width = 36
+    Height = 13
+    Caption = 'Launch'
+  end
+  object LFNumStatLbl: TLabel
+    Left = 208
+    Top = 216
+    Width = 37
+    Height = 13
+    Caption = 'Number'
+  end
+  object LFSizeStatLbl: TLabel
+    Left = 264
+    Top = 216
+    Width = 43
+    Height = 13
+    Caption = 'Tonnage'
+  end
+  object CrewStatLbl: TLabel
+    Left = 312
+    Top = 0
+    Width = 28
+    Height = 14
+    AutoSize = False
+    Caption = 'Crew'
+  end
+  object FtrSqd1StatLbl: TLabel
+    Left = 40
+    Top = 232
+    Width = 32
+    Height = 13
+    Caption = 'Fighter'
+  end
+  object LaunchFac2StatLbl: TLabel
+    Left = 160
+    Top = 248
+    Width = 30
+    Height = 13
+    Caption = 'Tubes'
+  end
+  object FtrSqd2StatLbl: TLabel
+    Left = 40
+    Top = 248
+    Width = 51
+    Height = 13
+    Caption = 'Squadrons'
+  end
+  object Craft7StatLbl: TLabel
+    Left = 0
+    Top = 160
+    Width = 31
+    Height = 13
+    Caption = 'Craft 7'
+  end
+  object Craft8StatLbl: TLabel
+    Left = 0
+    Top = 184
+    Width = 31
+    Height = 13
+    Caption = 'Craft 8'
+  end
+  object CostStatLbl: TLabel
+    Left = 376
+    Top = 0
+    Width = 25
+    Height = 15
+    AutoSize = False
+    Caption = 'Cost'
+  end
+  object Craft1NumEdit: TEdit
+    Left = 40
+    Top = 16
+    Width = 33
+    Height = 21
+    Hint = 'Enter the number of this type of Craft'
+    ParentShowHint = False
+    ShowHint = True
+    TabOrder = 0
+    Text = 'Craft1NumEdit'
+  end
+  object Craft1SizeEdit: TEdit
+    Left = 80
+    Top = 16
+    Width = 73
+    Height = 21
+    Hint = 'Enter the size of this type of Craft'
+    ParentShowHint = False
+    ShowHint = True
+    TabOrder = 1
+    Text = 'Craft1SizeEdit'
+  end
+  object Craft1DescEdit: TEdit
+    Left = 160
+    Top = 16
+    Width = 137
+    Height = 21
+    Hint = 'Enter the description of this type of Craft'
+    ParentShowHint = False
+    ShowHint = True
+    TabOrder = 2
+    Text = 'Craft1DescEdit'
+  end
+  object Craft2SizeEdit: TEdit
+    Left = 80
+    Top = 40
+    Width = 73
+    Height = 21
+    Hint = 'Enter the size of this type of Craft'
+    ParentShowHint = False
+    ShowHint = True
+    TabOrder = 7
+    Text = 'Craft2SizeEdit'
+  end
+  object Craft2DescEdit: TEdit
+    Left = 160
+    Top = 40
+    Width = 137
+    Height = 21
+    Hint = 'Enter the description of this type of Craft'
+    ParentShowHint = False
+    ShowHint = True
+    TabOrder = 8
+    Text = 'Craft2DescEdit'
+  end
+  object Craft3NumEdit: TEdit
+    Left = 40
+    Top = 64
+    Width = 33
+    Height = 21
+    Hint = 'Enter the number of this type of Craft'
+    ParentShowHint = False
+    ShowHint = True
+    TabOrder = 12
+    Text = 'Craft3NumEdit'
+  end
+  object Craft3SizeEdit: TEdit
+    Left = 80
+    Top = 64
+    Width = 73
+    Height = 21
+    Hint = 'Enter the size of this type of Craft'
+    ParentShowHint = False
+    ShowHint = True
+    TabOrder = 13
+    Text = 'Craft3SizeEdit'
+  end
+  object Craft3DescEdit: TEdit
+    Left = 160
+    Top = 64
+    Width = 137
+    Height = 21
+    Hint = 'Enter the description of this type of Craft'
+    ParentShowHint = False
+    ShowHint = True
+    TabOrder = 14
+    Text = 'Craft3DescEdit'
+  end
+  object Craft4NumEdit: TEdit
+    Left = 40
+    Top = 88
+    Width = 33
+    Height = 21
+    Hint = 'Enter the number of this type of Craft'
+    ParentShowHint = False
+    ShowHint = True
+    TabOrder = 18
+    Text = 'Craft4NumEdit'
+  end
+  object Craft4SizeEdit: TEdit
+    Left = 80
+    Top = 88
+    Width = 73
+    Height = 21
+    Hint = 'Enter the size of this type of Craft'
+    ParentShowHint = False
+    ShowHint = True
+    TabOrder = 19
+    Text = 'Craft4SizeEdit'
+  end
+  object Craft4DescEdit: TEdit
+    Left = 160
+    Top = 88
+    Width = 137
+    Height = 21
+    Hint = 'Enter the description of this type of Craft'
+    ParentShowHint = False
+    ShowHint = True
+    TabOrder = 20
+    Text = 'Craft4DescEdit'
+  end
+  object Craft5NumEdit: TEdit
+    Left = 40
+    Top = 112
+    Width = 33
+    Height = 21
+    Hint = 'Enter the number of this type of Craft'
+    ParentShowHint = False
+    ShowHint = True
+    TabOrder = 24
+    Text = 'Craft5NumEdit'
+  end
+  object Craft5SizeEdit: TEdit
+    Left = 80
+    Top = 112
+    Width = 73
+    Height = 21
+    Hint = 'Enter the size of this type of Craft'
+    ParentShowHint = False
+    ShowHint = True
+    TabOrder = 25
+    Text = 'Craft5SizeEdit'
+  end
+  object Craft5DescEdit: TEdit
+    Left = 160
+    Top = 112
+    Width = 137
+    Height = 21
+    Hint = 'Enter the description of this type of Craft'
+    ParentShowHint = False
+    ShowHint = True
+    TabOrder = 26
+    Text = 'Craft5DescEdit'
+  end
+  object Craft6NumEdit: TEdit
+    Left = 40
+    Top = 136
+    Width = 33
+    Height = 21
+    Hint = 'Enter the number of this type of Craft'
+    ParentShowHint = False
+    ShowHint = True
+    TabOrder = 30
+    Text = 'Craft6NumEdit'
+  end
+  object Craft6SizeEdit: TEdit
+    Left = 80
+    Top = 136
+    Width = 73
+    Height = 21
+    Hint = 'Enter the size of this type of Craft'
+    ParentShowHint = False
+    ShowHint = True
+    TabOrder = 31
+    Text = 'Craft6SizeEdit'
+  end
+  object Craft6DescEdit: TEdit
+    Left = 160
+    Top = 136
+    Width = 137
+    Height = 21
+    Hint = 'Enter the description of this type of Craft'
+    ParentShowHint = False
+    ShowHint = True
+    TabOrder = 32
+    Text = 'Craft6DescEdit'
+  end
+  object LF1NumEdit: TEdit
+    Left = 216
+    Top = 232
+    Width = 25
+    Height = 21
+    Hint = 'Enter how many of this type of Launch Tubes are installed'
+    ParentShowHint = False
+    ShowHint = True
+    TabOrder = 49
+    Text = 'LF1NumEdit'
+  end
+  object LF1SizeEdit: TEdit
+    Left = 256
+    Top = 232
+    Width = 57
+    Height = 21
+    Hint = 
+      'Enter the maxiumum size of Craft that can use this type of Launc' +
+      'h Tube'
+    ParentShowHint = False
+    ShowHint = True
+    TabOrder = 50
+    Text = 'LF1SizeEdit'
+  end
+  object LF2NumEdit: TEdit
+    Left = 216
+    Top = 256
+    Width = 25
+    Height = 21
+    Hint = 'Enter how many of this type of Launch Tubes are installed'
+    ParentShowHint = False
+    ShowHint = True
+    TabOrder = 51
+    Text = 'LF2NumEdit'
+  end
+  object LF2SizeEdit: TEdit
+    Left = 256
+    Top = 256
+    Width = 57
+    Height = 21
+    Hint = 
+      'Enter the maxiumum size of Craft that can use this type of Launc' +
+      'h Tube'
+    ParentShowHint = False
+    ShowHint = True
+    TabOrder = 52
+    Text = 'LF2SizeEdit'
+  end
+  object Craft2NumEdit: TEdit
+    Left = 40
+    Top = 40
+    Width = 33
+    Height = 21
+    Hint = 'Enter the number of this type of Craft'
+    ParentShowHint = False
+    ShowHint = True
+    TabOrder = 6
+    Text = 'Craft2NumEdit'
+  end
+  object OKBtn: TButton
+    Left = 344
+    Top = 224
+    Width = 75
+    Height = 25
+    Hint = 'Apply your changes and return to the Main Form'
+    Caption = '&OK'
+    Default = True
+    ParentShowHint = False
+    ShowHint = True
+    TabOrder = 53
+    OnClick = OKBtnClick
+  end
+  object CancelBtn: TButton
+    Left = 344
+    Top = 256
+    Width = 75
+    Height = 25
+    Hint = 'Cancel your changes and return to the Main Form'
+    Cancel = True
+    Caption = '&Cancel'
+    ParentShowHint = False
+    ShowHint = True
+    TabOrder = 54
+    OnClick = CancelBtnClick
+  end
+  object Craft1CrewEdit: TEdit
+    Left = 304
+    Top = 16
+    Width = 41
+    Height = 21
+    Hint = 'Enter the crew allocated to this type of Craft'
+    ParentShowHint = False
+    ShowHint = True
+    TabOrder = 3
+    Text = 'Craft1CrewEdit'
+  end
+  object Craft2CrewEdit: TEdit
+    Left = 304
+    Top = 40
+    Width = 41
+    Height = 21
+    Hint = 'Enter the crew allocated to this type of Craft'
+    ParentShowHint = False
+    ShowHint = True
+    TabOrder = 9
+    Text = 'Craft2CrewEdit'
+  end
+  object Craft3CrewEdit: TEdit
+    Left = 304
+    Top = 64
+    Width = 41
+    Height = 21
+    Hint = 'Enter the crew allocated to this type of Craft'
+    ParentShowHint = False
+    ShowHint = True
+    TabOrder = 15
+    Text = 'Craft3CrewEdit'
+  end
+  object Craft4CrewEdit: TEdit
+    Left = 304
+    Top = 88
+    Width = 41
+    Height = 21
+    Hint = 'Enter the crew allocated to this type of Craft'
+    ParentShowHint = False
+    ShowHint = True
+    TabOrder = 21
+    Text = 'Craft4CrewEdit'
+  end
+  object Craft5CrewEdit: TEdit
+    Left = 304
+    Top = 112
+    Width = 41
+    Height = 21
+    Hint = 'Enter the crew allocated to this type of Craft'
+    ParentShowHint = False
+    ShowHint = True
+    TabOrder = 27
+    Text = 'Craft5CrewEdit'
+  end
+  object Craft6CrewEdit: TEdit
+    Left = 304
+    Top = 136
+    Width = 41
+    Height = 21
+    Hint = 'Enter the crew allocated to this type of Craft'
+    ParentShowHint = False
+    ShowHint = True
+    TabOrder = 33
+    Text = 'Craft6CrewEdit'
+  end
+  object Craft1ChkBx: TCheckBox
+    Left = 440
+    Top = 16
+    Width = 57
+    Height = 17
+    Hint = 'Select if this type of Craft is a Vehicle'
+    Caption = 'Vehicle'
+    ParentShowHint = False
+    ShowHint = True
+    TabOrder = 5
+  end
+  object Craft2ChkBx: TCheckBox
+    Left = 440
+    Top = 40
+    Width = 57
+    Height = 17
+    Hint = 'Select if this type of Craft is a Vehicle'
+    Caption = 'Vehicle'
+    ParentShowHint = False
+    ShowHint = True
+    TabOrder = 11
+  end
+  object Craft3ChkBx: TCheckBox
+    Left = 440
+    Top = 64
+    Width = 57
+    Height = 17
+    Hint = 'Select if this type of Craft is a Vehicle'
+    Caption = 'Vehicle'
+    ParentShowHint = False
+    ShowHint = True
+    TabOrder = 17
+  end
+  object Craft4ChkBx: TCheckBox
+    Left = 440
+    Top = 88
+    Width = 57
+    Height = 17
+    Hint = 'Select if this type of Craft is a Vehicle'
+    Caption = 'Vehicle'
+    ParentShowHint = False
+    ShowHint = True
+    TabOrder = 23
+  end
+  object Craft5ChkBx: TCheckBox
+    Left = 440
+    Top = 112
+    Width = 57
+    Height = 17
+    Hint = 'Select if this type of Craft is a Vehicle'
+    Caption = 'Vehicle'
+    ParentShowHint = False
+    ShowHint = True
+    TabOrder = 29
+  end
+  object Craft6ChkBx: TCheckBox
+    Left = 440
+    Top = 136
+    Width = 57
+    Height = 17
+    Hint = 'Select if this type of Craft is a Vehicle'
+    Caption = 'Vehicle'
+    ParentShowHint = False
+    ShowHint = True
+    TabOrder = 35
+  end
+  object FtrSqdEdit: TEdit
+    Left = 104
+    Top = 232
+    Width = 41
+    Height = 21
+    Hint = 'Enter the number of Fighter Squadrons carried'
+    ParentShowHint = False
+    ShowHint = True
+    TabOrder = 48
+    Text = 'FtrSqdEdit'
+  end
+  object Craft7NumEdit: TEdit
+    Left = 40
+    Top = 160
+    Width = 33
+    Height = 21
+    Hint = 'Enter the number of this type of Craft'
+    ParentShowHint = False
+    ShowHint = True
+    TabOrder = 36
+    Text = 'Craft7NumEdit'
+  end
+  object Craft7SizeEdit: TEdit
+    Left = 80
+    Top = 160
+    Width = 73
+    Height = 21
+    Hint = 'Enter the size of this type of Craft'
+    ParentShowHint = False
+    ShowHint = True
+    TabOrder = 37
+    Text = 'Craft7SizeEdit'
+  end
+  object Craft7DescEdit: TEdit
+    Left = 160
+    Top = 160
+    Width = 137
+    Height = 21
+    Hint = 'Enter the description of this type of Craft'
+    ParentShowHint = False
+    ShowHint = True
+    TabOrder = 38
+    Text = 'Craft7DescEdit'
+  end
+  object Craft8NumEdit: TEdit
+    Left = 40
+    Top = 184
+    Width = 33
+    Height = 21
+    Hint = 'Enter the number of this type of Craft'
+    ParentShowHint = False
+    ShowHint = True
+    TabOrder = 42
+    Text = 'Craft8NumEdit'
+  end
+  object Craft8SizeEdit: TEdit
+    Left = 80
+    Top = 184
+    Width = 73
+    Height = 21
+    Hint = 'Enter the size of this type of Craft'
+    ParentShowHint = False
+    ShowHint = True
+    TabOrder = 43
+    Text = 'Craft8SizeEdit'
+  end
+  object Craft8DescEdit: TEdit
+    Left = 160
+    Top = 184
+    Width = 137
+    Height = 21
+    Hint = 'Enter the description of this type of Craft'
+    ParentShowHint = False
+    ShowHint = True
+    TabOrder = 44
+    Text = 'Craft8DescEdit'
+  end
+  object Craft7CrewEdit: TEdit
+    Left = 304
+    Top = 160
+    Width = 41
+    Height = 21
+    Hint = 'Enter the crew allocated to this type of Craft'
+    ParentShowHint = False
+    ShowHint = True
+    TabOrder = 39
+    Text = 'Craft7CrewEdit'
+  end
+  object Craft8CrewEdit: TEdit
+    Left = 304
+    Top = 184
+    Width = 41
+    Height = 21
+    Hint = 'Enter the crew allocated to this type of Craft'
+    ParentShowHint = False
+    ShowHint = True
+    TabOrder = 45
+    Text = 'Craft8CrewEdit'
+  end
+  object Craft7ChkBx: TCheckBox
+    Left = 440
+    Top = 160
+    Width = 57
+    Height = 17
+    Hint = 'Select if this type of Craft is a Vehicle'
+    Caption = 'Vehicle'
+    ParentShowHint = False
+    ShowHint = True
+    TabOrder = 41
+  end
+  object Craft8ChkBx: TCheckBox
+    Left = 440
+    Top = 184
+    Width = 57
+    Height = 17
+    Hint = 'Select if this type of Craft is a Vehicle'
+    Caption = 'Vehicle'
+    ParentShowHint = False
+    ShowHint = True
+    TabOrder = 47
+  end
+  object Craft1CostEdit: TEdit
+    Left = 352
+    Top = 16
+    Width = 73
+    Height = 21
+    Hint = 'Enter the cost for this type of Craft'
+    ParentShowHint = False
+    ShowHint = True
+    TabOrder = 4
+    Text = 'Craft1CostEdit'
+  end
+  object Craft2CostEdit: TEdit
+    Left = 352
+    Top = 40
+    Width = 73
+    Height = 21
+    Hint = 'Enter the cost for this type of Craft'
+    ParentShowHint = False
+    ShowHint = True
+    TabOrder = 10
+    Text = 'Craft2CostEdit'
+  end
+  object Craft3CostEdit: TEdit
+    Left = 352
+    Top = 64
+    Width = 73
+    Height = 21
+    Hint = 'Enter the cost for this type of Craft'
+    ParentShowHint = False
+    ShowHint = True
+    TabOrder = 16
+    Text = 'Craft3CostEdit'
+  end
+  object Craft4CostEdit: TEdit
+    Left = 352
+    Top = 88
+    Width = 73
+    Height = 21
+    Hint = 'Enter the cost for this type of Craft'
+    ParentShowHint = False
+    ShowHint = True
+    TabOrder = 22
+    Text = 'Craft4CostEdit'
+  end
+  object Craft5CostEdit: TEdit
+    Left = 352
+    Top = 112
+    Width = 73
+    Height = 21
+    Hint = 'Enter the cost for this type of Craft'
+    ParentShowHint = False
+    ShowHint = True
+    TabOrder = 28
+    Text = 'Craft5CostEdit'
+  end
+  object Craft6CostEdit: TEdit
+    Left = 352
+    Top = 136
+    Width = 73
+    Height = 21
+    Hint = 'Enter the cost for this type of Craft'
+    ParentShowHint = False
+    ShowHint = True
+    TabOrder = 34
+    Text = 'Craft6CostEdit'
+  end
+  object Craft7CostEdit: TEdit
+    Left = 352
+    Top = 160
+    Width = 73
+    Height = 21
+    Hint = 'Enter the cost for this type of Craft'
+    ParentShowHint = False
+    ShowHint = True
+    TabOrder = 40
+    Text = 'Craft7CostEdit'
+  end
+  object Craft8CostEdit: TEdit
+    Left = 352
+    Top = 184
+    Width = 73
+    Height = 21
+    Hint = 'Enter the cost for this type of Craft'
+    ParentShowHint = False
+    ShowHint = True
+    TabOrder = 46
+    Text = 'Craft8CostEdit'
+  end
+end

@@ -1,0 +1,125 @@
+object DesAssistFrm: TDesAssistFrm
+  Left = 234
+  Top = 159
+  Width = 229
+  Height = 192
+  AutoSize = True
+  BorderWidth = 10
+  Caption = 'Design Assistant'
+  Color = clBtnFace
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'MS Sans Serif'
+  Font.Style = []
+  Position = poDesktopCenter
+  OnClose = FormClose
+  OnCreate = FormCreate
+  PixelsPerInch = 96
+  object CloseBtn: TButton
+    Left = 64
+    Top = 120
+    Width = 75
+    Height = 25
+    Hint = 'Close and return to calling form'
+    Cancel = True
+    Caption = '&Close'
+    Default = True
+    ParentShowHint = False
+    ShowHint = True
+    TabOrder = 0
+    OnClick = CloseBtnClick
+  end
+  object DataPanel: TPanel
+    Left = 0
+    Top = 0
+    Width = 201
+    Height = 113
+    BevelOuter = bvNone
+    TabOrder = 1
+    object RemTonnageLbl: TLabel
+      Left = 114
+      Top = 6
+      Width = 79
+      Height = 13
+      Caption = 'RemTonnageLbl'
+    end
+    object RemBudgetLbl: TLabel
+      Left = 113
+      Top = 24
+      Width = 70
+      Height = 13
+      Caption = 'RemBudgetLbl'
+    end
+    object RemEPLbl: TLabel
+      Left = 113
+      Top = 42
+      Width = 50
+      Height = 13
+      Caption = 'RemEPLbl'
+    end
+    object AgilityLbl: TLabel
+      Left = 153
+      Top = 68
+      Width = 41
+      Height = 13
+      Caption = 'AgilityLbl'
+    end
+    object ValidLbl: TLabel
+      Left = 46
+      Top = 86
+      Width = 46
+      Height = 13
+      Caption = 'ValidLbl'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -11
+      Font.Name = 'MS Sans Serif'
+      Font.Style = [fsBold]
+      ParentFont = False
+    end
+    object CrewLbl: TLabel
+      Left = 41
+      Top = 68
+      Width = 38
+      Height = 13
+      Caption = 'CrewLbl'
+    end
+    object AgilityStatLbl: TLabel
+      Left = 118
+      Top = 68
+      Width = 27
+      Height = 13
+      Caption = 'Agility'
+    end
+    object RemTonnageStatLbl: TLabel
+      Left = 6
+      Top = 6
+      Width = 103
+      Height = 17
+      AutoSize = False
+      Caption = 'Remaining Tonnage'
+    end
+    object RemBudgetStatLbl: TLabel
+      Left = 6
+      Top = 24
+      Width = 87
+      Height = 13
+      Caption = 'Remaining Budget'
+    end
+    object RemEPStatLbl: TLabel
+      Left = 6
+      Top = 42
+      Width = 67
+      Height = 13
+      Caption = 'Remaining EP'
+    end
+    object CrewStatLbl: TLabel
+      Left = 6
+      Top = 68
+      Width = 24
+      Height = 13
+      Caption = 'Crew'
+    end
+  end
+end

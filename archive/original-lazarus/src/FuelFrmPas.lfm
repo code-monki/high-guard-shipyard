@@ -1,0 +1,362 @@
+object FuelFrm: TFuelFrm
+  Left = 192
+  Height = 206
+  Top = 107
+  Width = 398
+  AutoSize = True
+  BorderWidth = 10
+  Caption = 'Fuel'
+  ClientHeight = 206
+  ClientWidth = 398
+  Color = clBtnFace
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'MS Sans Serif'
+  KeyPreview = True
+  OnClose = FormClose
+  OnCreate = FormCreate
+  OnKeyDown = FormKeyDown
+  Position = poDesktopCenter
+  LCLVersion = '0.9.30'
+  object FuelGrpBx: TGroupBox
+    Left = 8
+    Height = 97
+    Top = 0
+    Width = 193
+    Caption = 'Fuel'
+    ClientHeight = 79
+    ClientWidth = 189
+    TabOrder = 0
+    object PwrPlntFuelStatLbl: TLabel
+      Left = 14
+      Height = 14
+      Top = 2
+      Width = 81
+      Caption = 'Power Plant Fuel'
+      ParentColor = False
+    end
+    object JFuelStatLbl: TLabel
+      Left = 14
+      Height = 14
+      Top = 26
+      Width = 49
+      Caption = 'Jump Fuel'
+      ParentColor = False
+    end
+    object WeeksStatLbl: TLabel
+      Left = 134
+      Height = 14
+      Top = 2
+      Width = 25
+      Caption = 'Days'
+      ParentColor = False
+    end
+    object ParsecsStatLbl: TLabel
+      Left = 134
+      Height = 14
+      Top = 26
+      Width = 39
+      Caption = 'Parsecs'
+      ParentColor = False
+    end
+    object ExtraFuelStatLbl: TLabel
+      Left = 14
+      Height = 14
+      Top = 50
+      Width = 81
+      Caption = 'Extra Fuel (Tons)'
+      ParentColor = False
+    end
+    object PwrPlntFuelEdit: TEdit
+      Left = 102
+      Height = 21
+      Hint = 'Enter the amount of Power Plant Fuel in lots of 28 days'
+      Top = 2
+      Width = 25
+      ParentShowHint = False
+      ShowHint = True
+      TabOrder = 0
+      Text = '28'
+    end
+    object JFuelEdit: TEdit
+      Left = 102
+      Height = 21
+      Hint = 'Enter the amount of Jump Fuel in parsecs'
+      Top = 26
+      Width = 25
+      ParentShowHint = False
+      ShowHint = True
+      TabOrder = 1
+      Text = '0'
+    end
+    object ExtraFuelEdit: TEdit
+      Left = 102
+      Height = 21
+      Hint = 'Enter any extra Fuel in tons'
+      Top = 50
+      Width = 73
+      ParentShowHint = False
+      ShowHint = True
+      TabOrder = 2
+      Text = 'ExtraFuelEdit'
+    end
+  end
+  object PurifGrpBx: TGroupBox
+    Left = 216
+    Height = 129
+    Top = 0
+    Width = 169
+    Caption = 'Purification'
+    ClientHeight = 111
+    ClientWidth = 165
+    TabOrder = 1
+    OnClick = PurifGrpBxClick
+    object ScoopsStatLbl: TLabel
+      Left = 6
+      Height = 14
+      Top = 10
+      Width = 37
+      Caption = 'Scoops'
+      ParentColor = False
+    end
+    object PurificStatLbl: TLabel
+      Left = 6
+      Height = 14
+      Top = 42
+      Width = 53
+      Caption = 'Purification'
+      ParentColor = False
+    end
+    object ScoopsRadGrp: TRadioGroup
+      Left = 70
+      Height = 33
+      Hint = 'Select if the ship has Fuel Scoops installed'
+      Top = 0
+      Width = 89
+      AutoFill = True
+      ChildSizing.LeftRightSpacing = 6
+      ChildSizing.TopBottomSpacing = 6
+      ChildSizing.EnlargeHorizontal = crsHomogenousChildResize
+      ChildSizing.EnlargeVertical = crsHomogenousChildResize
+      ChildSizing.ShrinkHorizontal = crsScaleChilds
+      ChildSizing.ShrinkVertical = crsScaleChilds
+      ChildSizing.Layout = cclLeftToRightThenTopToBottom
+      ChildSizing.ControlsPerLine = 2
+      ClientHeight = 15
+      ClientWidth = 85
+      Columns = 2
+      ItemIndex = 0
+      Items.Strings = (
+        'Yes'
+        'No'
+      )
+      ParentShowHint = False
+      ShowHint = True
+      TabOrder = 0
+    end
+    object PurifRadGrp: TRadioGroup
+      Left = 70
+      Height = 33
+      Hint = 'Select if the ship has Fuel Purification installed'
+      Top = 34
+      Width = 89
+      AutoFill = True
+      ChildSizing.LeftRightSpacing = 6
+      ChildSizing.TopBottomSpacing = 6
+      ChildSizing.EnlargeHorizontal = crsHomogenousChildResize
+      ChildSizing.EnlargeVertical = crsHomogenousChildResize
+      ChildSizing.ShrinkHorizontal = crsScaleChilds
+      ChildSizing.ShrinkVertical = crsScaleChilds
+      ChildSizing.Layout = cclLeftToRightThenTopToBottom
+      ChildSizing.ControlsPerLine = 2
+      ClientHeight = 15
+      ClientWidth = 85
+      Columns = 2
+      ItemIndex = 0
+      Items.Strings = (
+        'Yes'
+        'No'
+      )
+      OnClick = PurifRadGrpClick
+      ParentShowHint = False
+      ShowHint = True
+      TabOrder = 1
+    end
+    object PurifLhydRadGrp: TRadioGroup
+      Left = 70
+      Height = 33
+      Hint = 'Select if the ship has Fuel Purification installed'
+      Top = 68
+      Width = 89
+      AutoFill = True
+      ChildSizing.LeftRightSpacing = 6
+      ChildSizing.TopBottomSpacing = 6
+      ChildSizing.EnlargeHorizontal = crsHomogenousChildResize
+      ChildSizing.EnlargeVertical = crsHomogenousChildResize
+      ChildSizing.ShrinkHorizontal = crsScaleChilds
+      ChildSizing.ShrinkVertical = crsScaleChilds
+      ChildSizing.Layout = cclLeftToRightThenTopToBottom
+      ChildSizing.ControlsPerLine = 2
+      ClientHeight = 15
+      ClientWidth = 85
+      Columns = 2
+      ItemIndex = 0
+      Items.Strings = (
+        'Yes'
+        'No'
+      )
+      ParentShowHint = False
+      ShowHint = True
+      TabOrder = 2
+    end
+    object PurifyLhydStatTxt: TStaticText
+      Left = 6
+      Height = 26
+      Top = 76
+      Width = 65
+      Caption = 'Purify Drop Tanks'
+      TabOrder = 3
+    end
+  end
+  object DropTanksRadGrpBx: TGroupBox
+    Left = 8
+    Height = 97
+    Top = 104
+    Width = 193
+    Caption = 'Drop Tanks'
+    ClientHeight = 79
+    ClientWidth = 189
+    TabOrder = 2
+    object LhydPwrPlntFuelStatLbl: TLabel
+      Left = 14
+      Height = 14
+      Top = 2
+      Width = 81
+      Caption = 'Power Plant Fuel'
+      ParentColor = False
+    end
+    object LhydJFuelStatLbl: TLabel
+      Left = 14
+      Height = 14
+      Top = 26
+      Width = 49
+      Caption = 'Jump Fuel'
+      ParentColor = False
+    end
+    object LhydWeeks: TLabel
+      Left = 134
+      Height = 14
+      Top = 2
+      Width = 25
+      Caption = 'Days'
+      ParentColor = False
+    end
+    object LhydParsecs: TLabel
+      Left = 134
+      Height = 14
+      Top = 26
+      Width = 39
+      Caption = 'Parsecs'
+      ParentColor = False
+    end
+    object LhydPwrPlntFuelEdit: TEdit
+      Left = 102
+      Height = 21
+      Hint = 'Enter the size of the Power Plant Drop Tanks in lots of 28 days'
+      Top = 2
+      Width = 25
+      OnChange = LhydPwrPlntFuelEditChange
+      ParentShowHint = False
+      ShowHint = True
+      TabOrder = 0
+      Text = '0'
+    end
+    object LhydJFuelEdit: TEdit
+      Left = 102
+      Height = 21
+      Hint = 'Enter the size of the Jump Fuel Drop Tanks in parsecs'
+      Top = 26
+      Width = 25
+      OnChange = LhydJFuelEditChange
+      ParentShowHint = False
+      ShowHint = True
+      TabOrder = 1
+      Text = '0'
+    end
+    object LhydExtraFuelEdit: TEdit
+      Left = 102
+      Height = 21
+      Hint = 'Enter the size of the Jump Fuel Drop Tanks in parsecs'
+      Top = 50
+      Width = 73
+      OnChange = LhydExtraFuelEditChange
+      ParentShowHint = False
+      ShowHint = True
+      TabOrder = 2
+      Text = '0'
+    end
+    object LHydExtraStatTxt: TStaticText
+      Left = 14
+      Height = 17
+      Top = 50
+      Width = 68
+      Caption = 'Extra (Tons)'
+      TabOrder = 3
+    end
+  end
+  object OKBtn: TButton
+    Left = 216
+    Height = 25
+    Hint = 'Apply your changes and return to the Main Form'
+    Top = 168
+    Width = 75
+    Caption = '&OK'
+    Default = True
+    OnClick = OKBtnClick
+    ParentShowHint = False
+    ShowHint = True
+    TabOrder = 3
+  end
+  object CancelBtn: TButton
+    Left = 304
+    Height = 25
+    Hint = 'Cancel your changes and return to the Main Form'
+    Top = 168
+    Width = 75
+    Cancel = True
+    Caption = '&Cancel'
+    OnClick = CancelBtnClick
+    ParentShowHint = False
+    ShowHint = True
+    TabOrder = 4
+  end
+  object RefitPurifChkBx: TCheckBox
+    Left = 232
+    Height = 19
+    Top = 136
+    Width = 94
+    Caption = 'Refit Puification'
+    OnChange = RefitPurifChkBxChange
+    TabOrder = 5
+  end
+  object RefitPurifEdit: TEdit
+    Left = 336
+    Height = 21
+    Hint = 'Enter the size of the Power Plant Drop Tanks in lots of 28 days'
+    Top = 136
+    Width = 25
+    OnChange = RefitPurifEditChange
+    ParentShowHint = False
+    ShowHint = True
+    TabOrder = 6
+    Text = '0'
+  end
+  object PurifRefitTechLbl: TLabel
+    Left = 368
+    Height = 14
+    Top = 141
+    Width = 14
+    Caption = 'TL'
+    ParentColor = False
+  end
+end

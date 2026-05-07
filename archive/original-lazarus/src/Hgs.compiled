@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CONFIG>
+  <Compiler Value="/usr/local/bin/fpc" Date="1621181457"/>
+  <Params Value=" -MDelphi -Scghi -O1 -gs -gl -Xg -Xs -k-framework -kCocoa -l -veibq -vw-n-h- -Fu/Users/chuck/.lazarus/lib/Printer4Lazarus/lib/x86_64-darwin/cocoa -Fu/Users/chuck/.lazarus/lib/cairocanvas_pkg/lib/x86_64-darwin/cocoa -Fu/Users/chuck/.lazarus/lib/units/x86_64-darwin/cocoa -Fu/Users/chuck/.lazarus/lib/LCLBase/units/x86_64-darwin -Fu/Users/chuck/.lazarus/lib/freetypelaz/lib/x86_64-darwin -Fu/Users/chuck/.lazarus/lib/LazUtils/lib/x86_64-darwin -Fu/Users/chuck/.lazarus/lib/units/x86_64-darwin -Fu/Users/chuck/CodeMonki-Projects/high-guard-shipyard/archive/original-lazarus/src/ -o/Users/chuck/CodeMonki-Projects/high-guard-shipyard/archive/original-lazarus/src/Hgs -dLCL -dLCLcocoa Hgs.lpr"/>
+  <Complete Value="False"/>
+</CONFIG>

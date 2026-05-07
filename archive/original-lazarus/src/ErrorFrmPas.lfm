@@ -1,0 +1,44 @@
+object ErrorFrm: TErrorFrm
+  Left = 192
+  Top = 107
+  Width = 333
+  Height = 360
+  AutoSize = True
+  BorderWidth = 10
+  Caption = 'Errors'
+  Color = clBtnFace
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'MS Sans Serif'
+  Font.Style = []
+  Position = poDesktopCenter
+  OnClose = FormClose
+  OnCreate = FormCreate
+  PixelsPerInch = 96
+  object ErrorMemo: TMemo
+    Left = 0
+    Top = 0
+    Width = 305
+    Height = 281
+    Lines.Strings = (
+      'ErrorMemo')
+    ReadOnly = True
+    ScrollBars = ssVertical
+    TabOrder = 0
+  end
+  object CloseBtn: TButton
+    Left = 104
+    Top = 288
+    Width = 75
+    Height = 25
+    Hint = 'Return to main form'
+    Cancel = True
+    Caption = '&Close'
+    Default = True
+    ParentShowHint = False
+    ShowHint = True
+    TabOrder = 1
+    OnClick = CloseBtnClick
+  end
+end

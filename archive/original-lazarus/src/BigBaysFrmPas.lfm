@@ -1,0 +1,306 @@
+inherited BigBaysFrm: TBigBaysFrm
+  Left = 434
+  Height = 212
+  Top = 189
+  Width = 341
+  AutoSize = True
+  BorderWidth = 10
+  Caption = '100T Bays'
+  ClientHeight = 212
+  ClientWidth = 341
+  KeyPreview = True
+  OnClose = FormClose
+  OnCreate = FormCreate
+  OnKeyDown = FormKeyDown
+  Position = poDesktopCenter
+  object MesonLbl: TLabel[0]
+    Left = 168
+    Height = 14
+    Top = 48
+    Width = 47
+    Caption = 'MesonLbl'
+    ParentColor = False
+  end
+  object PAlbl: TLabel[1]
+    Left = 168
+    Height = 14
+    Top = 72
+    Width = 29
+    Caption = 'PALbl'
+    ParentColor = False
+  end
+  object RepulsLbl: TLabel[2]
+    Left = 168
+    Height = 14
+    Top = 96
+    Width = 48
+    Caption = 'RepulsLbl'
+    ParentColor = False
+  end
+  object MissileLbl: TLabel[3]
+    Left = 168
+    Height = 14
+    Top = 120
+    Width = 46
+    Caption = 'MissileLbl'
+    ParentColor = False
+  end
+  object HardPointsLbl: TLabel[4]
+    Left = 129
+    Height = 14
+    Top = 152
+    Width = 67
+    Caption = 'HardPointsLbl'
+    ParentColor = False
+  end
+  object NumStatLbl: TLabel[5]
+    Left = 104
+    Height = 14
+    Top = 8
+    Width = 38
+    Caption = 'Number'
+    ParentColor = False
+  end
+  object FactStatLbl: TLabel[6]
+    Left = 152
+    Height = 14
+    Top = 8
+    Width = 31
+    Caption = 'Factor'
+    ParentColor = False
+  end
+  object EmptyStatLbl: TLabel[7]
+    Left = 8
+    Height = 14
+    Top = 24
+    Width = 30
+    Caption = 'Empty'
+    ParentColor = False
+  end
+  object MesonStatLbl: TLabel[8]
+    Left = 8
+    Height = 14
+    Top = 48
+    Width = 61
+    Caption = 'Meson Guns'
+    ParentColor = False
+  end
+  object PAStatLbl: TLabel[9]
+    Left = 8
+    Height = 14
+    Top = 72
+    Width = 98
+    Caption = 'Particle Accelerators'
+    ParentColor = False
+  end
+  object RepulsStatLbl: TLabel[10]
+    Left = 8
+    Height = 14
+    Top = 96
+    Width = 48
+    Caption = 'Repulsors'
+    ParentColor = False
+  end
+  object MissileStatLbl: TLabel[11]
+    Left = 8
+    Height = 14
+    Top = 120
+    Width = 37
+    Caption = 'Missiles'
+    ParentColor = False
+  end
+  object HardPointsStatLbl: TLabel[12]
+    Left = 8
+    Height = 14
+    Top = 152
+    Width = 109
+    Caption = 'Hard Points Remaining'
+    ParentColor = False
+  end
+  object EmptyEdit: TEdit[13]
+    Left = 112
+    Height = 21
+    Hint = 'Enter the number of Empty Bays'
+    Top = 24
+    Width = 33
+    OnChange = EmptyEditChange
+    ParentShowHint = False
+    ShowHint = True
+    TabOrder = 0
+    Text = '0'
+  end
+  object MesonEdit: TEdit[14]
+    Left = 112
+    Height = 21
+    Hint = 'Enter the number of Meson Gun Bays'
+    Top = 48
+    Width = 33
+    OnChange = MesonEditChange
+    ParentShowHint = False
+    ShowHint = True
+    TabOrder = 1
+    Text = '0'
+  end
+  object PAEdit: TEdit[15]
+    Left = 112
+    Height = 21
+    Hint = 'Enter the number of Particle Accelerator Bays'
+    Top = 72
+    Width = 33
+    OnChange = PAEditChange
+    ParentShowHint = False
+    ShowHint = True
+    TabOrder = 2
+    Text = '0'
+  end
+  object RepulsorEdit: TEdit[16]
+    Left = 112
+    Height = 21
+    Hint = 'Enter the number of Repulsor Bays'
+    Top = 96
+    Width = 33
+    OnChange = RepulsorEditChange
+    ParentShowHint = False
+    ShowHint = True
+    TabOrder = 3
+    Text = '0'
+  end
+  object MissileEdit: TEdit[17]
+    Left = 112
+    Height = 21
+    Hint = 'Enter the number of Missile Bays'
+    Top = 120
+    Width = 33
+    OnChange = MissileEditChange
+    ParentShowHint = False
+    ShowHint = True
+    TabOrder = 4
+    Text = '0'
+  end
+  object OKBtn: TButton[18]
+    Left = 16
+    Height = 25
+    Hint = 'Apply your changes and return to the Main Form'
+    Top = 176
+    Width = 75
+    Caption = '&OK'
+    Default = True
+    OnClick = OKBtnClick
+    ParentShowHint = False
+    ShowHint = True
+    TabOrder = 5
+  end
+  object CancelBtn: TButton[19]
+    Left = 112
+    Height = 25
+    Hint = 'Cancel your changes and return to the Main Form'
+    Top = 176
+    Width = 75
+    Cancel = True
+    Caption = '&Cancel'
+    OnClick = CancelBtnClick
+    ParentShowHint = False
+    ShowHint = True
+    TabOrder = 6
+  end
+  object RefitPanel: TPanel[20]
+    Left = 232
+    Height = 138
+    Top = 6
+    Width = 88
+    BevelOuter = bvNone
+    Caption = 'RefitPanel'
+    ClientHeight = 138
+    ClientWidth = 88
+    TabOrder = 7
+    object RefirStatTxt: TStaticText
+      Left = 55
+      Height = 17
+      Top = 0
+      Width = 17
+      Caption = 'TL'
+      TabOrder = 0
+    end
+    object RefitEmptyChkBx: TCheckBox
+      Left = 0
+      Height = 19
+      Top = 17
+      Width = 42
+      Caption = 'Refit'
+      OnChange = RefitEmptyChkBxChange
+      TabOrder = 1
+    end
+    object RefitMesonEdit: TEdit
+      Left = 48
+      Height = 21
+      Top = 34
+      Width = 24
+      OnChange = RefitMesonEditChange
+      TabOrder = 2
+      Text = '0'
+    end
+    object RefitMesonChkBx: TCheckBox
+      Left = 0
+      Height = 19
+      Top = 39
+      Width = 42
+      Caption = 'Refit'
+      OnChange = RefitMesonChkBxChange
+      TabOrder = 3
+    end
+    object RefitPaEdit: TEdit
+      Left = 48
+      Height = 21
+      Top = 62
+      Width = 24
+      OnChange = RefitPaEditChange
+      TabOrder = 4
+      Text = '0'
+    end
+    object RefitPaChkBx: TCheckBox
+      Left = 0
+      Height = 19
+      Top = 63
+      Width = 42
+      Caption = 'Refit'
+      OnChange = RefitPaChkBxChange
+      TabOrder = 5
+    end
+    object RefitRepulsorEdit: TEdit
+      Left = 48
+      Height = 21
+      Top = 86
+      Width = 24
+      OnChange = RefitRepulsorEditChange
+      TabOrder = 6
+      Text = '0'
+    end
+    object RefitRepulsorChkBx: TCheckBox
+      Left = 0
+      Height = 19
+      Top = 87
+      Width = 42
+      Caption = 'Refit'
+      OnChange = RefitRepulsorChkBxChange
+      TabOrder = 7
+    end
+    object RefitMissileEdit: TEdit
+      Left = 48
+      Height = 21
+      Top = 110
+      Width = 24
+      OnChange = RefitMissileEditChange
+      TabOrder = 8
+      Text = '0'
+    end
+    object RefitMissileChkBx: TCheckBox
+      Left = 0
+      Height = 19
+      Top = 111
+      Width = 42
+      Caption = 'Refit'
+      OnChange = RefitMissileChkBxChange
+      TabOrder = 9
+    end
+  end
+end
