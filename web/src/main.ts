@@ -1,3 +1,5 @@
+/* main.ts — Vue application entry point: initialises Pinia, mounts the root App component, and syncs the stored theme before first paint. */
+
 import { createApp } from 'vue'
 import { createPinia } from 'pinia'
 import './style.css'

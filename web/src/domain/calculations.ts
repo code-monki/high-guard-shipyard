@@ -1,3 +1,5 @@
+/* calculations.ts — Pure computation functions that translate High Guard design inputs into ShipModule results (tonnage, cost in MCr, EP output/demand). */
+
 import type {
   AccomInputs,
   AvionicsInputs,
@@ -34,6 +36,9 @@ const SPINAL_PA_COST = [0, 3500, 3000, 2400, 1500, 1200, 1200, 800, 500, 3000, 2
 const SPINAL_PA_SPACE = [0, 5500, 5000, 4500, 4000, 3500, 3000, 2500, 2500, 5000, 4500, 4000, 3500, 3000, 2500, 4500, 4000, 3500, 3000]
 const SPINAL_PA_EP = [0, 500, 500, 500, 600, 600, 600, 700, 700, 800, 800, 800, 900, 900, 900, 1000, 1000, 1000, 1000]
 
+/**
+ * Computes hull tonnage consumed and cost for the given configuration, armour, streamlining, and structure.
+ */
 export const computeHullModule = (
   tonnage: number,
   techLevel: number,
@@ -88,6 +93,11 @@ export const computeHullModule = (
   }
 }
 
+/**
+ * Computes engineering tonnage, cost, EP output, and M-Drive EP demand for all primary and backup drives.
+ * @param race - Race profile index (1 = human standard; affects power plant tonnage tiers).
+ * @param designSystem - 1 = High Guard drive-letter system; 0 = T20/General power-tons system.
+ */
 export const computeEngineModule = (
   tonnage: number,
   techLevel: number,
@@ -202,6 +212,10 @@ const pPlantSpaceFromPowerTons = (powerTons: number, techLevel: number, race: nu
   return powerTons * 8
 }
 
+/**
+ * Computes fuel tankage tonnage and cost, including liquid-hydrogen tanks, scoops, and purifier.
+ * @param engineInputs - Engine inputs are needed to derive power-plant size for fuel calculations.
+ */
 export const computeFuelModule = (
   tonnage: number,
   techLevel: number,
@@ -318,6 +332,10 @@ const bridgeCost = (tonnage: number, bridge: number, race: number): number => {
   return tonnage * (race === 4 ? 0.004 : 0.005)
 }
 
+/**
+ * Computes avionics tonnage, cost, and EP demand for computers, bridges, flight avionics, sensors, and comms.
+ * @param designSystem - Determines which cost/tonnage formula branch is used (High Guard vs T20).
+ */
 export const computeAvionicsModule = (
   tonnage: number,
   techLevel: number,
@@ -399,6 +417,9 @@ export const computeAvionicsModule = (
   }
 }
 
+/**
+ * Computes tonnage, cost, and EP demand for nuclear dampers, meson screens, black globes, and capacitors.
+ */
 export const computeScreensModule = (
   tonnage: number,
   techLevel: number,
@@ -442,6 +463,9 @@ export const computeScreensModule = (
   }
 }
 
+/**
+ * Computes tonnage, cost, and EP demand for the spinal mount weapon (meson gun or particle accelerator).
+ */
 export const computeSpinalModule = (
   techLevel: number,
   race: number,
@@ -473,6 +497,9 @@ export const computeSpinalModule = (
   }
 }
 
+/**
+ * Computes tonnage, cost, and EP demand for all 100-ton weapon bays.
+ */
 export const computeBigBaysModule = (
   techLevel: number,
   race: number,
@@ -500,6 +527,9 @@ export const computeBigBaysModule = (
   }
 }
 
+/**
+ * Computes tonnage, cost, and EP demand for all 50-ton weapon bays.
+ */
 export const computeLittleBaysModule = (
   techLevel: number,
   race: number,
@@ -535,6 +565,10 @@ export const computeLittleBaysModule = (
   }
 }
 
+/**
+ * Computes tonnage, cost, and EP demand for all turret weapons (mixed and standard modes).
+ * @param chargeHardpoints - When false, hardpoint (mount) costs are omitted; matches legacy option `ChargeForHardpoints`.
+ */
 export const computeTurretsModule = (
   techLevel: number,
   race: number,
@@ -639,6 +673,10 @@ export const computeTurretsModule = (
   }
 }
 
+/**
+ * Computes accommodations tonnage and cost for quarters, low berths, drop capsules, passengers, and facilities.
+ * @param crewRules - 0 = Book 2 rules; 1 = High Guard crew rules; affects stateroom space/cost.
+ */
 export const computeAccomModule = (
   techLevel: number,
   race: number,
@@ -726,6 +764,9 @@ export const computeAccomModule = (
   }
 }
 
+/**
+ * Computes aggregate tonnage, cost, and EP demand for all user-defined component rows.
+ */
 export const computeUserDefModule = (
   techLevel: number,
   inputs: UserDefInputs,
@@ -744,6 +785,10 @@ export const computeUserDefModule = (
   }
 }
 
+/**
+ * Computes tonnage and cost for carried small craft, vehicles, and launch catapult facilities.
+ * @param hullConfig - Hull configuration code; planetoid hulls (7) skip the large-ship space overhead.
+ */
 export const computeCraftModule = (
   techLevel: number,
   shipTonnage: number,

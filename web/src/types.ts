@@ -1,3 +1,5 @@
+/* types.ts — Shared TypeScript interfaces and type aliases for all ship-design data structures. */
+
 export type DesignModuleType =
   | 'hull'
   | 'engine'
@@ -12,16 +14,20 @@ export type DesignModuleType =
   | 'userdef'
   | 'craft'
 
+/** Computed result for a single design module (hull, engine, fuel, etc.). */
 export interface ShipModule {
   type: DesignModuleType
   name: string
   techLevel: number
   tonnage: number
   costMcr: number
+  /** Energy Points produced by this module (power plant only). */
   epOutput?: number
+  /** Energy Points consumed by this module. */
   epDemand?: number
 }
 
+/** Top-level ship design parameters (identity, tonnage, budget, TL, race). */
 export interface ShipDesign {
   shipName: string
   shipClass: string
@@ -38,6 +44,7 @@ export interface ShipDesign {
   avionics: ShipModule
 }
 
+/** User inputs for the hull configuration panel. */
 export interface HullInputs {
   config: number
   armour: number
@@ -50,11 +57,14 @@ export interface HullInputs {
 export interface LegacyOptionsInputs {
   /** Legacy default is off (`ChargeForHardpoints := 0` in OptionsPas). */
   chargeForHardpoints: boolean
+  /** When true, staterooms/couches/low-berths are automatically set to minimum required values. */
   autoCalcAccom: boolean
   optPowerTon: boolean
+  /** Stored MilStd cost multiplier override (non-standard; loaded from .hgs opt row). */
   milStdMod: number
 }
 
+/** User inputs for drive and power plant configuration, including backup drives and refit state. */
 export interface EngineInputs {
   mDrive: number
   mDriveIsRefitted: boolean
@@ -82,6 +92,7 @@ export interface EngineInputs {
   bakPPlantRefitTech: number
   bakPPlantNum: number
   bakNewPPlantNum: number
+  /** T20/General design system power plant size in tons (replaces pPlant factor when designSystem === 0). */
   powerTons: number
   powerTonsIsRefitted: boolean
   newPowerTons: number
@@ -92,12 +103,16 @@ export interface EngineInputs {
   bakNewPowerTons: number
   bakNewPowerTonsNum: number
   bakPowerTonsRefitTech: number
+  /** Reserved tonnage set aside for future drive upgrades. */
   upgradeSpace: number
+  /** When true, all drives share a single engineering space total rather than separate compartments. */
   singleEngSpace: boolean
+  /** Permits drive letter upgrades during refit (legacy flag from EngPas). */
   driveUpgradesAllowed: boolean
   milStdJump: boolean
 }
 
+/** User inputs for fuel tankage, scoops, and purification. */
 export interface FuelInputs {
   pFuel: number
   lhydPFuel: number
@@ -115,6 +130,7 @@ export interface FuelInputs {
   baseEFuel: number
 }
 
+/** User inputs for computers, bridges, flight avionics, sensors, and comms. */
 export interface AvionicsInputs {
   mainComp: number
   bakComp: number
@@ -136,11 +152,13 @@ export interface AvionicsInputs {
   commsType: number
 }
 
+/** A single rule violation produced by `validateDesign`. */
 export interface ValidationIssue {
   code: number
   message: string
 }
 
+/** User inputs for all weapon systems: spinal mount, bays, and turrets. */
 export interface WeaponInputs {
   spinalType: number
   spinalMount: number
@@ -185,6 +203,7 @@ export interface WeaponInputs {
   sandTurrets: number
 }
 
+/** User inputs for nuclear dampers, meson screens, black globes, and extra capacitors. */
 export interface ScreenInputs {
   nucDamp: number
   mesScrn: number
@@ -198,6 +217,7 @@ export interface ScreenInputs {
   extraCaps: number
 }
 
+/** User inputs for all accommodation, crew, passenger, and facility fields. */
 export interface AccomInputs {
   lowBerth: number
   emLowBerth: number
@@ -252,6 +272,7 @@ export interface AccomInputs {
   numCrewSections: number
 }
 
+/** A single user-defined component row with tonnage, crew, EP, cost, and hardpoint requirements. */
 export interface UserDefItem {
   num: number
   size: number
@@ -262,10 +283,12 @@ export interface UserDefItem {
   desc: string
 }
 
+/** User inputs for the user-defined components panel (up to 8 rows). */
 export interface UserDefInputs {
   items: UserDefItem[]
 }
 
+/** A single small craft or vehicle carried aboard the ship. */
 export interface CraftItem {
   num: number
   tonnage: number
@@ -275,6 +298,7 @@ export interface CraftItem {
   desc: string
 }
 
+/** User inputs for the small craft facilities panel: craft items and launch catapults. */
 export interface CraftInputs {
   items: CraftItem[]
   ftrSqd: number

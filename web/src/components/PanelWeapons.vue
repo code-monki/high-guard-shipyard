@@ -1,4 +1,5 @@
 <script setup lang="ts">
+/* PanelWeapons — weapons inputs: spinal mount, 100t and 50t bays, and turrets (mixed and standard modes). */
 import { storeToRefs } from 'pinia'
 import { useShipStore } from '../stores/ship'
 

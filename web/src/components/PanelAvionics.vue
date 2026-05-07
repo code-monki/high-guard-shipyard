@@ -1,4 +1,5 @@
 <script setup lang="ts">
+/* PanelAvionics — electronics inputs: computers, bridges, flag bridge, flight avionics, sensors, and comms. */
 import { storeToRefs } from 'pinia'
 import { useShipStore } from '../stores/ship'
 

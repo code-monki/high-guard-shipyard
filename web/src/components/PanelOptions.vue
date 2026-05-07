@@ -1,4 +1,5 @@
 <script setup lang="ts">
+/* PanelOptions — legacy design-rule options: hardpoint charging, auto-calculated accommodations, MilStd jump, and stored modifiers. */
 import { storeToRefs } from 'pinia'
 import { useShipStore } from '../stores/ship'
 

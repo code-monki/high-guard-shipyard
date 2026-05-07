@@ -1,4 +1,5 @@
 <script setup lang="ts">
+/* PanelResults — displays per-module totals, a printable summary card, and the full validation issue list. */
 import { storeToRefs } from 'pinia'
 import { useShipStore } from '../stores/ship'
 import { format } from '../utils'

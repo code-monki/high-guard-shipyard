@@ -1,4 +1,5 @@
 <script setup lang="ts">
+/* PanelEngineering — engineering inputs: M-Drive, J-Drive, Power Plant, refit options, and T20 power tons. */
 import { storeToRefs } from 'pinia'
 import { useShipStore } from '../stores/ship'
 

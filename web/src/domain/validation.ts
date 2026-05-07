@@ -1,3 +1,5 @@
+/* validation.ts — Design rule validation matching the original High Guard Shipyard desktop application, producing a list of ValidationIssue codes with descriptive messages. */
+
 import type {
   AccomInputs,
   AvionicsInputs,
@@ -11,7 +13,9 @@ import type {
   WeaponInputs,
 } from '../types'
 
+/** Minimum tech level required for each computer index (0 = none; indices 1–20 map to Model/1 through Model/9fib). */
 const COMPUTER_TL = [0, 5, 6, 7, 7, 7, 8, 9, 9, 10, 10, 11, 11, 12, 12, 13, 13, 14, 14, 15, 15]
+/** Human-readable label for each computer index, used in validation error messages (format: "index name"). */
 const COMPUTER_DESC = [
   '0 None',
   '1 Model/1',
@@ -36,19 +40,27 @@ const COMPUTER_DESC = [
   'J Model/9fib',
 ]
 
+/** Labels for spinal meson gun mount indices A–T (index 0 = none); used in validation messages. */
 const SPINAL_MESON_DESC = [
   '0 None', 'A Meson', 'B Meson', 'C Meson', 'D Meson', 'E Meson', 'F Meson', 'G Meson', 'H Meson',
   'J Meson', 'K Meson', 'L Meson', 'M Meson', 'N Meson', 'P Meson', 'Q Meson', 'R Meson', 'S Meson', 'T Meson',
 ]
+/** Labels for spinal particle accelerator mount indices A–T (index 0 = none); used in validation messages. */
 const SPINAL_PA_DESC = [
   '0 None', 'A PA', 'B PA', 'C PA', 'D PA', 'E PA', 'F PA', 'G PA', 'H PA',
   'J PA', 'K PA', 'L PA', 'M PA', 'N PA', 'P PA', 'Q PA', 'R PA', 'S PA', 'T PA',
 ]
+/** Minimum TL for each spinal meson gun mount index (A–T). */
 const SPINAL_MESON_MIN_TL = [0, 11, 11, 12, 12, 13, 13, 14, 14, 15, 12, 13, 14, 15, 13, 14, 15, 14, 15]
+/** Minimum TL for each spinal particle accelerator mount index (A–T). */
 const SPINAL_PA_MIN_TL = [0, 8, 9, 10, 11, 12, 13, 14, 15, 10, 11, 12, 13, 14, 15, 12, 13, 14, 15]
+/** Computer index values that are legal on small craft (vessels under 100t); fib/bis computers are excluded. */
 const SMALL_CRAFT_ALLOWED = new Set([0, 1, 4, 7, 9, 11, 13, 15, 17, 19])
+/** Minimum TL for nuclear damper factors 1–9 (index 0 = none). */
 const NUC_DAMP_MIN_TL = [0, 12, 13, 13, 14, 14, 14, 15, 15, 15]
+/** Minimum TL for meson screen factors 1–9 (index 0 = none). */
 const MESON_SCREEN_MIN_TL = [0, 12, 13, 13, 14, 14, 14, 15, 15, 15]
+/** Minimum TL for black globe factors 1–9 (index 0 = none). */
 const BLACK_GLOBE_MIN_TL = [0, 15, 15, 15, 15, 16, 16, 16, 17, 18]
 
 const computerModel = (computer: number): number => {
@@ -211,6 +223,11 @@ export const computeLegacyAutoAccomMinimums = (
   }
 }
 
+/**
+ * Validates the full ship design against all High Guard rules and returns a list of violations.
+ * @param summary - Optional pre-computed remaining tonnage, budget, and EP totals used for budget/overload checks.
+ * @returns Array of `ValidationIssue` objects; empty array means the design is rule-compliant.
+ */
 export const validateDesign = (
   design: ShipDesign,
   hull: HullInputs,
