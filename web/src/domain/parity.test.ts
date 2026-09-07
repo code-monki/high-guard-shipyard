@@ -349,6 +349,23 @@ describe('parity checkpoints', () => {
     expect(module.tonnage).toBe(200 + 100) // 200 p-fuel + 100 j-fuel
   })
 
+  it('calculates four weeks of power plant fuel from its persisted day value', () => {
+    const engine = baseEngine()
+    const fuel = baseFuel()
+    fuel.pFuel = 28
+
+    const module = computeFuelModule(1000, 13, 1, 1, engine, fuel)
+
+    expect(module.tonnage).toBe(30 + 100)
+  })
+
+  it('accepts four weeks of standard power plant fuel', () => {
+    const result = fullDesignOutcome({ fuel: { pFuel: 28 } })
+
+    expect(result.validationCodes).not.toContain(29)
+    expect(result.validationCodes).not.toContain(30)
+  })
+
   it('validates jump computer requirement from effective refitted j-drive', () => {
     const design = baseDesign()
     const engine = baseEngine()

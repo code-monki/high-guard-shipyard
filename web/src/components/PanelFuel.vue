@@ -1,9 +1,21 @@
 <script setup lang="ts">
 /* PanelFuel — fuel inputs: power plant and jump fuel quantities, liquid-hydrogen tanks, scoops, and purification. */
+import { computed } from 'vue'
 import { storeToRefs } from 'pinia'
 import { useShipStore } from '../stores/ship'
+import { fuelDaysToWeeks, fuelWeeksToDays } from '../utils'
 
 const { fuelInputs } = storeToRefs(useShipStore())
+
+const pFuelWeeks = computed({
+  get: () => fuelDaysToWeeks(fuelInputs.value.pFuel),
+  set: (weeks: number) => { fuelInputs.value.pFuel = fuelWeeksToDays(weeks) },
+})
+
+const lhydPFuelWeeks = computed({
+  get: () => fuelDaysToWeeks(fuelInputs.value.lhydPFuel),
+  set: (weeks: number) => { fuelInputs.value.lhydPFuel = fuelWeeksToDays(weeks) },
+})
 </script>
 
 <template>
@@ -15,7 +27,7 @@ const { fuelInputs } = storeToRefs(useShipStore())
       <div class="field-row">
         <label class="field">
           <span class="field-label">P-Plant fuel (weeks)</span>
-          <input v-model.number="fuelInputs.pFuel" type="number" min="0" />
+          <input v-model.number="pFuelWeeks" type="number" min="0" step="1" />
         </label>
         <label class="field">
           <span class="field-label">J-fuel (jumps)</span>
@@ -47,7 +59,7 @@ const { fuelInputs } = storeToRefs(useShipStore())
       <div class="field-row">
         <label class="field">
           <span class="field-label">LHyd P-fuel (weeks)</span>
-          <input v-model.number="fuelInputs.lhydPFuel" type="number" min="0" />
+          <input v-model.number="lhydPFuelWeeks" type="number" min="0" step="1" />
         </label>
         <label class="field">
           <span class="field-label">LHyd J-fuel (jumps)</span>

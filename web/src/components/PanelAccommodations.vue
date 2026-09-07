@@ -84,7 +84,7 @@ const { accomInputs } = storeToRefs(useShipStore())
           <input v-model.number="accomInputs.accomCmdCrew" type="number" min="0" /></label>
         <label class="field"><span class="field-label">UserDef cmd crew</span>
           <input v-model.number="accomInputs.userDefCmdCrew" type="number" min="0" /></label>
-        <label class="field"><span class="field-label">Frozen watch %</span>
+        <label class="field"><span class="field-label">Frozen watch count</span>
           <input v-model.number="accomInputs.frozWatch" type="number" min="0" /></label>
         <label class="field"><span class="field-label">Crew sections</span>
           <input v-model.number="accomInputs.numCrewSections" type="number" min="1" /></label>

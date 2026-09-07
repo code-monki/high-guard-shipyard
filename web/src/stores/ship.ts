@@ -106,7 +106,7 @@ export const useShipStore = defineStore('ship', () => {
     milStdJump: false,
   })
   const fuelInputs = ref<FuelInputs>({
-    pFuel: 4,
+    pFuel: 28,
     lhydPFuel: 0,
     lhydJFuel: 0,
     jFuel: 3,
@@ -722,7 +722,7 @@ export const useShipStore = defineStore('ship', () => {
       milStdJump: false,
     }
     fuelInputs.value = {
-      pFuel: 4,
+      pFuel: 28,
       lhydPFuel: 0,
       lhydJFuel: 0,
       jFuel: 3,

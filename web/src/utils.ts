@@ -8,3 +8,9 @@ export const formatMStd = (value: number): string => value.toFixed(4).replace(/\
 
 /** Returns "Yes" or "No" for a boolean value. */
 export const boolLabel = (value: boolean): string => (value ? 'Yes' : 'No')
+
+export const FUEL_DAYS_PER_WEEK = 7
+
+export const fuelWeeksToDays = (weeks: number): number => weeks * FUEL_DAYS_PER_WEEK
+
+export const fuelDaysToWeeks = (days: number): number => days / FUEL_DAYS_PER_WEEK
