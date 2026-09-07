@@ -619,7 +619,7 @@ input, select, textarea {
   font-family: inherit;
 }
 
-input[type='number'] { width: 4.5rem; }
+input[type='number'] { width: 4rem; }
 select               { width: 8rem; }
 select.select-wide   { width: 11rem; }
 select.select-narrow { width: 5.5rem; }

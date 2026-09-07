@@ -68,8 +68,11 @@ const { accomInputs } = storeToRefs(useShipStore())
       <div class="field-row">
         <label class="field"><span class="field-label">Marines</span>
           <input v-model.number="accomInputs.marines" type="number" min="0" /></label>
-        <label class="field"><span class="field-label">Ship troops (0=yes)</span>
-          <input v-model.number="accomInputs.shpTrpMark" type="number" min="0" max="1" /></label>
+        <label class="field"><span class="field-label">Ship troops</span>
+          <select v-model.number="accomInputs.shpTrpMark" class="select-narrow">
+            <option :value="0">Yes</option><option :value="1">No</option>
+          </select>
+        </label>
         <label class="field"><span class="field-label">Craft crew</span>
           <input v-model.number="accomInputs.craftCrew" type="number" min="0" /></label>
         <label class="field"><span class="field-label">Other crew</span>
