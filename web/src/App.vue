@@ -253,22 +253,22 @@ const onNavKeydown = (event: KeyboardEvent, id: PanelId): void => {
         <span>Class</span>
         <input v-model="design.shipClass" />
       </label>
-      <label class="id-field">
+      <label class="id-field id-field--hull-code">
         <span>Hull Code</span>
         <input v-model="design.hullCode" />
       </label>
-      <label class="id-field id-field--narrow">
+      <label class="id-field id-field--tl">
         <span>TL</span>
         <input v-model.number="design.techLevel" type="number" min="0" />
       </label>
-      <label class="id-field">
+      <label class="id-field id-field--system">
         <span>Design System</span>
         <select v-model.number="design.designSystem">
           <option :value="1">High Guard</option>
           <option :value="0">T20/General</option>
         </select>
       </label>
-      <label class="id-field">
+      <label class="id-field id-field--race">
         <span>Race Profile</span>
         <select v-model.number="design.race">
           <option :value="1">Human standard</option>
@@ -283,7 +283,7 @@ const onNavKeydown = (event: KeyboardEvent, id: PanelId): void => {
         <span>Budget (MCr)</span>
         <input v-model.number="design.budgetMcr" type="number" min="0" step="10" />
       </label>
-      <label class="id-field">
+      <label class="id-field id-field--refit">
         <span>Refit Mode</span>
         <select v-model="design.isRefitted">
           <option :value="false">No</option>

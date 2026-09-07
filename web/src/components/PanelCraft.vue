@@ -23,7 +23,7 @@ const { craftInputs } = storeToRefs(useShipStore())
           <input v-model.number="item.num"     type="number" min="0" />
           <input v-model.number="item.tonnage" type="number" min="0" step="0.1" />
           <input v-model.number="item.crew"    type="number" min="0" />
-          <select v-model.number="item.vehicle">
+          <select v-model.number="item.vehicle" class="select-narrow">
             <option :value="0">No</option>
             <option :value="1">Yes</option>
           </select>

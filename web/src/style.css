@@ -321,6 +321,11 @@ h2, h3, h4, p { margin: 0; }
 .id-field { width: 140px; }
 .id-field--wide { width: 180px; }
 .id-field--narrow { width: 90px; }
+.id-field--race { width: 165px; }
+.id-field--tl { width: 72px; }
+.id-field--refit { width: 120px; }
+.id-field--hull-code { width: 100px; }
+.id-field--system { width: 135px; }
 
 .io-message {
   align-self: center;
