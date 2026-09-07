@@ -586,18 +586,18 @@ h2, h3, h4, p { margin: 0; }
   margin-bottom: 0.1rem;
 }
 
-/* ── Field row: label + control on the same line ─────────────────────────── */
+/* ── Responsive field grid ───────────────────────────────────────────────── */
 .field-row {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.4rem 1.25rem;
-  align-items: center;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 12rem), 1fr));
+  gap: 0.7rem 1rem;
 }
 
 .field {
   display: flex;
-  align-items: center;
-  gap: 0.45rem;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 0.25rem;
   min-width: 0;
 }
 
@@ -606,6 +606,11 @@ h2, h3, h4, p { margin: 0; }
   font-weight: 600;
   color: var(--color-text-secondary);
   white-space: nowrap;
+}
+
+.field input,
+.field select {
+  width: 100%;
 }
 
 /* ── Controls ─────────────────────────────────────────────────────────────── */
