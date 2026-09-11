@@ -690,7 +690,7 @@ export const computeAccomModule = (
   }
   const stRoomSpace = (): number => {
     if (race === 0 || race === 2 || race === 4) return inputs.stRoom * 4
-    if (race === 1) return inputs.stRoom * 48
+    if (race === 1) return inputs.stRoom * 4
     return inputs.stRoom * 2
   }
   const smStRoomCost = (): number => {

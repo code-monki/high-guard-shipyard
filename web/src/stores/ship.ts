@@ -625,6 +625,27 @@ export const useShipStore = defineStore('ship', () => {
     }
   }
 
+  const derivedAccom = computed(() => buildAccomWithDerivedCrew())
+
+  const crewPositionRows = computed(() => {
+    const crew = derivedAccom.value
+    return [
+      { position: 'Engineering', cmd: crew.engCmdCrew, crew: crew.engCrew },
+      { position: 'Avionics', cmd: crew.avionicsCmdCrew, crew: crew.avionicsCrew },
+      { position: 'Spinal', cmd: crew.spinalCmdCrew, crew: crew.spinalCrew },
+      { position: 'Big bays', cmd: crew.bigBaysCmdCrew, crew: crew.bigBaysCrew },
+      { position: 'Little bays', cmd: crew.littleBaysCmdCrew, crew: crew.littleBaysCrew },
+      { position: 'Turrets', cmd: crew.turretsCmdCrew, crew: crew.turretsCrew },
+      { position: 'Screens', cmd: crew.screensCmdCrew, crew: crew.screensCrew },
+      { position: 'Craft', cmd: crew.craftCmdCrew, crew: crew.craftCrew },
+      { position: 'Accommodation', cmd: crew.accomCmdCrew, crew: crew.accomCrew },
+      { position: 'User-defined components', cmd: crew.userDefCmdCrew, crew: crew.userDefCrew },
+      { position: 'Marines', cmd: 0, crew: accomInputs.value.marines },
+      { position: 'Ships troops', cmd: 0, crew: crew.shipsTroops },
+      { position: 'Other crew', cmd: 0, crew: accomInputs.value.otherCrew },
+    ]
+  })
+
   /** All rule violations for the current design state; empty array when the design is valid. */
   const validationIssues = computed(() =>
     validateDesign(
@@ -635,7 +656,7 @@ export const useShipStore = defineStore('ship', () => {
       avionicsInputs.value,
       weaponInputs.value,
       screenInputs.value,
-      buildAccomWithDerivedCrew(),
+      derivedAccom.value,
       userDefInputs.value,
       {
         remainingTonnage: remainingTonnage.value,
@@ -1036,6 +1057,8 @@ export const useShipStore = defineStore('ship', () => {
     remainingBudget,
     remainingEp,
     validationIssues,
+    derivedAccom,
+    crewPositionRows,
     resetDesign,
     importHgsText,
     exportHgsText,

@@ -252,6 +252,25 @@ const baseCraft = () => ({
   lf2Size: 0,
 })
 
+it('uses a human stateroom-space multiplier of 4 tons instead of 48 tons', () => {
+  const design = baseDesign()
+  design.race = 1
+  const accom = baseAccom()
+  accom.stRoom = 1
+  accom.couches = 0
+  accom.lowBerth = 0
+  accom.emLowBerth = 0
+  accom.dropCaps = 0
+  accom.readyDropCaps = 0
+  accom.storedDropCaps = 0
+  accom.cargo = 0
+  accom.smStRoom = 0
+
+  const module = computeAccomModule(design.techLevel, design.race, accom.crewRules, accom)
+
+  expect(module.tonnage).toBeCloseTo(4, 6)
+})
+
 const fullDesignOutcome = (args?: {
   design?: Partial<ShipDesign>
   hull?: Partial<HullInputs>
@@ -909,18 +928,16 @@ describe('parity checkpoints', () => {
             "totalEpDemand": 26,
             "totalEpOutput": 30,
             "usedBudget": 478.25,
-            "usedTonnage": 2273,
+            "usedTonnage": 513,
           },
-          "validationCodes": [
-            1,
-          ],
+          "validationCodes": [],
         },
         "refitDriveProfile": {
           "totals": {
             "totalEpDemand": 276,
             "totalEpOutput": 250,
             "usedBudget": 3488.25,
-            "usedTonnage": 4583,
+            "usedTonnage": 2823,
           },
           "validationCodes": [
             5,
@@ -932,7 +949,7 @@ describe('parity checkpoints', () => {
             "totalEpDemand": 2.25,
             "totalEpOutput": 1.8,
             "usedBudget": 75.85,
-            "usedTonnage": 1967.5,
+            "usedTonnage": 207.5,
           },
           "validationCodes": [
             1,
@@ -946,10 +963,9 @@ describe('parity checkpoints', () => {
             "totalEpDemand": 51,
             "totalEpOutput": 360,
             "usedBudget": 1208.95,
-            "usedTonnage": 3161.6,
+            "usedTonnage": 1401.6,
           },
           "validationCodes": [
-            1,
             2001,
           ],
         },
@@ -958,7 +974,7 @@ describe('parity checkpoints', () => {
             "totalEpDemand": 311,
             "totalEpOutput": 300,
             "usedBudget": 3898.65,
-            "usedTonnage": 5852,
+            "usedTonnage": 4092,
           },
           "validationCodes": [
             5,

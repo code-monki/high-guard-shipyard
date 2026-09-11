@@ -13,6 +13,7 @@ const {
   totalEpDemand,
   validationIssues,
   design,
+  crewPositionRows,
 } = storeToRefs(shipStore)
 
 const printSummaryOnly = (): void => {
@@ -82,6 +83,23 @@ const printSummaryOnly = (): void => {
       <ul v-else class="issues-list">
         <li v-for="issue in validationIssues" :key="`s-${issue.code}`">[{{ issue.code }}] {{ issue.message }}</li>
       </ul>
+    </div>
+
+    <!-- Crew requirements by position -->
+    <div class="form-section">
+      <div class="form-section-title">Crew required by position</div>
+      <div class="results-table crew-table" role="table" aria-label="Crew required by position">
+        <div class="results-row results-head" role="row">
+          <span role="columnheader">Position</span>
+          <span role="columnheader" class="num">Cmd</span>
+          <span role="columnheader" class="num">Crew</span>
+        </div>
+        <div v-for="row in crewPositionRows" :key="row.position" class="results-row" role="row">
+          <span role="cell">{{ row.position }}</span>
+          <span role="cell" class="num">{{ format(row.cmd ?? 0) }}</span>
+          <span role="cell" class="num">{{ format(row.crew ?? 0) }}</span>
+        </div>
+      </div>
     </div>
 
     <!-- Validation -->
