@@ -472,6 +472,12 @@ const onNavKeydown = (event: KeyboardEvent, id: PanelId): void => {
         <p>The source code for this web port is available on GitHub:<br>
           <a class="about-link" href="https://github.com/code-monki/high-guard-shipyard" target="_blank" rel="noopener">github.com/code-monki/high-guard-shipyard</a>
         </p>
+
+        <h3>Found a bug?</h3>
+        <p>Please report bugs and design errors on the GitHub issue tracker:<br>
+          <a class="about-link" href="https://github.com/code-monki/high-guard-shipyard/issues" target="_blank" rel="noopener">github.com/code-monki/high-guard-shipyard/issues</a>
+        </p>
+
         <p class="about-legal">Traveller is a registered trademark of Far Future Enterprises. High Guard is published under licence. This tool is a non-commercial fan project and is not affiliated with or endorsed by Far Future Enterprises.</p>
 
       </div>
